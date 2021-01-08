@@ -1,4 +1,19 @@
-<div class="d-flex h-100">
+<div class="app-container d-flex flex-column h-100">
+    <button
+        mat-icon-button
+        class="m-auto"
+        color="primary"
+        [style.height.px]="100"
+        [style.width.px]="100"
+        (click)="bluetooth.connect()"
+    >
+        <mat-icon [inline]="true" [style.fontSize.px]="100">
+            bluetooth
+        </mat-icon>
+    </button>
+
+    <div class="mx-auto">{{ bluetooth.value }}</div>
+
     <button
         mat-flat-button
         color="warn"
