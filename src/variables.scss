@@ -1,0 +1,38 @@
+@import '~@angular/material/theming';
+
+$custom-red: (
+  50: #f7e4e4,
+  100: #ecbcbc,
+  200: #e09090,
+  300: #d36363,
+  400: #c94141,
+  500: #c02020,
+  600: #ba1c1c,
+  700: #b21818,
+  800: #aa1313,
+  900: #9c0b0b,
+  A100: #ffcaca,
+  A200: #ff9797,
+  A400: #ff6464,
+  A700: #ff4b4b,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$app-primary: mat-palette($mat-indigo);
+$app-accent: mat-palette($mat-pink, A200, A100, A400);
+$app-warn: mat-palette($custom-red);

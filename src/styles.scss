@@ -1,4 +1,16 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'theme.scss';
+@import 'variables';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.backdrop-blur {
+    background: rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(5px) !important;
+}
