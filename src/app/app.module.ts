@@ -7,6 +7,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ErrorService } from './services/error.service';
+import { MaterialModule } from './modules/material.module';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -16,6 +17,9 @@ const HttpLoaderFactory = (http: HttpClient) => {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 };
 
+/**
+ * Central module of this application in which components are declared, other modules are imported etc.
+ */
 @NgModule({
     declarations: [AppComponent],
     imports: [
@@ -29,6 +33,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
                 deps: [HttpClient],
             },
         }),
+        MaterialModule,
     ],
     providers: [
         {
