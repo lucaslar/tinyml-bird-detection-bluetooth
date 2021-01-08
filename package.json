@@ -8,7 +8,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "deploy": "ng build --prod --base-href=https://lucaslar.github.io/angular-bluetooth-test/"
+        "deploy": "ng build --prod --base-href=https://lucaslar.github.io/tinyml-bird-detection-bluetooth/"
     },
     "private": true,
     "dependencies": {
