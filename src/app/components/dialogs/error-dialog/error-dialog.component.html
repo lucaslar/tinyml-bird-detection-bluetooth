@@ -1,0 +1,19 @@
+<!-- TODO: Translate -->
+
+<div mat-dialog-title class="background-warn">
+    <div class="title-content text-center d-flex flex-column">
+        <div class="error-icon-wrapper">
+            <mat-icon [inline]="true"> error_outline </mat-icon>
+        </div>
+        Oops, something bad happened...
+    </div>
+</div>
+
+<mat-dialog-content>
+    <p>The following error occurred unexpectedly:</p>
+    <pre class="error-message">{{ errorMessage }}</pre>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close color="warn">Close</button>
+</mat-dialog-actions>
