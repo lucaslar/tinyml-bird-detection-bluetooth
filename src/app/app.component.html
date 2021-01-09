@@ -1,25 +1,35 @@
-<div class="app-container d-flex flex-column h-100">
-    <button
-        mat-icon-button
-        class="m-auto"
-        color="primary"
-        [style.height.px]="100"
-        [style.width.px]="100"
-        (click)="bluetooth.connect()"
-    >
-        <mat-icon [inline]="true" [style.fontSize.px]="100">
-            bluetooth
-        </mat-icon>
-    </button>
+<div class="d-flex h-100">
+    <div class="app-container h-100 mx-auto d-flex flex-column app-container">
+        <button
+            mat-icon-button
+            class="m-auto"
+            color="primary"
+            [style.height.px]="100"
+            [style.width.px]="100"
+            (click)="
+                bluetooth.isDeviceConnected
+                    ? bluetooth.disconnect()
+                    : bluetooth.connect()
+            "
+        >
+            <mat-icon [inline]="true" [style.fontSize.px]="100">
+                {{
+                    bluetooth.isDeviceConnected
+                        ? 'bluetooth_connected'
+                        : 'bluetooth'
+                }}
+            </mat-icon>
+        </button>
 
-    <div class="mx-auto">{{ bluetooth.value }}</div>
+        <div class="mx-auto">{{ bluetooth.value }}</div>
 
-    <button
-        mat-flat-button
-        color="warn"
-        class="m-auto"
-        (click)="['0'][1].trim()"
-    >
-        test error
-    </button>
+        <button
+            mat-flat-button
+            color="warn"
+            class="m-auto"
+            (click)="['0'][1].trim()"
+        >
+            test error
+        </button>
+    </div>
 </div>
