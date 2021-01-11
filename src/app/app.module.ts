@@ -9,6 +9,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ErrorService } from './services/error.service';
 import { MaterialModule } from './modules/material.module';
 import { ErrorDialogComponent } from './components/dialogs/error-dialog/error-dialog.component';
+import { HeaderComponent } from './components/header/header.component';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -22,7 +23,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
  * Central module of this application in which components are declared, other modules are imported etc.
  */
 @NgModule({
-    declarations: [AppComponent, ErrorDialogComponent],
+    declarations: [AppComponent, ErrorDialogComponent, HeaderComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,

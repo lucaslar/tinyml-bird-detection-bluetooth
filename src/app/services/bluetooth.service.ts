@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class BluetoothService {
+    // TODO: Add doc.
+
     readonly isSupported = !!navigator.bluetooth;
     private readonly service = 'e50bf554-fdd9-4d9e-b350-86493ab13280';
     private readonly characteristic = 'afea4db0-1ef6-4653-bb67-aa14b4d804bb';
@@ -13,7 +15,30 @@ export class BluetoothService {
     private device: BluetoothDevice;
     private _state: string;
 
-    connect(): void {
+    onBluetoothPressed(): void {
+        this.isDeviceConnected ? this.disconnect() : this.connect();
+    }
+
+    get value(): any {
+        return this._value;
+    }
+
+    get currentIcon(): string {
+        if (this.isSupported) {
+            return this.isDeviceConnected ? 'bluetooth_connected' : 'bluetooth';
+        } else {
+            return 'bluetooth_disabled';
+        }
+    }
+
+    get isDeviceConnected(): any {
+        return this.device?.gatt.connected;
+    }
+
+    get state(): string {
+        return this._state;
+    }
+    private connect(): void {
         const filters = [{ services: [this.service] }];
         navigator.bluetooth
             .requestDevice({ filters })
@@ -37,7 +62,7 @@ export class BluetoothService {
             .catch((error: Error) => this.handleError(error));
     }
 
-    disconnect(): void {
+    private disconnect(): void {
         if (
             this.isDeviceConnected &&
             // TODO: Improve dialog
@@ -46,18 +71,6 @@ export class BluetoothService {
             this.device.gatt.disconnect();
             delete this.device;
         }
-    }
-
-    get value(): any {
-        return this._value;
-    }
-
-    get isDeviceConnected(): any {
-        return this.device?.gatt.connected;
-    }
-
-    get state(): string {
-        return this._state;
     }
 
     private handleError(error: Error): void {

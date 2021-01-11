@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 /**
  * Module to be used for exporting Material components.
@@ -10,6 +11,11 @@ import { MatIconModule } from '@angular/material/icon';
 @NgModule({
     declarations: [],
     imports: [CommonModule],
-    exports: [MatDialogModule, MatButtonModule, MatIconModule],
+    exports: [
+        MatButtonModule,
+        MatDialogModule,
+        MatIconModule,
+        MatToolbarModule,
+    ],
 })
 export class MaterialModule {}

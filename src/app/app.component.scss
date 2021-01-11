@@ -1,4 +1,9 @@
-.app-container {
+header {
+    top: 0;
+}
+
+main {
+    padding-top: 56px;
     transition: 0.3s;
     max-width: 1200px;
 }

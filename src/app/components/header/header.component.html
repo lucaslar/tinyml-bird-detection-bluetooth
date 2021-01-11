@@ -1,0 +1,32 @@
+<!-- TODO: add on click logic -->
+
+<mat-toolbar
+    [class.mat-elevation-z3]="isScrolled"
+    class="d-flex justify-content-end px-sm-3 px-2"
+>
+    <div class="app-header-icon-buttons">
+        <button
+            mat-icon-button
+            class="mx-1 mx-sm-2 my-2"
+            color="primary"
+            [disabled]="!bluetooth.isSupported"
+            (click)="bluetooth.onBluetoothPressed()"
+        >
+            <mat-icon>
+                {{ bluetooth.currentIcon }}
+            </mat-icon>
+        </button>
+        <button mat-icon-button class="mx-1 mx-sm-2 my-2" color="primary">
+            <mat-icon> language </mat-icon>
+        </button>
+        <button mat-icon-button class="mx-1 mx-sm-2 my-2" color="primary">
+            <mat-icon>
+                dark_mode
+                <!-- light_mode -->
+            </mat-icon>
+        </button>
+        <button mat-icon-button class="mx-1 mx-sm-2 my-2" color="primary">
+            <mat-icon> info_outline </mat-icon>
+        </button>
+    </div>
+</mat-toolbar>

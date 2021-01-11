@@ -1,0 +1,10 @@
+mat-toolbar {
+    height: fit-content;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(5px) !important;
+
+    .app-header-icon-buttons {
+        margin: 0 -8px;
+    }
+}
