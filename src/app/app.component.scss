@@ -3,7 +3,11 @@ header {
 }
 
 main {
-    padding-top: 56px;
+    padding-top: 64px;
     transition: 0.3s;
     max-width: 1200px;
+
+    @media (min-width: 576px) {
+        padding-top: 72px;
+    }
 }
