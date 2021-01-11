@@ -16,7 +16,11 @@ import { HeaderComponent } from './components/header/header.component';
  * @param http Http Client.
  */
 const HttpLoaderFactory = (http: HttpClient) => {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+    return new TranslateHttpLoader(
+        http,
+        './assets/i18n/translations/',
+        '.json'
+    );
 };
 
 /**

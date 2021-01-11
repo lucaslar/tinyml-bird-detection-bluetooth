@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BluetoothService } from './services/bluetooth.service';
+import { I18nService } from './services/i18n.service';
 
 /**
  * Central component of the application (SPA).
@@ -10,5 +11,7 @@ import { BluetoothService } from './services/bluetooth.service';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-    constructor(readonly bluetooth: BluetoothService) {}
+    constructor(readonly bluetooth: BluetoothService, i18n: I18nService) {
+        i18n.initialize();
+    }
 }
