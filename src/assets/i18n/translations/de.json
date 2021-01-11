@@ -1,4 +1,8 @@
 {
+    "dialog": {
+        "close": "Schließen",
+        "languageSelection": "Sprachauswahl"
+    },
     "onboarding": {
         "hello": "Hallo!"
     }

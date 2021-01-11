@@ -13,4 +13,11 @@ export class Language {
         public readonly name: string,
         private readonly flagIso?: string
     ) {}
+
+    /**
+     * Path to the language's flag SVG.
+     */
+    get flagPath(): string {
+        return `./assets/i18n/flags/${this.flagIso ?? this.id}.svg`;
+    }
 }

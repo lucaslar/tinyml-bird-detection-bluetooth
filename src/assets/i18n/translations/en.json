@@ -1,4 +1,8 @@
 {
+    "dialog": {
+        "close": "Close",
+        "languageSelection": "Language selection"
+    },
     "onboarding": {
         "hello": "Hello!"
     }

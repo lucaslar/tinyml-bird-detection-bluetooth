@@ -16,7 +16,12 @@
                 {{ bluetooth.currentIcon }}
             </mat-icon>
         </button>
-        <button mat-icon-button class="mx-1 mx-sm-2 my-2" color="primary">
+        <button
+            mat-icon-button
+            class="mx-1 mx-sm-2 my-2"
+            color="primary"
+            (click)="onLanguagesClicked()"
+        >
             <mat-icon> language </mat-icon>
         </button>
         <button mat-icon-button class="mx-1 mx-sm-2 my-2" color="primary">
