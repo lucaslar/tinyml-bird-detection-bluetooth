@@ -4,5 +4,10 @@ mat-toolbar {
 
     .app-header-icon-buttons {
         margin: 0 -4px;
+
+        .device-name {
+            font-size: 14px;
+            font-family: monospace;
+        }
     }
 }

@@ -42,6 +42,10 @@ export class BluetoothService {
         return this.device?.gatt.connected;
     }
 
+    get deviceName(): string {
+        return this.device.name;
+    }
+
     private onDisconnected(): void {
         this.device?.removeEventListener(
             'gattserverdisconnected',
@@ -51,7 +55,7 @@ export class BluetoothService {
         delete this.device;
     }
 
-    private onDeviceFound(device): any {
+    private onDeviceFound(device: BluetoothDevice): any {
         const connection = device.gatt.connect();
         connection.then(() => {
             this.device = device;
