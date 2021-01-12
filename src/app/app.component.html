@@ -7,27 +7,6 @@
     </header>
 
     <main class="mx-auto px-2 pb-2 px-sm-3 pb-sm-3">
-        <h1>{{ 'onboarding.hello' | translate }}</h1>
-
-        {{ 'Lorem ipsum. '.repeat(20) }}
-
-        <div class="d-flex flex-column">
-            <div
-                class="mt-3 mx-auto font-weight-bold"
-                *ngIf="bluetooth.value !== undefined"
-            >
-                Value is ... {{ bluetooth.value }}
-            </div>
-
-            <button
-                mat-flat-button
-                color="warn"
-                class="mt-3 mx-auto"
-                (click)="['0'][1].trim()"
-            >
-                test error
-            </button>
-        </div>
+        <app-main-content></app-main-content>
     </main>
 </div>
-

@@ -12,6 +12,7 @@ import { ErrorDialogComponent } from './components/dialogs/error-dialog/error-di
 import { HeaderComponent } from './components/header/header.component';
 import { LanguageSelectionComponent } from './components/dialogs/language-selection/language-selection.component';
 import { EllipsisTooltipDirective } from './directives/ellipsis-tooltip.directive';
+import { MainContentComponent } from './components/main-content/main-content.component';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -35,6 +36,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
         HeaderComponent,
         LanguageSelectionComponent,
         EllipsisTooltipDirective,
+        MainContentComponent,
     ],
     imports: [
         BrowserModule,

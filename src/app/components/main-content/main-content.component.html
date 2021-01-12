@@ -1,0 +1,25 @@
+<!-- TODO: Basic gist, extract pages to components -->
+
+<ng-container *ngIf="bluetooth.isSupported; else bluetoothNotSupported">
+    <ng-container *ngIf="bluetooth.isDeviceConnected; else pleaseConnect">
+        <h1>{{ 'onboarding.hello' | translate }}</h1>
+
+        <p>Device "{{ bluetooth.deviceName }}" is connected!</p>
+
+        <div class="d-flex flex-column">
+            <div
+                class="mt-3 mx-auto font-weight-bold"
+                *ngIf="bluetooth.value !== undefined"
+            >
+                Value is ... {{ bluetooth.value }}
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-template #bluetoothNotSupported> Bluetooth is not supported </ng-template>
+
+<ng-template #pleaseConnect>
+    <p>Please connect a Bluetooth device</p>
+    {{ bluetooth.state }}
+</ng-template>
