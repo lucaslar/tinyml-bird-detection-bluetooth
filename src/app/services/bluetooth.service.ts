@@ -8,12 +8,12 @@ import { Injectable } from '@angular/core';
 export class BluetoothService {
     // TODO: Add doc.
 
+    state: string;
     readonly isSupported = !!navigator.bluetooth;
     private readonly service = 'e50bf554-fdd9-4d9e-b350-86493ab13280';
     private readonly characteristic = 'afea4db0-1ef6-4653-bb67-aa14b4d804bb';
     private _value;
     private device: BluetoothDevice;
-    private _state: string;
 
     onBluetoothPressed(): void {
         this.isDeviceConnected ? this.disconnect() : this.connect();
@@ -31,7 +31,7 @@ export class BluetoothService {
         }
     }
 
-    get isDeviceConnected(): any {
+    get isDeviceConnected(): boolean {
         return this.device?.gatt.connected;
     }
 
@@ -89,6 +89,6 @@ export class BluetoothService {
     }
 
     private setErrorState(error: string): void {
-        this._state = `ERROR.${error}`;
+        this.state = `ERROR.${error}`;
     }
 }
