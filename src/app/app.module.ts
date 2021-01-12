@@ -11,6 +11,7 @@ import { MaterialModule } from './modules/material.module';
 import { ErrorDialogComponent } from './components/dialogs/error-dialog/error-dialog.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LanguageSelectionComponent } from './components/dialogs/language-selection/language-selection.component';
+import { EllipsisTooltipDirective } from './directives/ellipsis-tooltip.directive';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -28,7 +29,13 @@ const HttpLoaderFactory = (http: HttpClient) => {
  * Central module of this application in which components are declared, other modules are imported etc.
  */
 @NgModule({
-    declarations: [AppComponent, ErrorDialogComponent, HeaderComponent, LanguageSelectionComponent],
+    declarations: [
+        AppComponent,
+        ErrorDialogComponent,
+        HeaderComponent,
+        LanguageSelectionComponent,
+        EllipsisTooltipDirective,
+    ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,

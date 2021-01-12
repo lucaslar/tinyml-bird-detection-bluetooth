@@ -5,12 +5,15 @@
     class="d-flex justify-content-end px-sm-3 px-2"
     color="primary"
 >
-    <div class="app-header-icon-buttons d-flex">
-        <!-- TODO: Ellipsis / tooltip -->
-        <div class="device-name my-auto px-1" *ngIf="bluetooth.isDeviceConnected">
-            {{ bluetooth.deviceName }}
-        </div>
+    <div
+        class="device-name my-auto"
+        appEllipsisTooltip
+        *ngIf="bluetooth.isDeviceConnected"
+    >
+        {{ bluetooth.deviceName }}
+    </div>
 
+    <div class="app-header-icon-buttons d-flex">
         <button
             mat-icon-button
             class="mx-1 mx-sm-2 my-2"
