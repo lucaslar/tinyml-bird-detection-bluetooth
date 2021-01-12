@@ -9,6 +9,7 @@ export class BluetoothService {
     // TODO: Add doc.
 
     state: string;
+    isConnecting: boolean;
     readonly isSupported = !!navigator.bluetooth;
     private readonly service = 'e50bf554-fdd9-4d9e-b350-86493ab13280';
     private readonly characteristic = 'afea4db0-1ef6-4653-bb67-aa14b4d804bb';
@@ -25,7 +26,13 @@ export class BluetoothService {
 
     get currentIcon(): string {
         if (this.isSupported) {
-            return this.isDeviceConnected ? 'bluetooth_connected' : 'bluetooth';
+            if (this.isConnecting) {
+                return 'bluetooth_searching';
+            } else {
+                return this.isDeviceConnected
+                    ? 'bluetooth_connected'
+                    : 'bluetooth';
+            }
         } else {
             return 'bluetooth_disabled';
         }
@@ -35,29 +42,50 @@ export class BluetoothService {
         return this.device?.gatt.connected;
     }
 
-    get state(): string {
-        return this._state;
+    private onDisconnected(): void {
+        this.device?.removeEventListener(
+            'gattserverdisconnected',
+            this.onDisconnected
+        );
+        // TODO: Show snackbar
+        delete this.device;
     }
+
+    private onDeviceFound(device): any {
+        const connection = device.gatt.connect();
+        connection.then(() => {
+            this.device = device;
+            this.device.addEventListener(
+                'gattserverdisconnected',
+                this.onDisconnected
+            );
+        });
+        return connection;
+    }
+
+    private listenCharacteristic(characteristic): void {
+        characteristic.addEventListener(
+            'characteristicvaluechanged',
+            (event) => {
+                this._value = (event.target as any).value.getUint8(0);
+            }
+        );
+        this.isConnecting = false;
+    }
+
     private connect(): void {
-        const filters = [{ services: [this.service] }];
+        this.isConnecting = true;
         navigator.bluetooth
-            .requestDevice({ filters })
-            .then((device) => {
-                const connection = device.gatt.connect();
-                connection.then(() => (this.device = device));
-                return connection;
-            })
+            .requestDevice({ filters: [{ services: [this.service] }] })
+            .then((device) => this.onDeviceFound(device))
             .then((server) => server.getPrimaryService(this.service))
             .then((service) => service.getCharacteristic(this.characteristic))
             .then((characteristic) => characteristic.startNotifications())
-            .then((characteristic) => {
-                characteristic.addEventListener(
-                    'characteristicvaluechanged',
-                    (event) =>
-                        (this._value = (event.target as any).value.getUint8(0))
-                );
-            })
-            .catch((error: Error) => this.handleError(error));
+            .then((characteristic) => this.listenCharacteristic(characteristic))
+            .catch((error: Error) => {
+                this.handleError(error);
+                this.isConnecting = false;
+            });
     }
 
     private disconnect(): void {
@@ -67,7 +95,6 @@ export class BluetoothService {
             confirm('Are you sure you want to disconnect?')
         ) {
             this.device.gatt.disconnect();
-            delete this.device;
         }
     }
 

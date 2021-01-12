@@ -9,7 +9,7 @@
         <button
             mat-icon-button
             class="mx-1 mx-sm-2 my-2"
-            [disabled]="!bluetooth.isSupported"
+            [disabled]="!bluetooth.isSupported || bluetooth.isConnecting"
             (click)="bluetooth.onBluetoothPressed()"
         >
             <mat-icon>
