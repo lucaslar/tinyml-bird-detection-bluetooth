@@ -57,6 +57,7 @@ export class BluetoothService {
 
     private onDeviceFound(device: BluetoothDevice): any {
         const connection = device.gatt.connect();
+        this.isConnecting = true;
         connection.then(() => {
             this.device = device;
             this.device.addEventListener(
@@ -78,7 +79,7 @@ export class BluetoothService {
     }
 
     private connect(): void {
-        this.isConnecting = true;
+        // TODO Add states
         navigator.bluetooth
             .requestDevice({ filters: [{ services: [this.service] }] })
             .then((device) => this.onDeviceFound(device))
