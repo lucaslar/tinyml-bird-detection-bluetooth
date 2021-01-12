@@ -56,9 +56,7 @@ export class BluetoothService {
                     (event) =>
                         (this._value = (event.target as any).value.getUint8(0))
                 );
-                return characteristic.readValue();
             })
-            .then((value) => (this._value = value.getUint8(0)))
             .catch((error: Error) => this.handleError(error));
     }
 
