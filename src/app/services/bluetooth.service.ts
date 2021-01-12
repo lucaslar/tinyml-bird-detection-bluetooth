@@ -39,7 +39,7 @@ export class BluetoothService {
     }
 
     get isDeviceConnected(): boolean {
-        return this.device?.gatt.connected;
+        return !this.isConnecting && this.device?.gatt.connected;
     }
 
     get deviceName(): string {
