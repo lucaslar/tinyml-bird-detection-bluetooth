@@ -1,5 +1,7 @@
 .app-container {
     transition: 0.3s;
+    height: fit-content;
+    min-height: 100%;
 
     header {
         top: 0;
@@ -8,7 +10,8 @@
     main {
         padding-top: 64px;
         max-width: 1200px;
-        transition: 0.3s padding-left, padding-top, padding-right, padding-bottom;
+        transition: 0.3s padding-left, padding-top, padding-right,
+            padding-bottom;
 
         @media (min-width: 576px) {
             padding-top: 72px;
