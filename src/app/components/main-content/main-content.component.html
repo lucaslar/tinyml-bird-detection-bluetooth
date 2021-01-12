@@ -1,5 +1,20 @@
 <!-- TODO: Basic gist, extract pages to components -->
 
+<div
+    class="d-flex flex-column border-bottom pb-5 my-5"
+    [style.fontSize.px]="24"
+>
+    <mat-icon
+        [inline]="true"
+        color="accent"
+        [style.fontSize.px]="100"
+        class="mx-auto"
+    >
+        architecture
+    </mat-icon>
+    <div class="mt-5 mx-auto">Under construction...</div>
+</div>
+
 <ng-container *ngIf="bluetooth.isSupported; else bluetoothNotSupported">
     <ng-container *ngIf="bluetooth.isDeviceConnected; else pleaseConnect">
         <h1>{{ 'onboarding.hello' | translate }}</h1>
