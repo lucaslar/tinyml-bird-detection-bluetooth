@@ -23,7 +23,6 @@ export class ErrorService implements ErrorHandler {
         console.error(error);
         this.dialog.open(ErrorDialogComponent, {
             data: error.stack ?? error,
-            backdropClass: 'backdrop-blur',
         });
     }
 }

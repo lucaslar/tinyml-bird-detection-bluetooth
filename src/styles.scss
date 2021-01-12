@@ -15,11 +15,6 @@ body {
     color: mat-color($app-warn, default-contrast) !important;
 }
 
-.backdrop-blur {
-    background: rgba(0, 0, 0, 0.16);
-    backdrop-filter: blur(5px) !important;
-}
-
 .mat-list-text {
     padding-right: 0 !important;
 }
