@@ -110,11 +110,11 @@ export class BluetoothService {
         ) {
             this.setErrorState('BLUETOOTH_API_DISABLED');
         } else if (
-            error instanceof DOMException &&
-            error?.message === 'User cancelled the requestDevice() chooser.'
+            !(
+                error instanceof DOMException &&
+                error?.message === 'User cancelled the requestDevice() chooser.'
+            )
         ) {
-            this.setErrorState('CANCELLED_CHOOSING');
-        } else {
             this.setErrorState('OTHER_ERROR');
             throw error;
         }
