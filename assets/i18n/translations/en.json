@@ -1,0 +1,13 @@
+{
+    "dialog": {
+        "close": "Close",
+        "languageSelection": "Language selection",
+        "error": {
+            "oops": "Oops, something bad happened...",
+            "occurred": "The following error occurred unexpectedly"
+        }
+    },
+    "onboarding": {
+        "hello": "Hello!"
+    }
+}
