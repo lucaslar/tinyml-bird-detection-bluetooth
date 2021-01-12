@@ -1,5 +1,19 @@
-img {
-    height: 32px;
-    width:  32px;
-    border-radius: 50%;
+@import 'variables';
+
+.language-button {
+    padding: 16.67px 8px 8px;
+    width: 104px;
+
+    &.current-selection {
+        border: 2px solid mat-color($app-primary);
+        .button-text {
+            color: mat-color($app-primary);
+        }
+    }
+
+    img {
+        border-radius: 50%;
+        height: 36px;
+        width: 36px;
+    }
 }

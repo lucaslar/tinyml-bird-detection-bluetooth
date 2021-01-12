@@ -1,18 +1,21 @@
 <h2 mat-dialog-title>{{ 'dialog.languageSelection' | translate }}</h2>
 <mat-dialog-content>
-    <mat-selection-list [multiple]="false">
-        <mat-list-option
-            *ngFor="let language of i18n.supportedLanguages"
-            [matDialogClose]="language"
-        >
-            <div class="d-flex">
+    <div class="d-flex flex-wrap">
+        <div class="mx-auto" *ngFor="let language of i18n.supportedLanguages">
+            <button
+                mat-stroked-button
+                [class.current-selection]="language === i18n.currentLanguage"
+                class="language-button m-2"
+                [matDialogClose]="language"
+            >
                 <img [src]="language.flagPath" alt="Flag: {{ language.id }}" />
-                <div class="ml-3 my-auto">
-                    {{ language.name }} ({{ language.id }})
-                </div>
-            </div>
-        </mat-list-option>
-    </mat-selection-list>
+                <br />
+                <span class="button-text">
+                    {{ language.name }}
+                </span>
+            </button>
+        </div>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close color="primary">
