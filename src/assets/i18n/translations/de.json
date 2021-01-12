@@ -1,7 +1,11 @@
 {
     "dialog": {
         "close": "Schließen",
-        "languageSelection": "Sprachauswahl"
+        "languageSelection": "Sprachauswahl",
+        "error": {
+            "oops": "Ups, hier ist etwas schiefgelaufen...",
+            "occurred": "Der folgende Fehler trat unerwarterweise auf"
+        }
     },
     "onboarding": {
         "hello": "Hallo!"
