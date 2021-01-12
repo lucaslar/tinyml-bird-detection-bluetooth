@@ -13,3 +13,16 @@ $theme: mat-light-theme(
 );
 
 @include angular-material-theme($theme);
+
+.dark-theme {
+    $theme-dark: mat-dark-theme(
+        (
+            color: (
+                primary: $app-primary,
+                accent: $app-accent,
+                warn: $app-warn,
+            ),
+        )
+    );
+    @include angular-material-theme($theme-dark);
+}

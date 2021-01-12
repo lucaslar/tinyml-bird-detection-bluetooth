@@ -23,10 +23,13 @@
         >
             <mat-icon> language </mat-icon>
         </button>
-        <button mat-icon-button class="mx-1 mx-sm-2 my-2">
+        <button
+            mat-icon-button
+            class="mx-1 mx-sm-2 my-2"
+            (click)="theming.toggleLightDarkMode()"
+        >
             <mat-icon>
-                dark_mode
-                <!-- light_mode -->
+                {{ theming.isDarkTheme ? 'light_mode' : 'dark_mode' }}
             </mat-icon>
         </button>
         <button mat-icon-button class="mx-1 mx-sm-2 my-2">

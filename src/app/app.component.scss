@@ -1,13 +1,16 @@
-header {
-    top: 0;
-}
-
-main {
-    padding-top: 64px;
+.app-container {
     transition: 0.3s;
-    max-width: 1200px;
 
-    @media (min-width: 576px) {
-        padding-top: 72px;
+    header {
+        top: 0;
+    }
+
+    main {
+        padding-top: 64px;
+        max-width: 1200px;
+
+        @media (min-width: 576px) {
+            padding-top: 72px;
+        }
     }
 }

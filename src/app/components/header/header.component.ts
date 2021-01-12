@@ -3,6 +3,7 @@ import { BluetoothService } from '../../services/bluetooth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LanguageSelectionComponent } from '../dialogs/language-selection/language-selection.component';
 import { I18nService } from '../../services/i18n.service';
+import { ThemingService } from '../../services/theming.service';
 
 /**
  * Component containing the content of the application's header.
@@ -20,11 +21,13 @@ export class HeaderComponent {
 
     /**
      * @param bluetooth Injected Bluetooth service.
+     * @param theming Injected theming service.
      * @param dialog Injected Material Dialog service.
      * @param i18n Injected internationalization service.
      */
     constructor(
         readonly bluetooth: BluetoothService,
+        readonly theming: ThemingService,
         private readonly dialog: MatDialog,
         private readonly i18n: I18nService
     ) {}
