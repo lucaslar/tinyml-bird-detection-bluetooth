@@ -60,6 +60,9 @@ THE SOFTWARE.
 @angular/platform-browser
 MIT
 
+@angular/router
+MIT
+
 @ngx-translate/core
 MIT
 
