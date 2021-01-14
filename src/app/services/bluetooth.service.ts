@@ -70,60 +70,6 @@ export class BluetoothService {
         return this.device.name;
     }
 
-    private onDisconnected(): void {
-        this.device?.removeEventListener(
-            'gattserverdisconnected',
-            this.onDisconnected
-        );
-        // TODO: Show snackbar
-        delete this.device;
-        this.characteristics.forEach((c) => (c.isReady = false));
-    }
-
-    private onDeviceFound(device: BluetoothDevice): any {
-        const connection = device.gatt.connect();
-        this.isConnecting = true;
-        connection.then(() => {
-            this.device = device;
-            this.device.addEventListener('gattserverdisconnected', () =>
-                this.onDisconnected()
-            );
-        });
-        return connection;
-    }
-
-    private listenToSpecificCharacteristic(
-        characteristic: BluetoothRemoteGATTCharacteristic,
-        uuid: string
-    ): void {
-        const mapped = this.characteristics.find((c) => c.uuid === uuid);
-        mapped.isReady = true;
-        characteristic.addEventListener(
-            'characteristicvaluechanged',
-            (event) => {
-                mapped.value = (event.target as any).value.getUint8(0);
-            }
-        );
-        this.isConnecting = this.characteristics.some((c) => !c.isReady);
-    }
-
-    private listenToAllCharacteristics(
-        characteristics: BluetoothRemoteGATTCharacteristic[]
-    ): void {
-        let queue = Promise.resolve();
-        characteristics.forEach((characteristic) => {
-            if (
-                this.characteristics.some((c) => c.uuid === characteristic.uuid)
-            ) {
-                queue = queue.then(() => {
-                    return characteristic.startNotifications().then((c) => {
-                        this.listenToSpecificCharacteristic(c, c.uuid);
-                    });
-                });
-            }
-        });
-    }
-
     private connect(): void {
         // TODO Add states
         navigator.bluetooth
@@ -143,6 +89,60 @@ export class BluetoothService {
         ) {
             this.device.gatt.disconnect();
         }
+    }
+
+    private onDeviceFound(device: BluetoothDevice): any {
+        const connection = device.gatt.connect();
+        this.isConnecting = true;
+        connection.then(() => {
+            this.device = device;
+            this.device.addEventListener('gattserverdisconnected', () =>
+                this.onDisconnected()
+            );
+        });
+        return connection;
+    }
+
+    private onDisconnected(): void {
+        this.device?.removeEventListener(
+            'gattserverdisconnected',
+            this.onDisconnected
+        );
+        // TODO: Show snackbar
+        delete this.device;
+        this.characteristics.forEach((c) => (c.isReady = false));
+    }
+
+    private listenToAllCharacteristics(
+        characteristics: BluetoothRemoteGATTCharacteristic[]
+    ): void {
+        let queue = Promise.resolve();
+        characteristics.forEach((characteristic) => {
+            if (
+                this.characteristics.some((c) => c.uuid === characteristic.uuid)
+            ) {
+                queue = queue.then(() => {
+                    return characteristic.startNotifications().then((c) => {
+                        this.listenToSpecificCharacteristic(c, c.uuid);
+                    });
+                });
+            }
+        });
+    }
+
+    private listenToSpecificCharacteristic(
+        characteristic: BluetoothRemoteGATTCharacteristic,
+        uuid: string
+    ): void {
+        const mapped = this.characteristics.find((c) => c.uuid === uuid);
+        mapped.isReady = true;
+        characteristic.addEventListener(
+            'characteristicvaluechanged',
+            (event) => {
+                mapped.value = (event.target as any).value.getUint8(0);
+            }
+        );
+        this.isConnecting = this.characteristics.some((c) => !c.isReady);
     }
 
     private handleError(error: Error): void {
