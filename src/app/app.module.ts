@@ -14,6 +14,8 @@ import { LanguageSelectionComponent } from './components/dialogs/language-select
 import { EllipsisTooltipDirective } from './directives/ellipsis-tooltip.directive';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { AppRoutingModule } from './app-routing.module';
+import { InfoSlidesComponent } from './components/dialogs/info-slides/info-slides.component';
+import { SwiperModule } from 'swiper/angular';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -38,6 +40,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
         LanguageSelectionComponent,
         EllipsisTooltipDirective,
         MainContentComponent,
+        InfoSlidesComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -52,6 +55,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
             },
         }),
         MaterialModule,
+        SwiperModule,
     ],
     providers: [
         {

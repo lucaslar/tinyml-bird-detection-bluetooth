@@ -29,6 +29,7 @@
             ],
             "styles": [
               "bootstrap/dist/css/bootstrap.css",
+              "swiper/swiper-bundle.css",
               "src/styles.scss"
             ],
             "stylePreprocessorOptions": {
@@ -94,10 +95,11 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "bootstrap/dist/css/bootstrap.css",
               "src/assets"
             ],
             "styles": [
+              "bootstrap/dist/css/bootstrap.css",
+              "swiper/swiper-bundle.css",
               "src/styles.scss"
             ],
             "stylePreprocessorOptions": {

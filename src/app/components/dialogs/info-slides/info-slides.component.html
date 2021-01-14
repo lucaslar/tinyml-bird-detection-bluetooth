@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>{{ slides[activeIndex].title }}</h2>
+
+<mat-dialog-content #content>
+    <swiper
+        [slidesPerView]="1"
+        (activeIndexChange)="onIndexChanged($event.activeIndex)"
+        [index]="activeIndex"
+        [autoHeight]="true"
+    >
+        <ng-template swiperSlide *ngFor="let slide of slides">
+            {{ slide.content }}
+        </ng-template>
+    </swiper>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex">
+    <div
+        class="d-flex flex-grow-0 justify-content-between slides-paginator"
+        [style.width.px]="(slides.length * 2 - 1) * 8"
+    >
+        <a
+            *ngFor="let _ of slides; let i = index"
+            (click)="onPaginationClicked(i)"
+            [class.active]="i === activeIndex"
+            [class.clickable]="i <= highestClickedIndex"
+            [matTooltip]="
+                i <= highestClickedIndex ? slides[i].title : undefined
+            "
+        ></a>
+    </div>
+    <button
+        mat-button
+        color="primary"
+        class="ml-auto"
+        *ngIf="activeIndex < slides.length - 1; else closeButton"
+        (click)="activeIndex = activeIndex + 1"
+    >
+        {{ 'dialog.next' | translate }}
+    </button>
+</mat-dialog-actions>
+
+<ng-template #closeButton>
+    <button mat-button mat-dialog-close class="ml-auto" color="primary">
+        {{ 'dialog.close' | translate }}
+    </button>
+</ng-template>

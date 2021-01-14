@@ -1,0 +1,21 @@
+@import 'variables';
+
+swiper {
+    cursor: default;
+}
+
+.slides-paginator a {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #00000025;
+
+    &.clickable {
+        cursor: pointer;
+        background-color: #00000075;
+    }
+
+    &.active {
+        background-color: mat-color($app-primary);
+    }
+}

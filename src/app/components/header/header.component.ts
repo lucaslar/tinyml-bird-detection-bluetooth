@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LanguageSelectionComponent } from '../dialogs/language-selection/language-selection.component';
 import { I18nService } from '../../services/i18n.service';
 import { ThemingService } from '../../services/theming.service';
+import { InfoSlidesComponent } from '../dialogs/info-slides/info-slides.component';
 
 /**
  * Component containing the content of the application's header.
@@ -45,6 +46,13 @@ export class HeaderComponent {
                     this.i18n.useLanguage(language);
                 }
             });
+    }
+
+    /**
+     * Opens info slides dialogs.
+     */
+    onInfoClicked(): void {
+        this.dialog.open(InfoSlidesComponent);
     }
 
     /**
