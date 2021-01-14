@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LanguageSelectionComponent } from './components/dialogs/language-selection/language-selection.component';
 import { EllipsisTooltipDirective } from './directives/ellipsis-tooltip.directive';
 import { MainContentComponent } from './components/main-content/main-content.component';
+import { AppRoutingModule } from './app-routing.module';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -39,6 +40,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
         MainContentComponent,
     ],
     imports: [
+        AppRoutingModule,
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
