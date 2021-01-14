@@ -24,5 +24,6 @@ $theme: mat-light-theme(
             ),
         )
     );
-    @include angular-material-theme($theme-dark);
+
+    @include angular-material-color($theme-dark);
 }
