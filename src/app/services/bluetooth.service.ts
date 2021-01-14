@@ -44,6 +44,8 @@ export class BluetoothService {
 
     private device: BluetoothDevice;
 
+    private readonly gattDisconnectedFn = () => this.onDisconnected;
+
     onBluetoothPressed(): void {
         this.isDeviceConnected ? this.disconnect() : this.connect();
     }
@@ -96,8 +98,9 @@ export class BluetoothService {
         this.isConnecting = true;
         connection.then(() => {
             this.device = device;
-            this.device.addEventListener('gattserverdisconnected', () =>
-                this.onDisconnected()
+            this.device.addEventListener(
+                'gattserverdisconnected',
+                this.gattDisconnectedFn
             );
         });
         return connection;
@@ -106,7 +109,7 @@ export class BluetoothService {
     private onDisconnected(): void {
         this.device?.removeEventListener(
             'gattserverdisconnected',
-            this.onDisconnected
+            this.gattDisconnectedFn
         );
         // TODO: Show snackbar
         delete this.device;
