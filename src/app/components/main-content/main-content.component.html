@@ -22,11 +22,11 @@
         <p>Device "{{ bluetooth.deviceName }}" is connected!</p>
 
         <div class="d-flex flex-column">
-            <div
-                class="mt-3 mx-auto font-weight-bold"
-                *ngIf="bluetooth.value !== undefined"
-            >
-                Value is ... {{ bluetooth.value }}
+            <div class="mt-3 mx-auto font-weight-bold">
+                Values are ...
+                <div *ngFor="let c of bluetooth.characteristics">
+                    {{ c.translationKey }} ({{ c.uuid }}): {{ c.value }}
+                </div>
             </div>
         </div>
     </ng-container>

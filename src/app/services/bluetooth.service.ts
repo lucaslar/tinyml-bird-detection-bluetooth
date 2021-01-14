@@ -2,6 +2,14 @@
 
 import { Injectable } from '@angular/core';
 
+// TODO: export type/rename/change logic?
+type characteristicType = {
+    uuid: string;
+    translationKey: string;
+    value: number;
+    isReady: boolean;
+};
+
 @Injectable({
     providedIn: 'root',
 })
@@ -11,17 +19,33 @@ export class BluetoothService {
     state: string;
     isConnecting: boolean;
     readonly isSupported = !!navigator.bluetooth;
-    private readonly service = 'e50bf554-fdd9-4d9e-b350-86493ab13280';
-    private readonly characteristic = 'afea4db0-1ef6-4653-bb67-aa14b4d804bb';
-    private _value;
+    readonly service = 'e50bf554-fdd9-4d9e-b350-86493ab13280';
+
+    readonly characteristics: characteristicType[] = [
+        {
+            uuid: 'afea4db0-1ef6-4653-bb67-aa14b4d804bb',
+            translationKey: 'bird1',
+            value: undefined,
+            isReady: false,
+        },
+        {
+            uuid: 'a950cb51-4b4e-45ed-9c5b-44dc101e57ed',
+            translationKey: 'bird2',
+            value: undefined,
+            isReady: false,
+        },
+        {
+            uuid: '841760cc-c842-4d1b-994d-972fcae34e88',
+            translationKey: 'bird3',
+            value: undefined,
+            isReady: false,
+        },
+    ];
+
     private device: BluetoothDevice;
 
     onBluetoothPressed(): void {
         this.isDeviceConnected ? this.disconnect() : this.connect();
-    }
-
-    get value(): any {
-        return this._value;
     }
 
     get currentIcon(): string {
@@ -53,6 +77,7 @@ export class BluetoothService {
         );
         // TODO: Show snackbar
         delete this.device;
+        this.characteristics.forEach((c) => (c.isReady = false));
     }
 
     private onDeviceFound(device: BluetoothDevice): any {
@@ -60,22 +85,43 @@ export class BluetoothService {
         this.isConnecting = true;
         connection.then(() => {
             this.device = device;
-            this.device.addEventListener(
-                'gattserverdisconnected',
-                this.onDisconnected
+            this.device.addEventListener('gattserverdisconnected', () =>
+                this.onDisconnected()
             );
         });
         return connection;
     }
 
-    private listenCharacteristic(characteristic): void {
+    private listenToSpecificCharacteristic(
+        characteristic: BluetoothRemoteGATTCharacteristic,
+        uuid: string
+    ): void {
+        const mapped = this.characteristics.find((c) => c.uuid === uuid);
+        mapped.isReady = true;
         characteristic.addEventListener(
             'characteristicvaluechanged',
             (event) => {
-                this._value = (event.target as any).value.getUint8(0);
+                mapped.value = (event.target as any).value.getUint8(0);
             }
         );
-        this.isConnecting = false;
+        this.isConnecting = this.characteristics.some((c) => !c.isReady);
+    }
+
+    private listenToAllCharacteristics(
+        characteristics: BluetoothRemoteGATTCharacteristic[]
+    ): void {
+        let queue = Promise.resolve();
+        characteristics.forEach((characteristic) => {
+            if (
+                this.characteristics.some((c) => c.uuid === characteristic.uuid)
+            ) {
+                queue = queue.then(() => {
+                    return characteristic.startNotifications().then((c) => {
+                        this.listenToSpecificCharacteristic(c, c.uuid);
+                    });
+                });
+            }
+        });
     }
 
     private connect(): void {
@@ -84,13 +130,9 @@ export class BluetoothService {
             .requestDevice({ filters: [{ services: [this.service] }] })
             .then((device) => this.onDeviceFound(device))
             .then((server) => server.getPrimaryService(this.service))
-            .then((service) => service.getCharacteristic(this.characteristic))
-            .then((characteristic) => characteristic.startNotifications())
-            .then((characteristic) => this.listenCharacteristic(characteristic))
-            .catch((error: Error) => {
-                this.handleError(error);
-                this.isConnecting = false;
-            });
+            .then((service) => service.getCharacteristics())
+            .then((cc) => this.listenToAllCharacteristics(cc))
+            .catch((error: Error) => this.handleError(error));
     }
 
     private disconnect(): void {
@@ -121,6 +163,7 @@ export class BluetoothService {
     }
 
     private setErrorState(error: string): void {
+        this.isConnecting = false;
         this.state = `ERROR.${error}`;
     }
 }
