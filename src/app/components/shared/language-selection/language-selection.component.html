@@ -1,4 +1,7 @@
-<div class="d-flex flex-wrap languages-container">
+<div
+    class="d-flex flex-wrap languages-container mx-auto"
+    [style.maxWidth.px]="(i18n.supportedLanguages.length * 2 - 1) * 120"
+>
     <div class="mx-auto" *ngFor="let language of i18n.supportedLanguages">
         <button
             mat-stroked-button
