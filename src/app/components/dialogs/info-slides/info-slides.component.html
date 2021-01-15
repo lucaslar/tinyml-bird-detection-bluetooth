@@ -1,4 +1,8 @@
-<h2 mat-dialog-title>{{ slides[activeIndex].title }}</h2>
+<div class="d-flex">
+    <title mat-dialog-title class="mx-auto">
+        {{ slides[activeIndex].title | translate }}
+    </title>
+</div>
 
 <mat-dialog-content #content>
     <swiper
@@ -24,7 +28,7 @@
             [class.clickable]="!isOnboarding || i <= highestClickedIndex"
             [matTooltip]="
                 !isOnboarding || i <= highestClickedIndex
-                    ? slides[i].title
+                    ? (slides[i].title | translate)
                     : undefined
             "
         ></a>

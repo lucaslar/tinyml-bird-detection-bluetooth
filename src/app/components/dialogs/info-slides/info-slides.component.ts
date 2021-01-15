@@ -1,6 +1,7 @@
 import {
     Component,
     ElementRef,
+    HostListener,
     Inject,
     OnInit,
     ViewChild,
@@ -98,6 +99,23 @@ export class InfoSlidesComponent implements OnInit {
     onPaginationClicked(index: number): void {
         if (!this.isOnboarding || index <= this.highestClickedIndex) {
             this.activeIndex = index;
+        }
+    }
+
+    /**
+     * Host listener for arrows (left/right) which will be handled as swiping.
+     *
+     * @param event Keydown event.
+     */
+    @HostListener('document:keydown', ['$event'])
+    onKeydown(event: KeyboardEvent): void {
+        if (event.key === 'ArrowLeft' && this.activeIndex - 1 >= 0) {
+            this.activeIndex--;
+        } else if (
+            event.key === 'ArrowRight' &&
+            this.activeIndex + 1 < this.slides.length
+        ) {
+            this.activeIndex++;
         }
     }
 }
