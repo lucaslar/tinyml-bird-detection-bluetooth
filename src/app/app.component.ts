@@ -25,7 +25,10 @@ export class AppComponent implements OnInit {
         this.i18n.initialize();
         if (!this.storage.isOnboarded) {
             this.dialog
-                .open(InfoSlidesComponent, { disableClose: true })
+                .open(InfoSlidesComponent, {
+                    disableClose: true,
+                    data: { isOnboarding: true },
+                })
                 .afterClosed()
                 .subscribe(() => (this.storage.isOnboarded = true));
         }

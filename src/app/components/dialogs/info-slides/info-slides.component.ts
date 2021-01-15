@@ -1,4 +1,17 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    Inject,
+    OnInit,
+    ViewChild,
+} from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+type slide = {
+    title: string;
+    component?: 'first-settings';
+    content: any;
+};
 
 /**
  * Component containing info slides.
@@ -19,20 +32,39 @@ export class InfoSlidesComponent implements OnInit {
      */
     highestClickedIndex = 0;
 
-    // TODO Remove
-    slides = [
-        'Lorem ipsum',
-        'Arduino',
-        'Bird Detection Bird Detection Bird Detection',
-    ].map((s) => ({
-        title: `Slide "${s}"`,
-        content: `${s} `.repeat(123),
-    }));
+    // TODO Remove?
+    readonly slides: slide[];
+
+    /**
+     * True if onboarding slides are to be shown, false if not.
+     * @private
+     */
+    readonly isOnboarding: boolean;
 
     /**
      * Material dialog content container.
+     *
+     * @private
      */
-    @ViewChild('content') content: ElementRef;
+    @ViewChild('content') private readonly content: ElementRef;
+
+    /**
+     * @param data Injected data
+     */
+    constructor(@Inject(MAT_DIALOG_DATA) data: { isOnboarding: boolean }) {
+        this.isOnboarding = data?.isOnboarding;
+        this.slides = [];
+        [
+            'Lorem ipsum',
+            'Arduino',
+            'Bird Detection Bird Detection Bird Detection',
+        ].forEach((s) =>
+            this.slides.push({
+                title: `Slide "${s}"`,
+                content: `${s} `.repeat(123),
+            })
+        );
+    }
 
     /**
      * Triggers a resize event programmatically in order to handle side bar sizing.
@@ -64,7 +96,7 @@ export class InfoSlidesComponent implements OnInit {
      * @param index Index to be set as active (if legal).
      */
     onPaginationClicked(index: number): void {
-        if (index <= this.highestClickedIndex) {
+        if (!this.isOnboarding || index <= this.highestClickedIndex) {
             this.activeIndex = index;
         }
     }

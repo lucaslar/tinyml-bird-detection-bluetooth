@@ -21,9 +21,11 @@
             *ngFor="let _ of slides; let i = index"
             (click)="onPaginationClicked(i)"
             [class.active]="i === activeIndex"
-            [class.clickable]="i <= highestClickedIndex"
+            [class.clickable]="!isOnboarding || i <= highestClickedIndex"
             [matTooltip]="
-                i <= highestClickedIndex ? slides[i].title : undefined
+                !isOnboarding || i <= highestClickedIndex
+                    ? slides[i].title
+                    : undefined
             "
         ></a>
     </div>
