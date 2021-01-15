@@ -1,10 +1,10 @@
 import { Component, HostListener } from '@angular/core';
 import { BluetoothService } from '../../services/bluetooth.service';
 import { MatDialog } from '@angular/material/dialog';
-import { LanguageSelectionComponent } from '../dialogs/language-selection/language-selection.component';
 import { I18nService } from '../../services/i18n.service';
 import { ThemingService } from '../../services/theming.service';
 import { InfoSlidesComponent } from '../dialogs/info-slides/info-slides.component';
+import {LanguageSelectionDialogComponent} from '../dialogs/language-selection-dialog/language-selection-dialog.component';
 
 /**
  * Component containing the content of the application's header.
@@ -39,7 +39,7 @@ export class HeaderComponent {
      */
     onLanguagesClicked(): void {
         this.dialog
-            .open(LanguageSelectionComponent)
+            .open(LanguageSelectionDialogComponent)
             .afterClosed()
             .subscribe((language) => {
                 if (language) {

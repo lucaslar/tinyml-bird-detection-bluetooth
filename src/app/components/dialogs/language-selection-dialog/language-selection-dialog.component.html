@@ -1,0 +1,11 @@
+<title mat-dialog-title>{{ 'dialog.languageSelection' | translate }}</title>
+<mat-dialog-content>
+    <app-language-selection
+        (languageSelected)="dialogRef.close($event)"
+    ></app-language-selection>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close color="primary">
+        {{ 'dialog.close' | translate }}
+    </button>
+</mat-dialog-actions>

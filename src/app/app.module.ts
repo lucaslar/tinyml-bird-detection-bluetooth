@@ -10,13 +10,14 @@ import { ErrorService } from './services/error.service';
 import { MaterialModule } from './modules/material.module';
 import { ErrorDialogComponent } from './components/dialogs/error-dialog/error-dialog.component';
 import { HeaderComponent } from './components/header/header.component';
-import { LanguageSelectionComponent } from './components/dialogs/language-selection/language-selection.component';
+import { LanguageSelectionComponent } from './components/shared/language-selection/language-selection.component';
 import { EllipsisTooltipDirective } from './directives/ellipsis-tooltip.directive';
 import { MainContentComponent } from './components/main-content/main-content.component';
 import { AppRoutingModule } from './app-routing.module';
 import { InfoSlidesComponent } from './components/dialogs/info-slides/info-slides.component';
 import { SwiperModule } from 'swiper/angular';
 import { SortByValuePipe } from './pipes/sort-by-value.pipe';
+import { LanguageSelectionDialogComponent } from './components/dialogs/language-selection-dialog/language-selection-dialog.component';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -43,6 +44,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
         MainContentComponent,
         InfoSlidesComponent,
         SortByValuePipe,
+        LanguageSelectionDialogComponent,
     ],
     imports: [
         AppRoutingModule,

@@ -1,0 +1,16 @@
+<div class="d-flex flex-wrap languages-container">
+    <div class="mx-auto" *ngFor="let language of i18n.supportedLanguages">
+        <button
+            mat-stroked-button
+            [class.current-selection]="language === i18n.currentLanguage"
+            class="language-button m-2"
+            (click)="languageSelected.emit(language)"
+        >
+            <img [src]="language.flagPath" alt="Flag: {{ language.id }}" />
+            <br />
+            <span class="button-text">
+                {{ language.name }}
+            </span>
+        </button>
+    </div>
+</div>
