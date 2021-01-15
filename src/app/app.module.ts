@@ -16,6 +16,7 @@ import { MainContentComponent } from './components/main-content/main-content.com
 import { AppRoutingModule } from './app-routing.module';
 import { InfoSlidesComponent } from './components/dialogs/info-slides/info-slides.component';
 import { SwiperModule } from 'swiper/angular';
+import { SortByValuePipe } from './pipes/sort-by-value.pipe';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -41,6 +42,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
         EllipsisTooltipDirective,
         MainContentComponent,
         InfoSlidesComponent,
+        SortByValuePipe,
     ],
     imports: [
         AppRoutingModule,

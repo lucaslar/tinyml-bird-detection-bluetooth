@@ -24,19 +24,19 @@ export class BluetoothService {
     readonly characteristics: characteristicType[] = [
         {
             uuid: 'afea4db0-1ef6-4653-bb67-aa14b4d804bb',
-            translationKey: 'bird1',
+            translationKey: 'great_tit',
             value: undefined,
             isReady: false,
         },
         {
             uuid: 'a950cb51-4b4e-45ed-9c5b-44dc101e57ed',
-            translationKey: 'bird2',
+            translationKey: 'merl',
             value: undefined,
             isReady: false,
         },
         {
             uuid: '841760cc-c842-4d1b-994d-972fcae34e88',
-            translationKey: 'bird3',
+            translationKey: 'sparrow',
             value: undefined,
             isReady: false,
         },

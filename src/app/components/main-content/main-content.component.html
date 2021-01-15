@@ -24,8 +24,8 @@
         <div class="d-flex flex-column">
             <div class="mt-3 mx-auto font-weight-bold">
                 Values are ...
-                <div *ngFor="let c of bluetooth.characteristics">
-                    {{ c.translationKey }} ({{ c.uuid }}): {{ c.value }}
+                <div *ngFor="let c of bluetooth.characteristics | sortByValue">
+                    {{ c.translationKey }}: {{ c.value }}
                 </div>
             </div>
         </div>
