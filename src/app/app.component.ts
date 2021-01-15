@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { BluetoothService } from './services/bluetooth.service';
+import { Component, OnInit } from '@angular/core';
 import { I18nService } from './services/i18n.service';
 import { ThemingService } from './services/theming.service';
 import { MatDialog } from '@angular/material/dialog';
 import { InfoSlidesComponent } from './components/dialogs/info-slides/info-slides.component';
+import { StorageService } from './services/storage.service';
 
 /**
  * Central component of the application (SPA).
@@ -13,14 +13,21 @@ import { InfoSlidesComponent } from './components/dialogs/info-slides/info-slide
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     constructor(
-        readonly bluetooth: BluetoothService,
         readonly theming: ThemingService,
-        i18n: I18nService,
-        dialog: MatDialog
-    ) {
-        i18n.initialize();
-        dialog.open(InfoSlidesComponent, { disableClose: true });
+        private readonly i18n: I18nService,
+        private readonly dialog: MatDialog,
+        private readonly storage: StorageService
+    ) {}
+
+    ngOnInit(): void {
+        this.i18n.initialize();
+        if (!this.storage.isOnboarded) {
+            this.dialog
+                .open(InfoSlidesComponent, { disableClose: true })
+                .afterClosed()
+                .subscribe(() => (this.storage.isOnboarded = true));
+        }
     }
 }
