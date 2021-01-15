@@ -1,5 +1,6 @@
 {
     "dialog": {
+        "next": "Weiter",
         "close": "Schließen",
         "languageSelection": "Sprachauswahl",
         "error": {

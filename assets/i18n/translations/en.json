@@ -1,5 +1,6 @@
 {
     "dialog": {
+        "next": "Next",
         "close": "Close",
         "languageSelection": "Language selection",
         "error": {
