@@ -1,12 +1,12 @@
 <div class="d-flex">
-    <title mat-dialog-title class="mx-auto">
+    <h1 mat-dialog-title class="mx-auto">
         {{
             (isLanguagesDisplayed
                 ? 'dialog.languageSelection'
                 : slides[activeIndex].title
             ) | translate
         }}
-    </title>
+    </h1>
 </div>
 
 <mat-dialog-content #content>
