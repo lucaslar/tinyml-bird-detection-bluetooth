@@ -9,12 +9,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { heightTransition } from '../../../consts/animations';
 import { Language } from '../../../model/internal/language';
 import { I18nService } from '../../../services/i18n.service';
-
-type slide = {
-    title: string;
-    component?: 'first-settings';
-    content: any;
-};
+import { Slide } from '../../../model/internal/slide';
 
 /**
  * Component containing info slides.
@@ -41,8 +36,10 @@ export class InfoSlidesComponent {
      */
     isLanguagesDisplayed = false;
 
-    // TODO Remove?
-    readonly slides: slide[];
+    /**
+     * Slides to be displayed.
+     */
+    readonly slides: Slide[];
 
     /**
      * True if onboarding slides are to be shown, false if not.
@@ -58,6 +55,8 @@ export class InfoSlidesComponent {
     @ViewChild('content') private readonly content: ElementRef;
 
     /**
+     * Initializes the slices and the {{ isOnboarding }}.
+     *
      * @param data Injected data
      * @param i18n Injected internationalization service.
      */
@@ -66,17 +65,7 @@ export class InfoSlidesComponent {
         private readonly i18n: I18nService
     ) {
         this.isOnboarding = data?.isOnboarding;
-        this.slides = [];
-        [
-            'Lorem ipsum',
-            'Arduino',
-            'Bird Detection Bird Detection Bird Detection',
-        ].forEach((s) =>
-            this.slides.push({
-                title: `Slide "${s}"`,
-                content: `${s} `.repeat(123),
-            })
-        );
+        this.slides = Slide.getSlides(this.isOnboarding);
     }
 
     /**

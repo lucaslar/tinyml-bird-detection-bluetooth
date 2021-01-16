@@ -1,0 +1,12 @@
+.slide-content {
+    margin-bottom: -12px;
+    width: fit-content;
+
+    .content-row {
+        margin: 0 -4px;
+
+        @media (min-width: 576px) {
+            margin: 0 -8px;
+        }
+    }
+}

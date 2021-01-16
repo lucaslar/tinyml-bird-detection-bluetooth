@@ -1,0 +1,65 @@
+<div class="slide-content d-flex flex-column mx-auto">
+    <div
+        *ngFor="let content of slide.content"
+        class="row content-row"
+        [class.flex-col-autoumn]="content.type !== 'nested'"
+    >
+        <ng-container
+            [ngTemplateOutlet]="switchContainer"
+            [ngTemplateOutletContext]="{ content: content }"
+        ></ng-container>
+    </div>
+</div>
+
+<ng-template #switchContainer let-content="content">
+    <ng-container [ngSwitch]="content.type">
+        <ng-container
+            *ngSwitchCase="'text'"
+            [ngTemplateOutlet]="textContainer"
+            [ngTemplateOutletContext]="{ text: content }"
+        ></ng-container>
+        <ng-container
+            *ngSwitchCase="'icon'"
+            [ngTemplateOutlet]="iconContainer"
+            [ngTemplateOutletContext]="{ icon: content }"
+        ></ng-container>
+        <ng-container
+            *ngSwitchCase="'img'"
+            [ngTemplateOutlet]="imgContainer"
+            [ngTemplateOutletContext]="{ img: content }"
+        ></ng-container>
+        <ng-container
+            *ngSwitchCase="'nested'"
+            [ngTemplateOutlet]="nestedContainer"
+            [ngTemplateOutletContext]="{ nested: content }"
+        ></ng-container>
+        <ng-container *ngSwitchDefault></ng-container>
+    </ng-container>
+</ng-template>
+
+<ng-template #textContainer let-text="text">
+    <div class="col px-1 px-sm-2">
+        <ng-container *ngFor="let key of text.text">
+            <p>
+                {{ key | translate }}
+            </p>
+        </ng-container>
+    </div>
+</ng-template>
+
+<ng-template #iconContainer let-icon="icon">
+    <div class="col-auto flex-grow-0 px-1 px-sm-2 mb-3">[ICON]</div>
+</ng-template>
+
+<ng-template #imgContainer let-img="img">
+    <div class="col-auto px-1 px-sm-2 mb-3">[IMAGE]</div>
+</ng-template>
+
+<ng-template #nestedContainer let-nested="nested">
+    <ng-container *ngFor="let content of nested.nested">
+        <ng-container
+            [ngTemplateOutlet]="switchContainer"
+            [ngTemplateOutletContext]="{ content: content }"
+        ></ng-container>
+    </ng-container>
+</ng-template>

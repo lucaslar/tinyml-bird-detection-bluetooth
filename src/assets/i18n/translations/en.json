@@ -19,5 +19,11 @@
         "bluetooth_searching": "Connecting to Bluetooth device",
         "bluetooth_connected": "Disconnect from Bluetooth device",
         "bluetooth_disabled": "Bluetooth disabled"
+    },
+    "placeholder": {
+        "a": "This is a placeholder",
+        "b": "This is another placeholder",
+        "c": "Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text.",
+        "d": "Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. "
     }
 }
