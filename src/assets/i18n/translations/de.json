@@ -1,14 +1,23 @@
 {
     "dialog": {
         "next": "Weiter",
-        "close": "Schließen",
         "languageSelection": "Sprachauswahl",
         "error": {
             "oops": "Ups, hier ist etwas schiefgelaufen...",
             "occurred": "Der folgende Fehler trat unerwarterweise auf"
         }
     },
-    "onboarding": {
-        "hello": "Hallo!"
+    "general": {
+        "close": "Schließen",
+        "changeLanguage": "Sprache wechseln",
+        "switchToLight": "Zu hellem Modus wechseln",
+        "switchToDark": "Zu dunklem Modus wechseln",
+        "showInfos": "Informationen anzeigen"
+    },
+    "bluetooth": {
+        "bluetooth": "Mit Bluetooth-Gerät verbinden",
+        "bluetooth_searching": "Verbindung zu Bluetooth-Gerät wird hergestellt",
+        "bluetooth_connected": "Von Bluetooth-Gerät trennen",
+        "bluetooth_disabled": "Bluetooth nicht verfügbar"
     }
 }

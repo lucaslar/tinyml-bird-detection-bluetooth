@@ -49,6 +49,10 @@
         mat-icon-button
         class="languages-button"
         (click)="isLanguagesDisplayed = !isLanguagesDisplayed"
+        [matTooltip]="
+            (isLanguagesDisplayed ? 'general.close' : 'general.changeLanguage')
+                | translate
+        "
     >
         <mat-icon> language </mat-icon>
     </button>
@@ -72,6 +76,6 @@
         color="primary"
         [disabled]="isLanguagesDisplayed"
     >
-        {{ 'dialog.close' | translate }}
+        {{ 'general.close' | translate }}
     </button>
 </ng-template>

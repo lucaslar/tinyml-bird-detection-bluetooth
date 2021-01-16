@@ -12,20 +12,22 @@
     </div>
 
     <div class="app-header-icon-buttons d-flex">
-        <button
-            mat-icon-button
-            class="mx-1 mx-sm-2 my-2"
-            [disabled]="!bluetooth.isSupported || bluetooth.isConnecting"
-            (click)="bluetooth.onBluetoothPressed()"
-        >
-            <mat-icon>
-                {{ bluetooth.currentIcon }}
-            </mat-icon>
-        </button>
+        <ng-container *ngIf="bluetooth.currentBluetoothState as state">
+            <button
+                mat-icon-button
+                class="mx-1 mx-sm-2 my-2"
+                [disabled]="!bluetooth.isSupported || bluetooth.isConnecting"
+                (click)="bluetooth.onBluetoothPressed()"
+                [matTooltip]="'bluetooth.' + state | translate"
+            >
+                <mat-icon> {{ state }} </mat-icon>
+            </button>
+        </ng-container>
         <button
             mat-icon-button
             class="mx-1 mx-sm-2 my-2"
             (click)="onLanguagesClicked()"
+            [matTooltip]="'general.changeLanguage' | translate"
         >
             <mat-icon> language </mat-icon>
         </button>
@@ -33,6 +35,12 @@
             mat-icon-button
             class="mx-1 mx-sm-2 my-2"
             (click)="theming.toggleLightDarkMode()"
+            [matTooltip]="
+                (theming.isDarkTheme
+                    ? 'general.switchToLight'
+                    : 'general.switchToDark'
+                ) | translate
+            "
         >
             <mat-icon>
                 {{ theming.isDarkTheme ? 'light_mode' : 'dark_mode' }}
@@ -42,6 +50,7 @@
             mat-icon-button
             class="mx-1 mx-sm-2 my-2"
             (click)="onInfoClicked()"
+            [matTooltip]="'general.showInfos' | translate"
         >
             <mat-icon> info_outline </mat-icon>
         </button>

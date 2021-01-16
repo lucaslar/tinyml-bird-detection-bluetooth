@@ -50,7 +50,7 @@ export class BluetoothService {
         this.isDeviceConnected ? this.disconnect() : this.connect();
     }
 
-    get currentIcon(): string {
+    get currentBluetoothState(): string {
         if (this.isSupported) {
             if (this.isConnecting) {
                 return 'bluetooth_searching';
