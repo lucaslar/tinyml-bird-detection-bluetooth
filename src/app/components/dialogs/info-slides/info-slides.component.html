@@ -10,42 +10,68 @@
         (activeIndexChange)="onIndexChanged($event.activeIndex)"
         [index]="activeIndex"
         [autoHeight]="true"
+        [@heightTransition]="isLanguagesDisplayed ? 'closed' : 'open'"
     >
         <ng-template swiperSlide *ngFor="let slide of slides">
             {{ slide.content }}
         </ng-template>
     </swiper>
+    <div [@heightTransition]="isLanguagesDisplayed ? 'open' : 'closed'">
+        <app-language-selection
+            (languageSelected)="onLanguageSelected($event)"
+        ></app-language-selection>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions class="d-flex">
     <div
-        class="d-flex flex-grow-0 justify-content-between slides-paginator"
+        class="d-flex flex-grow-0 justify-content-between slides-paginator my-1"
         [style.width.px]="(slides.length * 2 - 1) * 8"
     >
         <a
             *ngFor="let _ of slides; let i = index"
             (click)="onPaginationClicked(i)"
-            [class.active]="i === activeIndex"
-            [class.clickable]="!isOnboarding || i <= highestClickedIndex"
+            [class.active]="!isLanguagesDisplayed && i === activeIndex"
+            [class.clickable]="
+                !isLanguagesDisplayed &&
+                (!isOnboarding || i <= highestClickedIndex)
+            "
             [matTooltip]="
-                !isOnboarding || i <= highestClickedIndex
+                !isLanguagesDisplayed &&
+                (!isOnboarding || i <= highestClickedIndex)
                     ? (slides[i].title | translate)
                     : undefined
             "
         ></a>
     </div>
+    <span class="mr-1 mr-sm-2"><!-- Spacing --></span>
+    <button
+        *ngIf="isOnboarding"
+        mat-icon-button
+        class="languages-button"
+        (click)="isLanguagesDisplayed = !isLanguagesDisplayed"
+    >
+        <mat-icon> language </mat-icon>
+    </button>
     <button
         mat-button
         color="primary"
         class="ml-auto"
         *ngIf="activeIndex < slides.length - 1; else closeButton"
         (click)="activeIndex = activeIndex + 1"
+        [disabled]="isLanguagesDisplayed"
     >
         {{ 'dialog.next' | translate }}
     </button>
 </mat-dialog-actions>
 
 <ng-template #closeButton>
-    <button mat-button mat-dialog-close class="ml-auto" color="primary">
+    <button
+        mat-button
+        mat-dialog-close
+        class="ml-auto"
+        color="primary"
+        [disabled]="isLanguagesDisplayed"
+    >
         {{ 'dialog.close' | translate }}
     </button>
 </ng-template>
