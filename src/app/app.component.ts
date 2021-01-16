@@ -14,6 +14,12 @@ import { StorageService } from './services/storage.service';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+    /**
+     * @param theming Injected theming service.
+     * @param i18n Injected internationalization service.
+     * @param dialog Injected dialog service.
+     * @param storage Injected storage service.
+     */
     constructor(
         readonly theming: ThemingService,
         private readonly i18n: I18nService,
@@ -21,6 +27,10 @@ export class AppComponent implements OnInit {
         private readonly storage: StorageService
     ) {}
 
+    /**
+     * Initializes the application's internationalization and opens an onboarding dialog in case of no stored onboarding boolean.
+     * If this dialog is closed, the boolean is stored locally.
+     */
     ngOnInit(): void {
         this.i18n.initialize();
         if (!this.storage.isOnboarded) {
