@@ -1,5 +1,6 @@
-import { faMicrochip } from '@fortawesome/free-solid-svg-icons';
+import { faKiwiBird, faMicrochip } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { faBluetooth } from '@fortawesome/free-brands-svg-icons';
 
 /**
  * List of all slides to be displayed.
@@ -10,11 +11,11 @@ const slides: Slide[] = [
         content: [
             {
                 type: 'icon',
-                icon: faMicrochip,
+                icon: faKiwiBird,
             },
             {
                 type: 'text',
-                text: ['placeholder.a'],
+                text: ['placeholder.b'],
             },
         ],
         isOnboarding: true,
@@ -22,20 +23,60 @@ const slides: Slide[] = [
     {
         title: 'placeholder.b',
         content: [
-            { type: 'text', text: ['placeholder.c', 'placeholder.d'] },
             {
                 type: 'img',
                 src:
-                    'https://images.pexels.com/photos/4409307/pexels-photo-4409307.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',
+                    'https://images.pexels.com/photos/3067503/pexels-photo-3067503.jpeg?cs=srgb&dl=pexels-felipe-cespedes-3067503.jpg&fm=jpg',
                 alt: 'placeholder.a',
             },
             {
                 type: 'nested',
                 nested: [
-                    { type: 'icon', icon: faMicrochip },
+                    { type: 'text', text: ['placeholder.d', 'placeholder.c'] },
+                    { type: 'text', text: ['placeholder.c', 'placeholder.c'] },
+                ],
+            },
+            {
+                type: 'nested',
+                nested: [
+                    {
+                        type: 'img',
+                        src:
+                            'https://images.pexels.com/photos/4588052/pexels-photo-4588052.jpeg?cs=srgb&dl=pexels-anna-shvets-4588052.jpg&fm=jpg',
+                        alt: 'placeholder.a',
+                    },
+                    {
+                        type: 'img',
+                        src:
+                            'https://images.pexels.com/photos/3726314/pexels-photo-3726314.jpeg?cs=srgb&dl=pexels-julissa-helmuth-3726314.jpg&fm=jpg',
+                        alt: 'placeholder.a',
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'placeholder.a',
+        content: [
+            { type: 'text', text: ['placeholder.c', 'placeholder.d'] },
+            {
+                type: 'img',
+                src:
+                    'https://images.pexels.com/photos/4588047/pexels-photo-4588047.jpeg?cs=srgb&dl=pexels-anna-shvets-4588047.jpg&fm=jpg',
+                alt: 'placeholder.a',
+            },
+            {
+                type: 'nested',
+                nested: [
+                    {
+                        type: 'img',
+                        src:
+                            'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?cs=srgb&dl=pexels-chevanon-photography-1108099.jpg&fm=jpg',
+                        alt: 'placeholder.b',
+                    },
                     {
                         type: 'text',
-                        text: ['placeholder.c'],
+                        text: ['placeholder.a', 'placeholder.c'],
                     },
                 ],
             },
@@ -43,11 +84,20 @@ const slides: Slide[] = [
                 type: 'nested',
                 nested: [
                     { type: 'icon', icon: faMicrochip },
-                    { type: 'icon', icon: faMicrochip },
-                    { type: 'icon', icon: faMicrochip },
+                    {
+                        type: 'text',
+                        text: ['placeholder.d'],
+                    },
                 ],
             },
-            { type: 'icon', icon: faMicrochip },
+            {
+                type: 'nested',
+                nested: [
+                    { type: 'icon', icon: faMicrochip },
+                    { type: 'icon', icon: faKiwiBird },
+                    { type: 'icon', icon: faBluetooth },
+                ],
+            },
         ],
     },
 ];
@@ -72,8 +122,8 @@ export class Slide {
     readonly isOnboarding?: boolean;
 
     /**
-     * Returns all slides to be displayed based on the content, i.e. including/excluding onboarding slides.
      * @param isOnboarding True if onboarding slides are to be included, false if not.
+     * @returns All slides to be displayed based on the content, i.e. including/excluding onboarding slides.
      */
     static getSlides(isOnboarding: boolean): Slide[] {
         return slides.filter((slide) => {
