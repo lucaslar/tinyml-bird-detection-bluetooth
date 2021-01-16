@@ -16,6 +16,7 @@
         [index]="activeIndex"
         [autoHeight]="true"
         [@heightTransition]="isLanguagesDisplayed ? 'closed' : 'open'"
+        (afterInit)="triggerResize(0,300)"
     >
         <ng-template swiperSlide *ngFor="let slide of slides">
             {{ slide.content }}

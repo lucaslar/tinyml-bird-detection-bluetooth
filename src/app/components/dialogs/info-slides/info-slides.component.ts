@@ -3,7 +3,6 @@ import {
     ElementRef,
     HostListener,
     Inject,
-    OnInit,
     ViewChild,
 } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -26,7 +25,7 @@ type slide = {
     templateUrl: './info-slides.component.html',
     styleUrls: ['./info-slides.component.scss'],
 })
-export class InfoSlidesComponent implements OnInit {
+export class InfoSlidesComponent {
     /**
      * Currently active index.
      */
@@ -81,10 +80,12 @@ export class InfoSlidesComponent implements OnInit {
     }
 
     /**
-     * Triggers a resize event programmatically in order to handle side bar sizing.
+     * Triggers resize event(s) programmatically in order to handle side bar sizing prevent frozen state due to slidesPerView="auto".
      */
-    ngOnInit(): void {
-        setTimeout(() => window.dispatchEvent(new Event('resize')));
+    triggerResize(...delays: number[]): void {
+        delays.forEach((delay) => {
+            setTimeout(() => dispatchEvent(new Event('resize')), delay);
+        });
     }
 
     /**
@@ -101,7 +102,7 @@ export class InfoSlidesComponent implements OnInit {
             top: 0,
             behavior: 'smooth',
         });
-        setTimeout(() => window.dispatchEvent(new Event('resize')), 300);
+        this.triggerResize(300);
     }
 
     /**
