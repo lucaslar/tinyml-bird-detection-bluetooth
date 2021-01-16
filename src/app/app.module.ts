@@ -19,6 +19,7 @@ import { SwiperModule } from 'swiper/angular';
 import { SortByValuePipe } from './pipes/sort-by-value.pipe';
 import { LanguageSelectionDialogComponent } from './components/dialogs/language-selection-dialog/language-selection-dialog.component';
 import { InfoSlideContentComponent } from './components/dialogs/info-slides/info-slide-content/info-slide-content.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -62,6 +63,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
         }),
         MaterialModule,
         SwiperModule,
+        FontAwesomeModule,
     ],
     providers: [
         {
