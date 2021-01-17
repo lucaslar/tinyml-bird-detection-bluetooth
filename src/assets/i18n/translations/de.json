@@ -23,7 +23,8 @@
             "bluetooth_disabled": "Bluetooth nicht unterstützt"
         },
         "stateExplanation": {
-            "notSupported": "Leider scheint Web Bluetooth von Deinem Browser nicht unterstützt zu werden. Bitte vergewissere Dich, dass Du einen Webbrowser verwendest, der Bluetooth unterstützt, und Web Bluetooth aktiviert ist. Wir empfehlen Google Chrome."
+            "notSupportedBrowserInfo": "Leider scheint Web Bluetooth von Deinem Browser nicht unterstützt zu werden. Bitte vergewissere Dich, dass Du einen Webbrowser verwendest, der Bluetooth unterstützt, und Web Bluetooth aktiviert ist. Wir empfehlen Google Chrome.",
+            "notSupportedDeviceInfo": "Sollte es weiterhin Probleme geben, probiere es mit einem anderen bluetoothfähigen Gerät - ggf. mit einem anderen Betriebssystem."
         },
         "snackbar": {
             "disconnected": "Von Gerät \"{{ device }}\" getrennt",
