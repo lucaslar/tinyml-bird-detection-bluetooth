@@ -19,6 +19,10 @@
         "bluetooth": "Mit Bluetooth-Gerät verbinden",
         "bluetooth_searching": "Verbindung zu Bluetooth-Gerät wird hergestellt",
         "bluetooth_connected": "Von Bluetooth-Gerät trennen",
-        "bluetooth_disabled": "Bluetooth nicht verfügbar"
+        "bluetooth_disabled": "Bluetooth nicht verfügbar",
+        "snackbar": {
+            "disconnected": "Von Gerät \"{{ device }}\" getrennt",
+            "disconnectedDefault": "Von Gerät getrennt"
+        }
     }
 }

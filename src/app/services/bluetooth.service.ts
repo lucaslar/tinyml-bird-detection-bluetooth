@@ -1,6 +1,8 @@
 /// <reference types="web-bluetooth" />
 
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 // TODO: export type/rename/change logic?
 type characteristicType = {
@@ -46,6 +48,10 @@ export class BluetoothService {
 
     private readonly gattDisconnectedFn = () => this.onDisconnected();
 
+    constructor(
+        private readonly snackbar: MatSnackBar,
+        private readonly translate: TranslateService
+    ) {}
 
     onBluetoothPressed(): void {
         this.isDeviceConnected ? this.disconnect() : this.connect();
@@ -108,13 +114,27 @@ export class BluetoothService {
     }
 
     private onDisconnected(): void {
+        const deviceName = this.device?.name;
         this.device?.removeEventListener(
             'gattserverdisconnected',
             this.gattDisconnectedFn
         );
-        // TODO: Show snackbar
         delete this.device;
         this.characteristics.forEach((c) => (c.isReady = false));
+
+        const [keyChanged, keyClose] = [
+            deviceName
+                ? 'bluetooth.snackbar.disconnected'
+                : 'bluetooth.snackbar.disconnectedDefault',
+            'general.close',
+        ];
+        this.translate
+            .get([keyChanged, keyClose], { device: deviceName })
+            .subscribe((r) => {
+                this.snackbar.open(r[keyChanged], r[keyClose], {
+                    duration: 3000,
+                });
+            });
     }
 
     private listenToAllCharacteristics(

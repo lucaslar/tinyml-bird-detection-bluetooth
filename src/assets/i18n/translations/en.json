@@ -19,7 +19,11 @@
         "bluetooth": "Connect to Bluetooth device",
         "bluetooth_searching": "Connecting to Bluetooth device",
         "bluetooth_connected": "Disconnect from Bluetooth device",
-        "bluetooth_disabled": "Bluetooth disabled"
+        "bluetooth_disabled": "Bluetooth disabled",
+        "snackbar": {
+            "disconnected": "Disconnected from device \"{{ device }}\"",
+            "disconnectedDefault": "Disconnected from device"
+        }
     },
     "placeholder": {
         "a": "This is a placeholder",
