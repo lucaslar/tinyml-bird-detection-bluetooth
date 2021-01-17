@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input } from '@angular/core';
+import { Directive, HostBinding, HostListener, Input } from '@angular/core';
 import { MatTooltip } from '@angular/material/tooltip';
 
 /**
@@ -8,6 +8,11 @@ import { MatTooltip } from '@angular/material/tooltip';
     selector: '[appNewPageLink]',
 })
 export class NewPageLinkDirective extends MatTooltip {
+    /**
+     * Limits the width of the elements using this directive to their content.
+     * @private
+     */
+    @HostBinding('style.width') private readonly width: string = 'fit-content';
 
     /**
      * Link to opened and displayed as tooltip.
