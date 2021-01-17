@@ -18,7 +18,7 @@
                 class="mx-1 mx-sm-2 my-2"
                 [disabled]="!bluetooth.isSupported || bluetooth.isConnecting"
                 (click)="bluetooth.onBluetoothPressed()"
-                [matTooltip]="'bluetooth.' + state | translate"
+                [matTooltip]="'bluetooth.stateShort.' + state | translate"
             >
                 <mat-icon> {{ state }} </mat-icon>
             </button>

@@ -40,9 +40,12 @@
     </ng-container>
 </div>
 
-<ng-template #bluetoothNotSupported> Bluetooth is not supported </ng-template>
+<ng-template #bluetoothNotSupported>
+    <app-bluetooth-not-supported></app-bluetooth-not-supported>
+</ng-template>
 
 <ng-template #pleaseConnect>
+    <!-- TODO: implement -->
     <p>Please connect a Bluetooth device</p>
     {{ bluetooth.state }}
 </ng-template>

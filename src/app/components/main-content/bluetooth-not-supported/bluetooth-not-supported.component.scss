@@ -1,0 +1,12 @@
+@import 'variables';
+
+.bluetooth-disabled {
+    max-width: 800px;
+    color: $middle-color-grey;
+
+    mat-icon {
+        height: 64px;
+        width: 64px;
+        font-size: 64px;
+    }
+}

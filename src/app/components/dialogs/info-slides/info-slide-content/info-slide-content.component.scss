@@ -23,11 +23,6 @@
             color: $middle-color-grey;
         }
 
-        a {
-            color: mat-color($app-primary);
-            cursor: pointer;
-        }
-
         @media (min-width: 576px) {
             margin: 0 -8px;
             fa-icon {

@@ -16,13 +16,21 @@
         "languageChanged": "Language changed"
     },
     "bluetooth": {
-        "bluetooth": "Connect to Bluetooth device",
-        "bluetooth_searching": "Connecting to Bluetooth device",
-        "bluetooth_connected": "Disconnect from Bluetooth device",
-        "bluetooth_disabled": "Bluetooth disabled",
+        "stateShort": {
+            "bluetooth": "Connect to Bluetooth device",
+            "bluetooth_searching": "Connecting to Bluetooth device",
+            "bluetooth_connected": "Disconnect from Bluetooth device",
+            "bluetooth_disabled": "Bluetooth not supported"
+        },
+        "stateExplanation": {
+            "notSupported": "Unfortunately, Web Bluetooth does not seem to be supported by your browser. Please make sure you are using a web browser that supports Bluetooth and Web Bluetooth is enabled. We recommend Google Chrome."
+        },
         "snackbar": {
             "disconnected": "Disconnected from device \"{{ device }}\"",
             "disconnectedDefault": "Disconnected from device"
+        },
+        "misc": {
+            "getChrome": "Get Google Chrome."
         }
     },
     "placeholder": {

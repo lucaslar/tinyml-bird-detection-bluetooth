@@ -21,6 +21,7 @@ import { LanguageSelectionDialogComponent } from './components/dialogs/language-
 import { InfoSlideContentComponent } from './components/dialogs/info-slides/info-slide-content/info-slide-content.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NewPageLinkDirective } from './directives/new-page-link.directive';
+import { BluetoothNotSupportedComponent } from './components/main-content/bluetooth-not-supported/bluetooth-not-supported.component';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -50,6 +51,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
         LanguageSelectionDialogComponent,
         InfoSlideContentComponent,
         NewPageLinkDirective,
+        BluetoothNotSupportedComponent,
     ],
     imports: [
         AppRoutingModule,

@@ -16,13 +16,21 @@
         "languageChanged": "Sprache gewechselt"
     },
     "bluetooth": {
-        "bluetooth": "Mit Bluetooth-Gerät verbinden",
-        "bluetooth_searching": "Verbindung zu Bluetooth-Gerät wird hergestellt",
-        "bluetooth_connected": "Von Bluetooth-Gerät trennen",
-        "bluetooth_disabled": "Bluetooth nicht verfügbar",
+        "stateShort": {
+            "bluetooth": "Mit Bluetooth-Gerät verbinden",
+            "bluetooth_searching": "Verbindung zu Bluetooth-Gerät wird hergestellt",
+            "bluetooth_connected": "Von Bluetooth-Gerät trennen",
+            "bluetooth_disabled": "Bluetooth nicht unterstützt"
+        },
+        "stateExplanation": {
+            "notSupported": "Leider scheint Web Bluetooth von Deinem Browser nicht unterstützt zu werden. Bitte vergewissere Dich, dass Du einen Webbrowser verwendest, der Bluetooth unterstützt, und Web Bluetooth aktiviert ist. Wir empfehlen Google Chrome."
+        },
         "snackbar": {
             "disconnected": "Von Gerät \"{{ device }}\" getrennt",
             "disconnectedDefault": "Von Gerät getrennt"
+        },
+        "misc": {
+            "getChrome": "Google Chrome herunterladen."
         }
     }
 }
