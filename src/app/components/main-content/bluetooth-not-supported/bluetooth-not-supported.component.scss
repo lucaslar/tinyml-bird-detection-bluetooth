@@ -1,7 +1,11 @@
 @import 'variables';
 
 .bluetooth-disabled {
-    color: $middle-color-grey;
+    h1,
+    p,
+    mat-icon {
+        opacity: 0.6;
+    }
 
     mat-icon {
         height: 64px;
