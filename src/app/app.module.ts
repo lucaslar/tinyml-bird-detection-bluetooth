@@ -20,6 +20,7 @@ import { SortByValuePipe } from './pipes/sort-by-value.pipe';
 import { LanguageSelectionDialogComponent } from './components/dialogs/language-selection-dialog/language-selection-dialog.component';
 import { InfoSlideContentComponent } from './components/dialogs/info-slides/info-slide-content/info-slide-content.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NewPageLinkDirective } from './directives/new-page-link.directive';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -48,6 +49,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
         SortByValuePipe,
         LanguageSelectionDialogComponent,
         InfoSlideContentComponent,
+        NewPageLinkDirective,
     ],
     imports: [
         AppRoutingModule,
