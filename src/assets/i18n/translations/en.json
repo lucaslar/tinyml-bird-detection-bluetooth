@@ -10,8 +10,8 @@
     "general": {
         "close": "Close",
         "changeLanguage": "Change language",
-        "switchToLight": "Switch to light mode",
-        "switchToDark": "Switch to dark mode",
+        "switchToEarlyBird": "Switch to early bird mode",
+        "switchToNighthawk": "Switch to nighthawk mode",
         "showInfos": "Show information",
         "languageChanged": "Language changed"
     },

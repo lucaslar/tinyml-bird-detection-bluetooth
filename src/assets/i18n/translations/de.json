@@ -10,8 +10,8 @@
     "general": {
         "close": "Schließen",
         "changeLanguage": "Sprache wechseln",
-        "switchToLight": "Zu hellem Modus wechseln",
-        "switchToDark": "Zu dunklem Modus wechseln",
+        "switchToEarlyBird": "Zu Lerchenmodus wechseln",
+        "switchToNighthawk": "Zu Nachteulenmodus wechseln",
         "showInfos": "Informationen anzeigen",
         "languageChanged": "Sprache gewechselt"
     },
