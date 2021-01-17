@@ -44,7 +44,8 @@ export class BluetoothService {
 
     private device: BluetoothDevice;
 
-    private readonly gattDisconnectedFn = () => this.onDisconnected;
+    private readonly gattDisconnectedFn = () => this.onDisconnected();
+
 
     onBluetoothPressed(): void {
         this.isDeviceConnected ? this.disconnect() : this.connect();
