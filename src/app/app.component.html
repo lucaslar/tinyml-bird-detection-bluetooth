@@ -1,12 +1,14 @@
-<div
-    [class.dark-theme]="theming.isDarkTheme"
-    class="mat-app-background app-container"
->
+<div class="app-container h-100 d-flex flex-column">
     <header class="position-fixed w-100">
         <app-header></app-header>
     </header>
 
-    <main class="mx-auto px-2 pb-2 px-sm-3 pb-sm-3">
-        <app-main-content></app-main-content>
+    <main
+        class="mat-app-background px-2 pb-2 px-sm-3 pb-sm-3 flex-grow-1 d-flex"
+        [class.dark-theme]="theming.isDarkTheme"
+    >
+        <div class="content-wrapper mx-auto w-100">
+            <app-main-content></app-main-content>
+        </div>
     </main>
 </div>
