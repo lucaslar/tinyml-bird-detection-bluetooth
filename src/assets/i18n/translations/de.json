@@ -12,7 +12,8 @@
         "changeLanguage": "Sprache wechseln",
         "switchToLight": "Zu hellem Modus wechseln",
         "switchToDark": "Zu dunklem Modus wechseln",
-        "showInfos": "Informationen anzeigen"
+        "showInfos": "Informationen anzeigen",
+        "languageChanged": "Sprache gewechselt"
     },
     "bluetooth": {
         "bluetooth": "Mit Bluetooth-Gerät verbinden",

@@ -12,7 +12,8 @@
         "changeLanguage": "Change language",
         "switchToLight": "Switch to light mode",
         "switchToDark": "Switch to dark mode",
-        "showInfos": "Show information"
+        "showInfos": "Show information",
+        "languageChanged": "Language changed"
     },
     "bluetooth": {
         "bluetooth": "Connect to Bluetooth device",

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Language } from '../model/internal/language';
 import { StorageService } from './storage.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 /**
  * Service for localizing the application and managing languages and language selections.
@@ -32,10 +33,12 @@ export class I18nService {
      *
      * @param translate Injected translation service (ngx-translate).
      * @param storage Injected storage service.
+     * @param snackbar Injected Material snackbar service.
      */
     constructor(
         private readonly translate: TranslateService,
-        private readonly storage: StorageService
+        private readonly storage: StorageService,
+        private readonly snackbar: MatSnackBar
     ) {
         this.translate.setDefaultLang(this.supportedLanguages[0].id);
     }
@@ -52,16 +55,33 @@ export class I18nService {
             storedId ??
             this.supportedUserLanguageId ??
             this.translate.defaultLang;
-        this.useLanguage(this.supportedLanguages.find((l) => l.id === id));
+
+        const language = this.supportedLanguages.find((l) => l.id === id);
+        this.useLanguage(language, false);
     }
 
     /**
      * @param language Language to be used and stored.
+     * @param showSnackbar If true, a snackbar is shown after changing the language.
      */
-    useLanguage(language: Language): void {
-        this.currentLanguage = language;
-        this.translate.use(this.currentLanguage.id);
-        this.storage.language = this.currentLanguage.id;
+    useLanguage(language: Language, showSnackbar = true): void {
+        if (this.currentLanguage !== language) {
+            this.currentLanguage = language;
+            this.translate.use(this.currentLanguage.id);
+            this.storage.language = this.currentLanguage.id;
+
+            if (showSnackbar) {
+                const [keyChanged, keyClose] = [
+                    'general.languageChanged',
+                    'general.close',
+                ];
+                this.translate.get([keyChanged, keyClose]).subscribe((r) => {
+                    this.snackbar.open(r[keyChanged], r[keyClose], {
+                        duration: 3000,
+                    });
+                });
+            }
+        }
     }
 
     /**

@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 /**
  * Module to be used for exporting Material components.
@@ -16,6 +17,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         MatButtonModule,
         MatDialogModule,
         MatIconModule,
+        MatSnackBarModule,
         MatToolbarModule,
         MatTooltipModule,
     ],
