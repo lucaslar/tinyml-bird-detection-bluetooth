@@ -22,6 +22,8 @@ import { InfoSlideContentComponent } from './components/dialogs/info-slides/info
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NewPageLinkDirective } from './directives/new-page-link.directive';
 import { BluetoothNotSupportedComponent } from './components/main-content/bluetooth-not-supported/bluetooth-not-supported.component';
+import { BluetoothContentComponent } from './components/main-content/bluetooth-content/bluetooth-content.component';
+import { BluetoothConnectComponent } from './components/main-content/bluetooth-connect/bluetooth-connect.component';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -52,6 +54,8 @@ const HttpLoaderFactory = (http: HttpClient) => {
         InfoSlideContentComponent,
         NewPageLinkDirective,
         BluetoothNotSupportedComponent,
+        BluetoothContentComponent,
+        BluetoothConnectComponent,
     ],
     imports: [
         AppRoutingModule,

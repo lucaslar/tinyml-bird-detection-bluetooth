@@ -1,23 +1,17 @@
-<div class="h-100 d-flex">
-    <div class="m-auto d-flex flex-column bluetooth-disabled">
-        <mat-icon class="mx-auto mb-2"> bluetooth_disabled </mat-icon>
-        <h1 class="mx-auto mb-0">
-            {{ 'bluetooth.stateShort.bluetooth_disabled' | translate }}
-        </h1>
-        <mat-divider class="position-relative my-3"></mat-divider>
-        <p>
-            {{
-                'bluetooth.stateExplanation.notSupportedBrowserInfo' | translate
-            }}
-        </p>
-        <p>
-            {{
-                'bluetooth.stateExplanation.notSupportedDeviceInfo' | translate
-            }}
-        </p>
+<div class="m-auto d-flex flex-column bluetooth-not-supported">
+    <mat-icon class="mx-auto mb-2"> bluetooth_disabled </mat-icon>
+    <h1 class="mx-auto mb-0">
+        {{ 'bluetooth.stateShort.bluetooth_disabled' | translate }}
+    </h1>
+    <mat-divider class="position-relative my-3"></mat-divider>
+    <p>
+        {{ 'bluetooth.stateExplanation.notSupportedBrowserInfo' | translate }}
+    </p>
+    <p>
+        {{ 'bluetooth.stateExplanation.notSupportedDeviceInfo' | translate }}
+    </p>
 
-        <a class="mx-auto" appNewPageLink="https://www.google.com/chrome/">
-            {{ 'bluetooth.misc.getChrome' | translate }}
-        </a>
-    </div>
+    <a class="mx-auto" appNewPageLink="https://www.google.com/chrome/">
+        {{ 'bluetooth.misc.getChrome' | translate }}
+    </a>
 </div>

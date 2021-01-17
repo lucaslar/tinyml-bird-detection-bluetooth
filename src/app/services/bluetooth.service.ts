@@ -76,7 +76,7 @@ export class BluetoothService {
     }
 
     get deviceName(): string {
-        return this.device.name;
+        return this.device?.name;
     }
 
     private connect(): void {
