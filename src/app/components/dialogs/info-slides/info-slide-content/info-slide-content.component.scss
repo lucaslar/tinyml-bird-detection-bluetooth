@@ -1,5 +1,7 @@
+@import 'variables';
+
 .slide-content {
-    margin-bottom: -12px;
+    margin-bottom: -16px;
     width: fit-content;
 
     .content-row {
@@ -19,6 +21,11 @@
         fa-icon {
             font-size: 48px;
             color: darkgrey;
+        }
+
+        a {
+            color: mat-color($app-primary);
+            cursor: pointer;
         }
 
         @media (min-width: 576px) {

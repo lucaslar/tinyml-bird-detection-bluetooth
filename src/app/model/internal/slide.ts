@@ -1,6 +1,6 @@
 import { faKiwiBird, faMicrochip } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faBluetooth } from '@fortawesome/free-brands-svg-icons';
+import { faBluetooth, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 /**
  * List of all slides to be displayed.
@@ -19,6 +19,21 @@ const slides: Slide[] = [
             },
         ],
         isOnboarding: true,
+    },
+    {
+        title: 'placeholder.a',
+        content: [
+            {
+                type: 'icon',
+                icon: faGithub,
+            },
+            {
+                type: 'link',
+                text: 'placeholder.b',
+                linkRef:
+                    'https://github.com/lucaslar/tinyml-bird-detection-bluetooth',
+            },
+        ],
     },
     {
         title: 'placeholder.b',
@@ -114,7 +129,7 @@ export class Slide {
     /**
      * List of slide content.
      */
-    readonly content: (Text | Image | Icon | Nested)[];
+    readonly content: (Text | Image | Icon | Link | Nested)[];
 
     /**
      * True if the slide is only to be shown in onboarding context, false if not.
@@ -182,6 +197,23 @@ class Icon {
     readonly icon: IconProp;
 }
 
+class Link {
+    /**
+     * Content id.
+     */
+    readonly type = 'link';
+
+    /**
+     * Path to be opened in a new window.
+     */
+    readonly linkRef: string;
+
+    /**
+     * Text to be displayed
+     */
+    readonly text: string;
+}
+
 /**
  * Nested content to be shown as one row.
  */
@@ -194,5 +226,5 @@ class Nested {
     /**
      * Array of content to be shown in one row.
      */
-    readonly nested: (Text | Image | Icon)[];
+    readonly nested: (Text | Image | Icon | Link)[];
 }

@@ -25,6 +25,11 @@
             [ngTemplateOutletContext]="{ img: content, isNested: isNested }"
         ></ng-container>
         <ng-container
+            *ngSwitchCase="'link'"
+            [ngTemplateOutlet]="linkContainer"
+            [ngTemplateOutletContext]="{ link: content }"
+        ></ng-container>
+        <ng-container
             *ngSwitchCase="'nested'"
             [ngTemplateOutlet]="nestedContainer"
             [ngTemplateOutletContext]="{ nested: content }"
@@ -35,7 +40,7 @@
 
 <ng-template #textContainer let-text="text">
     <div class="col px-1 px-sm-2 d-flex flex-column m-auto">
-        <p *ngFor="let key of text.text">
+        <p *ngFor="let key of text.text" class="mb-3">
             {{ key | translate }}
         </p>
     </div>
@@ -43,7 +48,7 @@
 
 <ng-template #iconContainer let-icon="icon">
     <div class="col-auto px-1 px-sm-2 mb-3 mx-auto d-flex">
-        <div class=" m-auto">
+        <div class="m-auto">
             <fa-icon [icon]="icon.icon"></fa-icon>
         </div>
     </div>
@@ -56,6 +61,16 @@
     >
         <div class="m-auto">
             <img [src]="img.src" [alt]="img.alt | translate" />
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #linkContainer let-link="link">
+    <div class="col px-1 px-sm-2 mb-3 mx-auto d-flex">
+        <div class="m-auto">
+            <a (click)="onLinkClicked(link)" [matTooltip]="link.linkRef">
+                {{ link.text | translate }}
+            </a>
         </div>
     </div>
 </ng-template>
