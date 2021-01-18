@@ -1,11 +1,22 @@
-<div class="d-flex flex-column">
-    <p>Device "{{ bluetooth.deviceName }}" is connected!</p>
-    <div class="mt-3 mx-auto font-weight-bold">
-        Values are ...
-        <div *ngFor="let c of bluetooth.characteristics | sortByValue">
-            {{ c.translationKey }}: {{ c.value }}
+<div class="d-flex">
+    <div class="mx-auto">
+        <div class="results-container d-flex flex-column flex-sm-row">
+            <div class="d-flex">
+                <fa-icon [icon]="birdIcon" class="m-auto"></fa-icon>
+            </div>
+            <div class="h-100 my-auto d-table">
+                <div
+                    *ngFor="let c of bluetooth.characteristics | sortByValue"
+                    class="d-table-row"
+                >
+                    <div class="d-table-cell pr-1">
+                        {{ c.translationKey | translate }}:
+                    </div>
+                    <div class="d-table-cell text-right">{{ c.value }}%</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- TODO: Implement -->
+<!-- TODO: Change icon? Add further information? -->
