@@ -31,7 +31,9 @@
             "disconnectedDefault": "Disconnected from device"
         },
         "misc": {
-            "getChrome": "Get Google Chrome."
+            "getChrome": "Get Google Chrome.",
+            "dontHaveSketchYet": "You do not have the TinyML sketch for microcontrollers yet? No problem:",
+            "getItHere": "Get it here."
         }
     },
     "placeholder": {

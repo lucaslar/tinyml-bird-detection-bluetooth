@@ -1,4 +1,24 @@
-<p>Please connect a Bluetooth device</p>
-{{ bluetooth.state }}
+<div class="d-flex flex-column text-center">
+    <button
+        mat-icon-button
+        class="mx-auto"
+        id="prominent-bluetooth-button"
+        [disabled]="bluetooth.isConnecting || bluetooth.isDeviceConnected"
+        (click)="bluetooth.onBluetoothPressed()"
+    >
+        <mat-icon [inline]="true">
+            {{ bluetooth.currentBluetoothState }}
+        </mat-icon>
+    </button>
+    <div class="mt-3">
+        {{ bluetooth.state | translate }}
+    </div>
+    <mat-divider class="position-relative my-3"></mat-divider>
 
-<!-- TODO: Implement -->
+    <p>{{ 'bluetooth.misc.dontHaveSketchYet' | translate }}</p>
+    <a appNewPageLink="." class="mx-auto">
+        {{ 'bluetooth.misc.getItHere' | translate }}
+        <!-- TODO: add link to Sketch -->
+        (to be implemented)
+    </a>
+</div>

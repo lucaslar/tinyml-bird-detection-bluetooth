@@ -1,0 +1,16 @@
+@import 'variables';
+
+#prominent-bluetooth-button {
+    height: 96px;
+    width: 96px;
+    transition: 0.3s;
+
+    mat-icon {
+        font-size: 80px;
+    }
+
+    &:not(:disabled) {
+        background-color: mat-color($app-primary) !important;
+        color: mat-color($app-primary, default-contrast) !important;
+    }
+}
