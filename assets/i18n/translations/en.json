@@ -23,14 +23,17 @@
             "bluetooth_disabled": "Bluetooth not supported"
         },
         "stateExplanation": {
-            "notSupported": "Unfortunately, Web Bluetooth does not seem to be supported by your browser. Please make sure you are using a web browser that supports Bluetooth and Web Bluetooth is enabled. We recommend Google Chrome."
+            "notSupportedBrowserInfo": "Unfortunately, Web Bluetooth does not seem to be supported by your browser. Please make sure you are using a web browser that supports Bluetooth and Web Bluetooth is enabled. We recommend Google Chrome.",
+            "notSupportedDeviceInfo": "If you are still having problems, consider using another Bluetooth-capable device - if necessary, with another operating system."
         },
         "snackbar": {
             "disconnected": "Disconnected from device \"{{ device }}\"",
             "disconnectedDefault": "Disconnected from device"
         },
         "misc": {
-            "getChrome": "Get Google Chrome."
+            "getChrome": "Get Google Chrome.",
+            "dontHaveSketchYet": "You do not have the TinyML sketch for microcontrollers yet? No problem:",
+            "getItHere": "Get it here."
         }
     },
     "placeholder": {
