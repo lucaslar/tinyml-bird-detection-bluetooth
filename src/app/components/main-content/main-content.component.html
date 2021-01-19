@@ -1,4 +1,4 @@
-<div class="h-100">
+<div class="d-flex h-100 flex-column">
     <!-- TODO: Remove -->
     <div class="d-flex flex-column py-5 text-center" [style.fontSize.px]="24">
         <mat-icon
@@ -21,13 +21,6 @@
                 will be updated.
             </p>
 
-            <p>
-                Also, this text is the reason this page is always scrollable.
-                That means that once this section is removed, the page will not
-                be unnecessarily scrollable any longer and, if scrolling is
-                needed, the application background won't consist of two colors.
-            </p>
-
             <p class="mb-0">
                 This message is only available in English and will not be
                 localized.
@@ -35,25 +28,23 @@
         </div>
     </div>
 
-    <div class="d-flex h-100 flex-column">
-        <div class="m-auto">
-            <ng-container *ngIf="bluetooth.isSupported; else notSupported">
-                <div
-                    [@heightTransition]="
-                        bluetooth.isDeviceConnected ? 'closed' : 'open'
-                    "
-                >
-                    <app-bluetooth-connect></app-bluetooth-connect>
-                </div>
-                <div
-                    [@heightTransition]="
-                        bluetooth.isDeviceConnected ? 'open' : 'closed'
-                    "
-                >
-                    <app-bluetooth-content></app-bluetooth-content>
-                </div>
-            </ng-container>
-        </div>
+    <div class="m-auto">
+        <ng-container *ngIf="bluetooth.isSupported; else notSupported">
+            <div
+                [@heightTransition]="
+                    bluetooth.isDeviceConnected ? 'closed' : 'open'
+                "
+            >
+                <app-bluetooth-connect></app-bluetooth-connect>
+            </div>
+            <div
+                [@heightTransition]="
+                    bluetooth.isDeviceConnected ? 'open' : 'closed'
+                "
+            >
+                <app-bluetooth-content></app-bluetooth-content>
+            </div>
+        </ng-container>
     </div>
 </div>
 
