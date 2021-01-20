@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { BirdCharacteristic } from '../model/bird-characteristic';
+import { ConnectionState } from '../model/connection-state.enum';
 
 @Injectable({
     providedIn: 'root',
@@ -11,7 +12,8 @@ import { BirdCharacteristic } from '../model/bird-characteristic';
 export class BluetoothService {
     // TODO: Add doc.
 
-    state: string;
+    connectionState: ConnectionState = ConnectionState.Ready;
+
     isConnecting: boolean;
     readonly isSupported = !!navigator.bluetooth;
     readonly service = 'e50bf554-fdd9-4d9e-b350-86493ab13280';
@@ -54,7 +56,7 @@ export class BluetoothService {
     }
 
     private connect(): void {
-        // TODO Add states
+        this.connectionState = ConnectionState.Searching;
         navigator.bluetooth
             .requestDevice({ filters: [{ services: [this.service] }] })
             .then((device) => this.onDeviceFound(device))
@@ -75,6 +77,7 @@ export class BluetoothService {
     }
 
     private onDeviceFound(device: BluetoothDevice): any {
+        this.connectionState = ConnectionState.ConnectingGatt;
         const connection = device.gatt.connect();
         this.isConnecting = true;
         connection.then(() => {
@@ -88,6 +91,7 @@ export class BluetoothService {
     }
 
     private onDisconnected(): void {
+        this.connectionState = ConnectionState.Ready;
         const deviceName = this.device?.name;
         this.device?.removeEventListener(
             'gattserverdisconnected',
@@ -114,6 +118,7 @@ export class BluetoothService {
     private listenToAllCharacteristics(
         characteristics: BluetoothRemoteGATTCharacteristic[]
     ): void {
+        this.connectionState = ConnectionState.ConnectingCharacteristics;
         let queue = Promise.resolve();
         characteristics.forEach((characteristic) => {
             if (
@@ -152,11 +157,11 @@ export class BluetoothService {
         ) {
             this.setErrorState('BLUETOOTH_API_DISABLED');
         } else if (
-            !(
-                error instanceof DOMException &&
-                error?.message === 'User cancelled the requestDevice() chooser.'
-            )
+            error instanceof DOMException &&
+            error?.message === 'User cancelled the requestDevice() chooser.'
         ) {
+            this.connectionState = ConnectionState.Ready;
+        } else {
             this.setErrorState('OTHER_ERROR');
             throw error;
         }
@@ -164,6 +169,7 @@ export class BluetoothService {
 
     private setErrorState(error: string): void {
         this.isConnecting = false;
-        this.state = `ERROR.${error}`;
+        // TODO: Handle errors
+        // this.state = `ERROR.${error}`;
     }
 }

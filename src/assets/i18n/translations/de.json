@@ -16,6 +16,12 @@
         "languageChanged": "Sprache gewechselt"
     },
     "bluetooth": {
+        "connectionState": {
+            "ready": "Zum Verbinden drücken",
+            "searching": "Suche nach Geräten...",
+            "connectingGatt": "Verbinden mit GATT-Server...",
+            "accessingCharacteristics": "Abrufen von Characteristics..."
+        },
         "stateShort": {
             "bluetooth": "Mit Bluetooth-Gerät verbinden",
             "bluetooth_searching": "Verbindung zu Bluetooth-Gerät wird hergestellt",
