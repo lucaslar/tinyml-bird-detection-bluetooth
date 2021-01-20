@@ -3,14 +3,7 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
-
-// TODO: export type/rename/change logic?
-type characteristicType = {
-    uuid: string;
-    translationKey: string;
-    value: number;
-    isReady: boolean;
-};
+import { BirdCharacteristic } from '../model/bird-characteristic';
 
 @Injectable({
     providedIn: 'root',
@@ -23,26 +16,7 @@ export class BluetoothService {
     readonly isSupported = !!navigator.bluetooth;
     readonly service = 'e50bf554-fdd9-4d9e-b350-86493ab13280';
 
-    readonly characteristics: characteristicType[] = [
-        {
-            uuid: 'afea4db0-1ef6-4653-bb67-aa14b4d804bb',
-            translationKey: 'great_tit',
-            value: undefined,
-            isReady: false,
-        },
-        {
-            uuid: 'a950cb51-4b4e-45ed-9c5b-44dc101e57ed',
-            translationKey: 'merl',
-            value: undefined,
-            isReady: false,
-        },
-        {
-            uuid: '841760cc-c842-4d1b-994d-972fcae34e88',
-            translationKey: 'sparrow',
-            value: undefined,
-            isReady: false,
-        },
-    ];
+    readonly birdCharacteristics = BirdCharacteristic.characteristics;
 
     private device: BluetoothDevice;
 
@@ -120,7 +94,7 @@ export class BluetoothService {
             this.gattDisconnectedFn
         );
         delete this.device;
-        this.characteristics.forEach((c) => (c.isReady = false));
+        this.birdCharacteristics.forEach((bc) => (bc.isReady = false));
 
         const [keyChanged, keyClose] = [
             deviceName
@@ -143,7 +117,9 @@ export class BluetoothService {
         let queue = Promise.resolve();
         characteristics.forEach((characteristic) => {
             if (
-                this.characteristics.some((c) => c.uuid === characteristic.uuid)
+                this.birdCharacteristics.some(
+                    (bc) => bc.uuid === characteristic.uuid
+                )
             ) {
                 queue = queue.then(() => {
                     return characteristic.startNotifications().then((c) => {
@@ -158,7 +134,7 @@ export class BluetoothService {
         characteristic: BluetoothRemoteGATTCharacteristic,
         uuid: string
     ): void {
-        const mapped = this.characteristics.find((c) => c.uuid === uuid);
+        const mapped = this.birdCharacteristics.find((bc) => bc.uuid === uuid);
         mapped.isReady = true;
         characteristic.addEventListener(
             'characteristicvaluechanged',
@@ -166,7 +142,7 @@ export class BluetoothService {
                 mapped.value = (event.target as any).value.getUint8(0);
             }
         );
-        this.isConnecting = this.characteristics.some((c) => !c.isReady);
+        this.isConnecting = this.birdCharacteristics.some((bc) => !bc.isReady);
     }
 
     private handleError(error: Error): void {
