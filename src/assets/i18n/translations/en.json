@@ -22,6 +22,11 @@
             "connectingGatt": "Connecting to GATT server...",
             "accessingCharacteristics": "Accessing characteristics..."
         },
+        "errorState": {
+            "apiDisabled": "Bluetooth currently disabled in browser",
+            "other": "An error occurred",
+            "tryAgain": "Press to reconnect"
+        },
         "stateShort": {
             "bluetooth": "Connect to Bluetooth device",
             "bluetooth_searching": "Connecting to Bluetooth device",

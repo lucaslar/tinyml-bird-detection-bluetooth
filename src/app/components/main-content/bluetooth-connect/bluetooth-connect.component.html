@@ -11,7 +11,15 @@
         </mat-icon>
     </button>
     <div class="mt-3">
-        {{ bluetooth.connectionState | translate }}
+        <div *ngIf="bluetooth.errorState; else state" class="color-warn">
+            {{ bluetooth.errorState | translate }}
+        </div>
+        <div
+            class="color-warn"
+            [@heightTransition]="bluetooth.errorState ? 'open' : 'closed'"
+        >
+            {{ 'bluetooth.errorState.tryAgain' | translate }}
+        </div>
     </div>
     <mat-divider class="position-relative my-3"></mat-divider>
 
@@ -22,3 +30,7 @@
         (to be implemented)
     </a>
 </div>
+
+<ng-template #state>
+    {{ bluetooth.connectionState | translate }}
+</ng-template>

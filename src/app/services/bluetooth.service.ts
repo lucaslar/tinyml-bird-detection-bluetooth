@@ -1,10 +1,11 @@
 /// <reference types="web-bluetooth" />
 
-import { Injectable } from '@angular/core';
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { BirdCharacteristic } from '../model/bird-characteristic';
 import { ConnectionState } from '../model/connection-state.enum';
+import { ErrorState } from '../model/error-state.enum';
 
 @Injectable({
     providedIn: 'root',
@@ -13,6 +14,7 @@ export class BluetoothService {
     // TODO: Add doc.
 
     connectionState: ConnectionState = ConnectionState.Ready;
+    errorState: ErrorState;
 
     isConnecting: boolean;
     readonly isSupported = !!navigator.bluetooth;
@@ -56,6 +58,7 @@ export class BluetoothService {
     }
 
     private connect(): void {
+        delete this.errorState;
         this.connectionState = ConnectionState.Searching;
         navigator.bluetooth
             .requestDevice({ filters: [{ services: [this.service] }] })
@@ -80,18 +83,23 @@ export class BluetoothService {
         this.connectionState = ConnectionState.ConnectingGatt;
         const connection = device.gatt.connect();
         this.isConnecting = true;
-        connection.then(() => {
-            this.device = device;
-            this.device.addEventListener(
-                'gattserverdisconnected',
-                this.gattDisconnectedFn
-            );
-        });
+        connection
+            .then(() => {
+                this.device = device;
+                this.device.addEventListener(
+                    'gattserverdisconnected',
+                    this.gattDisconnectedFn
+                );
+            })
+            .catch((error: Error) => this.handleError(error));
         return connection;
     }
 
     private onDisconnected(): void {
         this.connectionState = ConnectionState.Ready;
+        delete this.errorState;
+        this.isConnecting = false;
+
         const deviceName = this.device?.name;
         this.device?.removeEventListener(
             'gattserverdisconnected',
@@ -126,11 +134,16 @@ export class BluetoothService {
                     (bc) => bc.uuid === characteristic.uuid
                 )
             ) {
-                queue = queue.then(() => {
-                    return characteristic.startNotifications().then((c) => {
-                        this.listenToSpecificCharacteristic(c, c.uuid);
-                    });
-                });
+                queue = queue
+                    .then(() => {
+                        return characteristic
+                            .startNotifications()
+                            .then((c) => {
+                                this.listenToSpecificCharacteristic(c, c.uuid);
+                            })
+                            .catch((error: Error) => this.handleError(error));
+                    })
+                    .catch((error: Error) => this.handleError(error));
             }
         });
     }
@@ -155,21 +168,20 @@ export class BluetoothService {
             error instanceof DOMException &&
             error?.message === 'Web Bluetooth API globally disabled.'
         ) {
-            this.setErrorState('BLUETOOTH_API_DISABLED');
+            this.setErrorState(ErrorState.API_DISABLED);
         } else if (
             error instanceof DOMException &&
             error?.message === 'User cancelled the requestDevice() chooser.'
         ) {
             this.connectionState = ConnectionState.Ready;
         } else {
-            this.setErrorState('OTHER_ERROR');
+            this.setErrorState(ErrorState.OTHER);
             throw error;
         }
     }
 
-    private setErrorState(error: string): void {
+    private setErrorState(error: ErrorState): void {
         this.isConnecting = false;
-        // TODO: Handle errors
-        // this.state = `ERROR.${error}`;
+        this.errorState = error;
     }
 }

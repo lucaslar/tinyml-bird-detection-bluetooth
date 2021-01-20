@@ -10,6 +10,10 @@ body {
     font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
+.color-warn {
+    color: mat-color($app-warn) !important;
+}
+
 .background-warn {
     background-color: mat-color($app-warn) !important;
     color: mat-color($app-warn, default-contrast) !important;
