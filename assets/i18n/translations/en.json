@@ -16,6 +16,12 @@
         "languageChanged": "Language changed"
     },
     "bluetooth": {
+        "connectionState": {
+            "ready": "Press to connect",
+            "searching": "Searching for devices...",
+            "connectingGatt": "Connecting to GATT server...",
+            "accessingCharacteristics": "Accessing characteristics..."
+        },
         "stateShort": {
             "bluetooth": "Connect to Bluetooth device",
             "bluetooth_searching": "Connecting to Bluetooth device",
