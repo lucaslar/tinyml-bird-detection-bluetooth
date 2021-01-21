@@ -8,6 +8,7 @@
         }
     },
     "general": {
+        "appTitle": "Vogelerkennung mit TinyML",
         "close": "Close",
         "changeLanguage": "Change language",
         "switchToEarlyBird": "Switch to early bird mode",

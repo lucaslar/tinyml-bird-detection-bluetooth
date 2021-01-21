@@ -8,6 +8,7 @@
         }
     },
     "general": {
+        "appTitle": "Bird detection using TinyML",
         "close": "Schließen",
         "changeLanguage": "Sprache wechseln",
         "switchToEarlyBird": "Zu Lerchenmodus wechseln",

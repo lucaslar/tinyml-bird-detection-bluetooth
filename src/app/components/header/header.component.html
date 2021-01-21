@@ -1,17 +1,36 @@
 <mat-toolbar
     [class.mat-elevation-z3]="isScrolled"
-    class="d-flex justify-content-end px-sm-3 px-2"
+    class="d-flex px-sm-3 px-2"
     color="primary"
 >
+    <img
+        src="../../../android-chrome-192x192.png"
+        height="40"
+        width="40"
+        class="flex-grow-0 mr-2 mr-sm-3"
+        alt="App Icon"
+    />
+
     <div
-        class="device-name my-auto mr-1"
+        class="flex-grow-0 mr-2 mr-sm-3 d-sm-block"
+        [class.d-none]="bluetooth.isDeviceConnected"
         appEllipsisTooltip
+    >
+        {{ 'general.appTitle' | translate }}
+    </div>
+
+    <div
+        class="flex-grow-1 device-name mr-1 text-right"
         *ngIf="bluetooth.isDeviceConnected"
+        appEllipsisTooltip
     >
         {{ bluetooth.deviceName }}
     </div>
 
-    <div class="app-header-icon-buttons d-flex">
+    <div
+        class="app-header-icon-buttons d-flex justify-content-end"
+        [ngClass]="bluetooth.isDeviceConnected ? 'flex-grow-0' : 'flex-grow-1'"
+    >
         <ng-container *ngIf="bluetooth.currentBluetoothState as state">
             <button
                 mat-icon-button
