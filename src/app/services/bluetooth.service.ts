@@ -1,11 +1,13 @@
 /// <reference types="web-bluetooth" />
 
-import { ChangeDetectorRef, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { BirdCharacteristic } from '../model/bird-characteristic';
 import { ConnectionState } from '../model/connection-state.enum';
 import { ErrorState } from '../model/error-state.enum';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDisconnectionComponent } from '../components/dialogs/confirm-disconnection/confirm-disconnection.component';
 
 @Injectable({
     providedIn: 'root',
@@ -28,7 +30,8 @@ export class BluetoothService {
 
     constructor(
         private readonly snackbar: MatSnackBar,
-        private readonly translate: TranslateService
+        private readonly translate: TranslateService,
+        private readonly dialog: MatDialog
     ) {}
 
     onBluetoothPressed(): void {
@@ -70,12 +73,15 @@ export class BluetoothService {
     }
 
     private disconnect(): void {
-        if (
-            this.isDeviceConnected &&
-            // TODO: Improve dialog
-            confirm('Are you sure you want to disconnect?')
-        ) {
-            this.device.gatt.disconnect();
+        if (this.isDeviceConnected) {
+            this.dialog
+                .open(ConfirmDisconnectionComponent, { data: this.deviceName })
+                .afterClosed()
+                .subscribe((disconnect) => {
+                    if (disconnect && this.isDeviceConnected) {
+                        this.device.gatt.disconnect();
+                    }
+                });
         }
     }
 

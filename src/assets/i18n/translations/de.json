@@ -8,6 +8,8 @@
         }
     },
     "general": {
+        "yes": "Ja",
+        "no": "Nein",
         "appTitle": "Bird detection using TinyML",
         "close": "Schließen",
         "changeLanguage": "Sprache wechseln",
@@ -43,6 +45,11 @@
         "snackbar": {
             "disconnected": "Von Gerät \"{{ device }}\" getrennt",
             "disconnectedDefault": "Von Gerät getrennt"
+        },
+        "confirmDisconnection": {
+            "title": "Trennung bestätigen",
+            "confirm": "Möchtest Du Dich wirklich die Verbindung zu \"{{ device }}\" trennen?",
+            "confirmDefault": "Möchtest Du die Verbindung zu diesem Gerät trennen?"
         },
         "misc": {
             "getChrome": "Google Chrome herunterladen.",

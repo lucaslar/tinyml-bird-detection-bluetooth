@@ -8,6 +8,8 @@
         }
     },
     "general": {
+        "yes": "Yes",
+        "no": "No",
         "appTitle": "Vogelerkennung mit TinyML",
         "close": "Close",
         "changeLanguage": "Change language",
@@ -43,6 +45,11 @@
         "snackbar": {
             "disconnected": "Disconnected from device \"{{ device }}\"",
             "disconnectedDefault": "Disconnected from device"
+        },
+        "confirmDisconnection": {
+            "title": "Confirm disconnection",
+            "confirm": "Are you sure you want to disconnect from device \"{{ device }}\"?",
+            "confirmDefault": "Are you sure you want to disconnect from device \"{{ device }}\"?"
         },
         "misc": {
             "getChrome": "Get Google Chrome.",
