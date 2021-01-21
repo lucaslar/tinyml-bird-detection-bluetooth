@@ -163,7 +163,7 @@ export class BluetoothService {
         characteristic.addEventListener(
             'characteristicvaluechanged',
             (event) => {
-                mapped.value = (event.target as any).value.getUint8(0);
+                mapped.value = (event.target as any).value.getUint8(0) / 255;
             }
         );
         this.isConnecting = this.birdCharacteristics.some((bc) => !bc.isReady);

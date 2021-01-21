@@ -6,13 +6,17 @@
             </div>
             <div class="h-100 my-auto d-table">
                 <div
-                    *ngFor="let c of bluetooth.birdCharacteristics | sortByValue"
+                    *ngFor="
+                        let c of bluetooth.birdCharacteristics | sortByValue
+                    "
                     class="d-table-row"
                 >
                     <div class="d-table-cell pr-1">
                         {{ c.translationKey | translate }}:
                     </div>
-                    <div class="d-table-cell text-right">{{ c.value }}%</div>
+                    <div class="d-table-cell text-right">
+                        {{ c.value | percent: '0.2' }}
+                    </div>
                 </div>
             </div>
         </div>
