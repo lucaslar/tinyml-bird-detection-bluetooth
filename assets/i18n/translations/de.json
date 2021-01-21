@@ -8,6 +8,7 @@
         }
     },
     "general": {
+        "appTitle": "Bird detection using TinyML",
         "close": "Schließen",
         "changeLanguage": "Sprache wechseln",
         "switchToEarlyBird": "Zu Lerchenmodus wechseln",
@@ -21,6 +22,11 @@
             "searching": "Suche nach Geräten...",
             "connectingGatt": "Verbinden mit GATT-Server...",
             "accessingCharacteristics": "Abrufen von Characteristics..."
+        },
+        "errorState": {
+            "apiDisabled": "Bluetooth derzeit im Browser deaktiviert",
+            "other": "Es ist ein Fehler aufgetreten",
+            "tryAgain": "Zum Verbinden erneut drücken"
         },
         "stateShort": {
             "bluetooth": "Mit Bluetooth-Gerät verbinden",
