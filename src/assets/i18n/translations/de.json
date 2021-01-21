@@ -10,7 +10,7 @@
     "general": {
         "yes": "Ja",
         "no": "Nein",
-        "appTitle": "Bird detection using TinyML",
+        "appTitle": "Bird classification using TinyML",
         "close": "Schließen",
         "changeLanguage": "Sprache wechseln",
         "switchToEarlyBird": "Zu Lerchenmodus wechseln",
