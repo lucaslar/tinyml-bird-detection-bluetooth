@@ -6,14 +6,15 @@ export class BirdCharacteristic {
      * List of supported characteristics for bird detection incl. uuid and translation key.
      */
     static readonly characteristics: BirdCharacteristic[] = [
-        // TODO: Display all?
         {
             translationKey: 'characteristic.silence',
             uuid: 'a58975f8-0fe3-40e5-af04-fedf80cba2a7',
+            opacity: 0.4,
         },
         {
             translationKey: 'characteristic.unknown',
             uuid: '4ae2b158-458d-48db-8c21-e3f9fc00958f',
+            opacity: 0.4,
         },
         {
             translationKey: 'characteristic.parusmajor',
@@ -42,6 +43,11 @@ export class BirdCharacteristic {
      * Key for translating the name of the characteristic.
      */
     translationKey: string;
+
+    /**
+     * Opacity the characteristic is to be displayed with.
+     */
+    opacity?: number = 1;
 
     /**
      * Last emitted value.
