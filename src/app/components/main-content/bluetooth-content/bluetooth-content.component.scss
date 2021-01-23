@@ -1,11 +1,61 @@
-.results-container {
-    margin: -16px;
+fa-icon {
+    font-size: 40px;
+}
 
-    > div {
-        padding: 16px;
+.results-container {
+    margin: -4px 0;
+}
+
+.pulsing-circle {
+    $circle-size: 320px;
+
+    margin: 0.15 * $circle-size;
+    height: 0.5 * $circle-size;
+    width: 0.5 * $circle-size;
+
+    box-shadow: 0 0 1px 1px #0000001a;
+    border-radius: 50%;
+    animation: pulse-animation 2s infinite;
+
+    img {
+        position: absolute;
+        height: 0.375 * $circle-size;
+        width: 0.375 * $circle-size;
+        left: 0.0625 * $circle-size;
+        top: 0.0625 * $circle-size;
     }
 
-    fa-icon {
-        font-size: 64px;
+    @keyframes pulse-animation {
+        0% {
+            box-shadow: 0 0 0 0 rgb(128, 128, 128, 0.7);
+        }
+        100% {
+            box-shadow: 0 0 0 0.15 * $circle-size rgba(128, 128, 128, 0);
+        }
+    }
+
+    @media (max-width: 372px) {
+        $small-circle-size: 90vw;
+
+        margin: 0.15 * $small-circle-size;
+        height: 0.5 * $small-circle-size;
+        width: 0.5 * $small-circle-size;
+
+        img {
+            height: 0.375 * $small-circle-size;
+            width: 0.375 * $small-circle-size;
+            left: 0.0625 * $small-circle-size;
+            top: 0.0625 * $small-circle-size;
+        }
+
+        @keyframes pulse-animation {
+            0% {
+                box-shadow: 0 0 0 0 rgb(128, 128, 128, 0.7);
+            }
+            100% {
+                box-shadow: 0 0 0 0.15 * $small-circle-size
+                    rgba(128, 128, 128, 0);
+            }
+        }
     }
 }

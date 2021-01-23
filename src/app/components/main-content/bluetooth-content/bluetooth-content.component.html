@@ -1,26 +1,26 @@
-<div class="d-flex">
+<div class="d-flex flex-column">
     <div class="mx-auto">
-        <div class="results-container d-flex flex-column flex-sm-row">
-            <div class="d-flex">
-                <fa-icon [icon]="birdIcon" class="m-auto"></fa-icon>
-            </div>
-            <div class="h-100 my-auto d-table">
-                <div
-                    *ngFor="
-                        let c of bluetooth.birdCharacteristics | sortByValue
-                    "
-                    class="d-table-row"
-                >
-                    <div class="d-table-cell pr-1">
-                        {{ c.translationKey | translate }}:
-                    </div>
-                    <div class="d-table-cell text-right">
-                        {{ c.value | percent: '0.2' }}
-                    </div>
+        <div class="pulsing-circle position-relative">
+            <img src="assets/images/app-microcontroller.svg" />
+        </div>
+    </div>
+
+    <div class="mx-auto mt-3 d-flex">
+        <div class="d-flex pr-3 border-right mr-3">
+            <fa-icon [icon]="birdIcon" class="m-auto"></fa-icon>
+        </div>
+        <div class="results-container d-table">
+            <div
+                *ngFor="let c of bluetooth.birdCharacteristics | sortByValue"
+                class="d-table-row"
+            >
+                <div class="text-monospace pr-2 d-table-cell py-1">
+                    {{ c.value | percent: '2.2' }}
+                </div>
+                <div class="d-table-cell py-1">
+                    {{ c.translationKey | translate }}
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-<!-- TODO: Change icon? Add further information? -->
