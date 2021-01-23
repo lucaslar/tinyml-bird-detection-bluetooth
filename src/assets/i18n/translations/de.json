@@ -58,7 +58,7 @@
         }
     },
     "characteristic": {
-        "silence": "Stille",
+        "noise": "Lärm",
         "unknown": "Unbekannt",
         "parusmajor": "Kohlmeise",
         "turdusmerula": "Amsel",

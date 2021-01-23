@@ -7,7 +7,7 @@ export class BirdCharacteristic {
      */
     static readonly characteristics: BirdCharacteristic[] = [
         {
-            translationKey: 'characteristic.silence',
+            translationKey: 'characteristic.noise',
             uuid: 'a58975f8-0fe3-40e5-af04-fedf80cba2a7',
             opacity: 0.4,
         },

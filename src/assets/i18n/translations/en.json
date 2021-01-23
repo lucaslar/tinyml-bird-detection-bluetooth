@@ -58,7 +58,7 @@
         }
     },
     "characteristic": {
-        "silence": "Silence",
+        "noise": "Noise",
         "unknown": "Unknown",
         "parusmajor": "Great tit",
         "turdusmerula": "Common blackbird",
