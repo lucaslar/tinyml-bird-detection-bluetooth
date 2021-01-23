@@ -57,6 +57,14 @@
             "getItHere": "Get it here."
         }
     },
+    "characteristic": {
+        "silence": "Silence",
+        "unknown": "Unknown",
+        "parusmajor": "Great tit",
+        "turdusmerula": "Common blackbird",
+        "passerdomesticus": "House sparrow",
+        "phylloscopuscollybita": "Chiffchaff"
+    },
     "placeholder": {
         "a": "This is a placeholder",
         "b": "This is another placeholder",
