@@ -10,7 +10,7 @@
     "general": {
         "yes": "Yes",
         "no": "No",
-        "appTitle": "Vogelerkennung mit TinyML",
+        "appTitle": "Vogelklassifizierung mit TinyML",
         "close": "Close",
         "changeLanguage": "Change language",
         "switchToEarlyBird": "Switch to early bird mode",
@@ -56,6 +56,14 @@
             "dontHaveSketchYet": "You do not have the TinyML sketch for microcontrollers yet? No problem:",
             "getItHere": "Get it here."
         }
+    },
+    "characteristic": {
+        "silence": "Silence",
+        "unknown": "Unknown",
+        "parusmajor": "Great tit",
+        "turdusmerula": "Common blackbird",
+        "passerdomesticus": "House sparrow",
+        "phylloscopuscollybita": "Chiffchaff"
     },
     "placeholder": {
         "a": "This is a placeholder",

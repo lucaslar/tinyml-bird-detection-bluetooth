@@ -10,7 +10,7 @@
     "general": {
         "yes": "Ja",
         "no": "Nein",
-        "appTitle": "Bird detection using TinyML",
+        "appTitle": "Bird classification using TinyML",
         "close": "Schließen",
         "changeLanguage": "Sprache wechseln",
         "switchToEarlyBird": "Zu Lerchenmodus wechseln",
@@ -56,5 +56,13 @@
             "dontHaveSketchYet": "Du hast den TinyML-Sketch für Microcontroller noch nicht? Kein Problem:",
             "getItHere": "Hier herunterladen."
         }
+    },
+    "characteristic": {
+        "silence": "Stille",
+        "unknown": "Unbekannt",
+        "parusmajor": "Kohlmeise",
+        "turdusmerula": "Amsel",
+        "passerdomesticus": "Hausspatz",
+        "phylloscopuscollybita": "Weidenlaubsänger"
     }
 }
