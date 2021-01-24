@@ -16,7 +16,8 @@
         "switchToEarlyBird": "Zu Lerchenmodus wechseln",
         "switchToNighthawk": "Zu Nachteulenmodus wechseln",
         "showInfos": "Informationen anzeigen",
-        "languageChanged": "Sprache gewechselt"
+        "languageChanged": "Sprache gewechselt",
+        "copied": "Erfolgerich kopiert"
     },
     "bluetooth": {
         "connectionState": {

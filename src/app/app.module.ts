@@ -25,6 +25,7 @@ import { BluetoothNotSupportedComponent } from './components/main-content/blueto
 import { BluetoothContentComponent } from './components/main-content/bluetooth-content/bluetooth-content.component';
 import { BluetoothConnectComponent } from './components/main-content/bluetooth-connect/bluetooth-connect.component';
 import { ConfirmDisconnectionComponent } from './components/dialogs/confirm-disconnection/confirm-disconnection.component';
+import { CopyToClipboardDirective } from './directives/copy-to-clipboard.directive';
 
 /**
  * Function to be used as factory for loading internationalization files.
@@ -58,6 +59,7 @@ const HttpLoaderFactory = (http: HttpClient) => {
         BluetoothContentComponent,
         BluetoothConnectComponent,
         ConfirmDisconnectionComponent,
+        CopyToClipboardDirective,
     ],
     imports: [
         AppRoutingModule,

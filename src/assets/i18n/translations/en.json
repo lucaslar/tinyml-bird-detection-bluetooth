@@ -16,7 +16,8 @@
         "switchToEarlyBird": "Switch to early bird mode",
         "switchToNighthawk": "Switch to nighthawk mode",
         "showInfos": "Show information",
-        "languageChanged": "Language changed"
+        "languageChanged": "Language changed",
+        "copied": "Successfully copied"
     },
     "bluetooth": {
         "connectionState": {
