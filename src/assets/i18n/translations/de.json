@@ -55,7 +55,8 @@
         "misc": {
             "getChrome": "Google Chrome herunterladen.",
             "dontHaveSketchYet": "Du hast den TinyML-Sketch für Microcontroller noch nicht? Kein Problem:",
-            "getItHere": "Hier herunterladen."
+            "getItHere": "Hier herunterladen.",
+            "orCloneDirectly": "Oder klone es direkt"
         }
     },
     "characteristic": {

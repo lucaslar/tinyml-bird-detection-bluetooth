@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BluetoothService } from '../../../services/bluetooth.service';
 import { heightTransition } from '../../../consts/animations';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 /**
  * Component containing a prominent Bluetooth button for connection and some further information.
@@ -12,6 +13,17 @@ import { heightTransition } from '../../../consts/animations';
     styleUrls: ['./bluetooth-connect.component.scss'],
 })
 export class BluetoothConnectComponent {
+    /**
+     * Github icon.
+     */
+    readonly githubIcon = faGithub;
+
+    /**
+     * Command for cloning the microcontroller sketch.
+     */
+    readonly cloneCommand =
+        'git clone https://github.com/maxkueh/tinyml_bird_classification.git';
+
     /**
      * @param bluetooth injected Bluetooth service.
      */

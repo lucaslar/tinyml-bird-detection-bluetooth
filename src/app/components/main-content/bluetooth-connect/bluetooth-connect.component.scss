@@ -18,3 +18,39 @@
 .get-sketch {
     opacity: 0.6;
 }
+
+#clone-box {
+    background-color: #242424;
+    max-width: 100%;
+    border-radius: 8px;
+
+    &,
+    pre {
+        color: white;
+    }
+
+    fa-icon {
+        font-size: 48px;
+    }
+
+    .command-container {
+        height: 56px;
+
+        .copy-command,
+        .command-wrapper {
+            border: 2px solid white;
+        }
+
+        .copy-command {
+            background-color: white;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        .command-wrapper {
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            overflow: auto;
+            max-width: 100%;
+        }
+    }
+}
