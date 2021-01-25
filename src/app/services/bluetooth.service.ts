@@ -135,17 +135,19 @@ export class BluetoothService {
         this.connectionState = ConnectionState.ConnectingCharacteristics;
         let queue = Promise.resolve();
         characteristics.forEach((characteristic) => {
-            if (
-                this.birdCharacteristics.some(
-                    (bc) => bc.uuid === characteristic.uuid
-                )
-            ) {
+            const birdCharacteristic = this.birdCharacteristics.find(
+                (bc) => bc.uuid === characteristic.uuid
+            );
+            if (birdCharacteristic) {
                 queue = queue
                     .then(() => {
                         return characteristic
                             .startNotifications()
                             .then((c) => {
-                                this.listenToSpecificCharacteristic(c, c.uuid);
+                                this.listenToSpecificCharacteristic(
+                                    c,
+                                    birdCharacteristic
+                                );
                             })
                             .catch((error: Error) => this.handleError(error));
                     })
@@ -156,15 +158,14 @@ export class BluetoothService {
 
     private listenToSpecificCharacteristic(
         characteristic: BluetoothRemoteGATTCharacteristic,
-        uuid: string
+        birdCharacteristic: BirdCharacteristic
     ): void {
-        const mapped = this.birdCharacteristics.find((bc) => bc.uuid === uuid);
-        mapped.isReady = true;
+        birdCharacteristic.isReady = true;
         characteristic.addEventListener(
             'characteristicvaluechanged',
-            (event) => {
-                mapped.value = (event.target as any).value.getUint8(0) / 255;
-            }
+            (event) =>
+                (birdCharacteristic.value =
+                    (event.target as any).value.getUint8(0) / 255)
         );
         this.isConnecting = this.birdCharacteristics.some((bc) => !bc.isReady);
     }
