@@ -25,6 +25,12 @@ export class BluetoothConnectComponent {
         'git clone https://github.com/maxkueh/tinyml_bird_classification.git';
 
     /**
+     * Path to the zip file of the microcontroller sketch.
+     */
+    readonly zipPath =
+        'https://github.com/maxkueh/tinyml_bird_classification/archive/main.zip';
+
+    /**
      * @param bluetooth injected Bluetooth service.
      */
     constructor(readonly bluetooth: BluetoothService) {}

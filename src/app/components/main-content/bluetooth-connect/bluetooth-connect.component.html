@@ -26,12 +26,14 @@
     <p class="get-sketch">
         {{ 'bluetooth.misc.dontHaveSketchYet' | translate }}
     </p>
-    <a
-        href="https://github.com/maxkueh/tinyml_bird_classification/archive/main.zip"
-        class="mx-auto"
-    >
-        {{ 'bluetooth.misc.getItHere' | translate }}
-    </a>
+
+    <form [action]="zipPath">
+        <button type="submit" class="mx-auto" mat-stroked-button>
+            <mat-icon>download</mat-icon>
+            {{ 'bluetooth.misc.getItHere' | translate }}
+        </button>
+    </form>
+
     <div id="clone-box" class="p-3 mt-3 text-left mx-auto d-flex flex-column">
         <fa-icon [icon]="githubIcon" class="mx-auto"></fa-icon>
         <div class="d-flex py-2">
@@ -43,7 +45,9 @@
         <div class="command-container d-flex">
             <div class="d-flex command-wrapper">
                 <div class="my-auto">
-                    <pre class="text-center m-0 h-100 px-2">{{ cloneCommand }}</pre>
+                    <pre class="text-center m-0 h-100 px-2">{{
+                        cloneCommand
+                    }}</pre>
                 </div>
             </div>
             <div class="copy-command d-flex">
