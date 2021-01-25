@@ -10,7 +10,7 @@
     "general": {
         "yes": "Yes",
         "no": "No",
-        "appTitle": "Vogelklassifizierung mit TinyML",
+        "appTitle": "Bird classification using TinyML",
         "close": "Close",
         "changeLanguage": "Change language",
         "switchToEarlyBird": "Switch to early bird mode",
