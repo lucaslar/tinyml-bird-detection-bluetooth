@@ -1,33 +1,4 @@
 <div class="d-flex h-100 flex-column">
-    <!-- TODO: Remove -->
-    <div class="d-flex flex-column py-5 text-center" [style.fontSize.px]="24">
-        <mat-icon
-            [inline]="true"
-            color="accent"
-            [style.fontSize.px]="100"
-            class="mx-auto"
-        >
-            architecture
-        </mat-icon>
-        <div class="pt-5 w-100">Under construction...</div>
-        <div
-            [style.fontSize.px]="16"
-            class="pt-4 pb-5 border-bottom w-100 text-left"
-        >
-            <p>
-                This page is currently under construction and will be officially
-                published on <b>Monday, January 25th, 2021</b>. Any missing
-                logic will be implemented until this day and placeholder texts
-                will be updated.
-            </p>
-
-            <p class="mb-0">
-                This message is only available in English and will not be
-                localized.
-            </p>
-        </div>
-    </div>
-
     <div class="m-auto content-container">
         <ng-container *ngIf="bluetooth.isSupported; else notSupported">
             <div
