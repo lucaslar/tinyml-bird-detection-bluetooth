@@ -16,7 +16,8 @@
         "switchToEarlyBird": "Zu Lerchenmodus wechseln",
         "switchToNighthawk": "Zu Nachteulenmodus wechseln",
         "showInfos": "Informationen anzeigen",
-        "languageChanged": "Sprache gewechselt"
+        "languageChanged": "Sprache gewechselt",
+        "copied": "Erfolgerich kopiert"
     },
     "bluetooth": {
         "connectionState": {
@@ -54,7 +55,8 @@
         "misc": {
             "getChrome": "Google Chrome herunterladen.",
             "dontHaveSketchYet": "Du hast den TinyML-Sketch für Microcontroller noch nicht? Kein Problem:",
-            "getItHere": "Hier herunterladen."
+            "getItHere": "Hier herunterladen.",
+            "orCloneDirectly": "Oder klone es direkt"
         }
     },
     "characteristic": {
@@ -63,6 +65,6 @@
         "parusmajor": "Kohlmeise",
         "turdusmerula": "Amsel",
         "passerdomesticus": "Hausspatz",
-        "phylloscopuscollybita": "Weidenlaubsänger"
+        "phylloscopuscollybita": "Zilpzalp"
     }
 }
