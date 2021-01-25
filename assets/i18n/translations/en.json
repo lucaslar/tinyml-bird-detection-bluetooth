@@ -10,7 +10,7 @@
     "general": {
         "yes": "Yes",
         "no": "No",
-        "appTitle": "Vogelklassifizierung mit TinyML",
+        "appTitle": "Bird classification using TinyML",
         "close": "Close",
         "changeLanguage": "Change language",
         "switchToEarlyBird": "Switch to early bird mode",
@@ -55,7 +55,7 @@
         "misc": {
             "getChrome": "Get Google Chrome.",
             "dontHaveSketchYet": "You do not have the TinyML sketch for microcontrollers yet? No problem:",
-            "getItHere": "Get it here.",
+            "getItHere": "Get it here",
             "orCloneDirectly": "Or clone it directly"
         }
     },
