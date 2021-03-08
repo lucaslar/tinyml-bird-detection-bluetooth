@@ -12,7 +12,7 @@ const slides: Slide[] = [
         content: [
             {
                 type: 'img',
-                src: '/assets/images/app-icon-cropped.png',
+                src: './assets/images/app-icon-cropped.png',
                 alt: 'infoSlide.hello.appIconAlt',
                 maxWidth: 250,
             },
