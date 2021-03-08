@@ -59,7 +59,7 @@
         class="px-1 px-sm-2 mb-3 d-flex"
         [ngClass]="isNested ? 'col' : 'col-auto'"
     >
-        <div class="m-auto">
+        <div class="m-auto" [style.maxWidth.px]="img.maxWidth">
             <img [src]="img.src" [alt]="img.alt | translate" />
         </div>
     </div>

@@ -180,6 +180,11 @@ class Image {
      * Alt text to be displayed.
      */
     readonly alt: string;
+
+    /**
+     * Max width of the image.
+     */
+    readonly maxWidth?: number;
 }
 
 /**
