@@ -232,4 +232,9 @@ class Nested {
      * Array of content to be shown in one row.
      */
     readonly nested: (Text | Image | Icon | Link)[];
+
+    /**
+     * True if the content is to displayed in a full width row, false if the content is to be fitted in centered.
+     */
+    readonly fullWidthRow?: boolean;
 }

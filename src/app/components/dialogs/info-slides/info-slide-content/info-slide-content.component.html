@@ -1,5 +1,9 @@
 <div class="slide-content d-flex flex-column mx-auto">
-    <div *ngFor="let content of slide.content" class="row content-row mx-auto">
+    <div
+        *ngFor="let content of slide.content"
+        class="row content-row mx-auto"
+        [class.w-100]="content.fullWidthRow"
+    >
         <ng-container
             [ngTemplateOutlet]="switchContainer"
             [ngTemplateOutletContext]="{ content: content }"
