@@ -73,7 +73,7 @@
             "appIconAlt": "Application icon",
             "content": {
                 "welcome": "Welcome to our application for classifying birds using tinyML and Web Bluetooth!",
-                "guide": "It seems as if you opened this page for the first time. Don't worry: The following slides will guide you through the application, both by describing how to use it and explaining the project's scope. Just slide through or use the navigation tools in the bottom.",
+                "guide": "It seems as if you opened this page for the first time. Don't worry: The following slides will guide you through the application, both by describing how to use it and explaining the project's scope. Just slide through or use the navigation tools in the bottom (or use your arrow keys if you have a physical keyboard).",
                 "reopenable": "All slides (except for this one) can always be reopened in case of questions."
             }
         },
