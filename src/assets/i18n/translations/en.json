@@ -67,10 +67,40 @@
         "passerdomesticus": "House sparrow",
         "phylloscopuscollybita": "Chiffchaff"
     },
-    "placeholder": {
-        "a": "This is a placeholder",
-        "b": "This is another placeholder",
-        "c": "Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text. Some text.",
-        "d": "Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. Some more text. "
+    "infoSlide": {
+        "hello": {
+            "title": "Hello!",
+            "appIconAlt": "Application icon",
+            "content": {
+                "welcome": "Welcome to our application for classifying birds using tinyML and Web Bluetooth!",
+                "guide": "It seems as if you opened this page for the first time. Don't worry: The following slides will guide you through the application, both by describing how to use it and explaining the project's scope. Just slide through or use the navigation tools in the bottom.",
+                "reopenable": "All slides (except for this one) can always be reopened in case of questions."
+            }
+        },
+        "aboutProject": {
+            "title": "About this project"
+        },
+        "bluetoothConnection": {
+            "title": "Connecting via Bluetooth"
+        },
+        "ui": {
+            "title": "User Interface"
+        },
+        "compatibility": {
+            "title": "Compatibility"
+        },
+        "scope": {
+            "title": "Project scope",
+            "content": {
+                "p1": "This project has been realized within the scope of an university project as part of the course \"knowledge management\" (Wissensmanagement) during the 2020/2021 winter semester at HTW Berlin, University of Applied Sciences.",
+                "p2": "With the aim of getting in touch with tiny machine learning by working with it, small groups of students where to implement their own ideas, i.e. tinyML applications, which contribute to Smart Cities."
+            }
+        },
+        "repo": {
+            "title": "Repositories",
+            "info": "Interested in the code? Check out our repositories on GitHub!",
+            "tinyMl": "tinyML Sketch",
+            "application": "Angular Application"
+        }
     }
 }

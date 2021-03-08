@@ -1,120 +1,206 @@
-import { faKiwiBird, faMicrochip } from '@fortawesome/free-solid-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faBluetooth, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 /**
  * List of all slides to be displayed.
  */
 const slides: Slide[] = [
+    // TODO: Add content
+    // TODO: Add translations
     {
-        title: 'placeholder.a',
+        title: 'infoSlide.hello.title',
         content: [
             {
-                type: 'icon',
-                icon: faKiwiBird,
+                type: 'img',
+                src: '/assets/images/app-icon-cropped.png',
+                alt: 'infoSlide.hello.appIconAlt',
+                maxWidth: 250,
             },
             {
                 type: 'text',
-                text: ['placeholder.b'],
+                text: [
+                    'infoSlide.hello.content.welcome',
+                    'infoSlide.hello.content.guide',
+                    'infoSlide.hello.content.reopenable',
+                ],
             },
         ],
         isOnboarding: true,
     },
     {
-        title: 'placeholder.a',
+        title: 'infoSlide.aboutProject.title',
+        content: [{ type: 'text', text: ['Content will be added soon.'] }],
+    },
+    {
+        title: 'infoSlide.bluetoothConnection.title',
+        content: [{ type: 'text', text: ['Content will be added soon.'] }],
+    },
+    {
+        title: 'infoSlide.ui.title',
+        content: [{ type: 'text', text: ['Content will be added soon.'] }],
+    },
+    {
+        title: 'infoSlide.compatibility.title',
+        content: [{ type: 'text', text: ['Content will be added soon.'] }],
+    },
+    {
+        title: 'infoSlide.scope.title',
+        content: [
+            {
+                type: 'img',
+                src:
+                    'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/HTW_Berlin_logo.svg/1024px-HTW_Berlin_logo.svg.png',
+                alt: '',
+                maxWidth: 400,
+            },
+            {
+                type: 'text',
+                text: [
+                    'infoSlide.scope.content.p1',
+                    'infoSlide.scope.content.p2',
+                ],
+            },
+        ],
+    },
+    {
+        title: 'infoSlide.repo.title',
         content: [
             {
                 type: 'icon',
                 icon: faGithub,
             },
-            {
-                type: 'link',
-                text: 'placeholder.b',
-                linkRef:
-                    'https://github.com/lucaslar/tinyml-bird-detection-bluetooth',
-            },
-        ],
-    },
-    {
-        title: 'placeholder.b',
-        content: [
-            {
-                type: 'img',
-                src:
-                    'https://images.pexels.com/photos/3067503/pexels-photo-3067503.jpeg?cs=srgb&dl=pexels-felipe-cespedes-3067503.jpg&fm=jpg',
-                alt: 'placeholder.a',
-            },
+            { type: 'text', text: ['infoSlide.repo.info'] },
             {
                 type: 'nested',
-                nested: [
-                    { type: 'text', text: ['placeholder.d', 'placeholder.c'] },
-                    { type: 'text', text: ['placeholder.c', 'placeholder.c'] },
-                ],
-            },
-            {
-                type: 'nested',
+                fullWidthRow: true,
                 nested: [
                     {
-                        type: 'img',
-                        src:
-                            'https://images.pexels.com/photos/4588052/pexels-photo-4588052.jpeg?cs=srgb&dl=pexels-anna-shvets-4588052.jpg&fm=jpg',
-                        alt: 'placeholder.a',
+                        type: 'link',
+                        text: 'infoSlide.repo.tinyMl',
+                        linkRef:
+                            'https://github.com/maxkueh/tinyml_bird_classification/',
                     },
                     {
-                        type: 'img',
-                        src:
-                            'https://images.pexels.com/photos/3726314/pexels-photo-3726314.jpeg?cs=srgb&dl=pexels-julissa-helmuth-3726314.jpg&fm=jpg',
-                        alt: 'placeholder.a',
+                        type: 'link',
+                        text: 'infoSlide.repo.application',
+                        linkRef:
+                            'https://github.com/lucaslar/tinyml-bird-detection-bluetooth/',
                     },
                 ],
             },
         ],
     },
-    {
-        title: 'placeholder.a',
-        content: [
-            { type: 'text', text: ['placeholder.c', 'placeholder.d'] },
-            {
-                type: 'img',
-                src:
-                    'https://images.pexels.com/photos/4588047/pexels-photo-4588047.jpeg?cs=srgb&dl=pexels-anna-shvets-4588047.jpg&fm=jpg',
-                alt: 'placeholder.a',
-            },
-            {
-                type: 'nested',
-                nested: [
-                    {
-                        type: 'img',
-                        src:
-                            'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?cs=srgb&dl=pexels-chevanon-photography-1108099.jpg&fm=jpg',
-                        alt: 'placeholder.b',
-                    },
-                    {
-                        type: 'text',
-                        text: ['placeholder.a', 'placeholder.c'],
-                    },
-                ],
-            },
-            {
-                type: 'nested',
-                nested: [
-                    { type: 'icon', icon: faMicrochip },
-                    {
-                        type: 'text',
-                        text: ['placeholder.d'],
-                    },
-                ],
-            },
-            {
-                type: 'nested',
-                nested: [
-                    { type: 'icon', icon: faMicrochip },
-                    { type: 'icon', icon: faKiwiBird },
-                    { type: 'icon', icon: faBluetooth },
-                ],
-            },
-        ],
-    },
+
+    // TODO remove:
+    // {
+    //     title: 'placeholder.a',
+    //     content: [
+    //         {
+    //             type: 'icon',
+    //             icon: faKiwiBird,
+    //         },
+    //         {
+    //             type: 'text',
+    //             text: ['placeholder.b'],
+    //         },
+    //     ],
+    //     isOnboarding: true,
+    // },
+    // {
+    //     title: 'placeholder.a',
+    //     content: [
+    //         {
+    //             type: 'icon',
+    //             icon: faGithub,
+    //         },
+    //         {
+    //             type: 'link',
+    //             text: 'placeholder.b',
+    //             linkRef:
+    //                 'https://github.com/lucaslar/tinyml-bird-detection-bluetooth',
+    //         },
+    //     ],
+    // },
+    // {
+    //     title: 'placeholder.b',
+    //     content: [
+    //         {
+    //             type: 'img',
+    //             src:
+    //                 'https://images.pexels.com/photos/3067503/pexels-photo-3067503.jpeg?cs=srgb&dl=pexels-felipe-cespedes-3067503.jpg&fm=jpg',
+    //             alt: 'placeholder.a',
+    //         },
+    //         {
+    //             type: 'nested',
+    //             nested: [
+    //                 { type: 'text', text: ['placeholder.d', 'placeholder.c'] },
+    //                 { type: 'text', text: ['placeholder.c', 'placeholder.c'] },
+    //             ],
+    //         },
+    //         {
+    //             type: 'nested',
+    //             nested: [
+    //                 {
+    //                     type: 'img',
+    //                     src:
+    //                         'https://images.pexels.com/photos/4588052/pexels-photo-4588052.jpeg?cs=srgb&dl=pexels-anna-shvets-4588052.jpg&fm=jpg',
+    //                     alt: 'placeholder.a',
+    //                 },
+    //                 {
+    //                     type: 'img',
+    //                     src:
+    //                         'https://images.pexels.com/photos/3726314/pexels-photo-3726314.jpeg?cs=srgb&dl=pexels-julissa-helmuth-3726314.jpg&fm=jpg',
+    //                     alt: 'placeholder.a',
+    //                 },
+    //             ],
+    //         },
+    //     ],
+    // },
+    // {
+    //     title: 'placeholder.a',
+    //     content: [
+    //         { type: 'text', text: ['placeholder.c', 'placeholder.d'] },
+    //         {
+    //             type: 'img',
+    //             src:
+    //                 'https://images.pexels.com/photos/4588047/pexels-photo-4588047.jpeg?cs=srgb&dl=pexels-anna-shvets-4588047.jpg&fm=jpg',
+    //             alt: 'placeholder.a',
+    //         },
+    //         {
+    //             type: 'nested',
+    //             nested: [
+    //                 {
+    //                     type: 'img',
+    //                     src:
+    //                         'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?cs=srgb&dl=pexels-chevanon-photography-1108099.jpg&fm=jpg',
+    //                     alt: 'placeholder.b',
+    //                 },
+    //                 {
+    //                     type: 'text',
+    //                     text: ['placeholder.a', 'placeholder.c'],
+    //                 },
+    //             ],
+    //         },
+    //         {
+    //             type: 'nested',
+    //             nested: [
+    //                 { type: 'icon', icon: faMicrochip },
+    //                 {
+    //                     type: 'text',
+    //                     text: ['placeholder.d'],
+    //                 },
+    //             ],
+    //         },
+    //         {
+    //             type: 'nested',
+    //             nested: [
+    //                 { type: 'icon', icon: faMicrochip },
+    //                 { type: 'icon', icon: faKiwiBird },
+    //                 { type: 'icon', icon: faBluetooth },
+    //             ],
+    //         },
+    //     ],
+    // },
 ];
 
 /**
