@@ -72,7 +72,7 @@
             "title": "Hello!",
             "appIconAlt": "Application icon",
             "content": {
-                "welcome": "Welcome to our application for classifying birds using tinyML and Web Bluetooth!",
+                "welcome": "Welcome to our application for classifying birds using TinyML and Web Bluetooth!",
                 "guide": "It seems as if you opened this page for the first time. Don't worry: The following slides will guide you through the application, both by describing how to use it and explaining the project's scope. Just slide through or use the navigation tools in the bottom (or use your arrow keys if you have a physical keyboard).",
                 "reopenable": "All slides (except for this one) can always be reopened in case of questions."
             }
@@ -93,13 +93,13 @@
             "title": "Project scope",
             "content": {
                 "p1": "This project has been realized within the scope of an university project as part of the course \"knowledge management\" (Wissensmanagement) during the 2020/2021 winter semester at HTW Berlin, University of Applied Sciences.",
-                "p2": "With the aim of getting in touch with tiny machine learning by working with it, small groups of students where to implement their own ideas, i.e. tinyML applications, which contribute to Smart Cities."
+                "p2": "With the aim of getting in touch with tiny machine learning by working with it, small groups of students where to implement their own ideas, i.e. TinyML applications, which contribute to Smart Cities."
             }
         },
         "repo": {
             "title": "Repositories",
             "info": "Interested in the code? Check out our repositories on GitHub!",
-            "tinyMl": "tinyML Sketch",
+            "tinyMl": "TinyML Sketch",
             "application": "Angular Application"
         }
     }
