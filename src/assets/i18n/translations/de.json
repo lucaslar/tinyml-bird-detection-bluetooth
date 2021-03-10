@@ -66,5 +66,38 @@
         "turdusmerula": "Amsel",
         "passerdomesticus": "Hausspatz",
         "phylloscopuscollybita": "Zilpzalp"
+    },
+    "infoSlide": {
+        "hello": {
+            "title": "Hallo!",
+            "appIconAlt": "Icon der Anwendung",
+            "content": {
+                "welcome": "Willkommen bei unserer Anwendung zur Klassifizierung von Vögeln mittels TinyML und Web-Bluetooth!",
+                "guide": "Scheinbar hast Du diese Seite zum ersten Mal geöffnet. Keine Sorge: Die folgenden Folien führen Dich durch die Anwendung, indem sie sowohl die Bedienung beschreiben als auch den Umfang des Projekts erläutern. Wische einfach zur nächsten Folie oder nutze die Navigationswerkzeuge am unteren Rand (oder verwende die Pfeiltasten, falls Du über eine Tastatur verfügen solltest).",
+                "reopenable": "Falls später Fragen auftreten sollten, können alle Folien (bis auf diese) erneut geöffnet werden."
+            }
+        },
+        "aboutProject": {
+            "title": "Über dieses Projekt"
+        },
+        "bluetoothConnection": {
+            "title": "Verbindung via Bluetooth"
+        },
+        "ui": {
+            "title": "Nutzeroberfläche"
+        },
+        "compatibility": {
+            "title": "Kompatibilität"
+        },
+        "scope": {
+            "title": "Projektrahmen",
+            "content": {
+                "p1": "This project has been realized within the scope of an university project as part of the course \"knowledge management\" (Wissensmanagement) during the 2020/2021 winter semester at HTW Berlin, University of Applied Sciences.",
+                "p2": "With the aim of getting in touch with tiny machine learning by working with it, small groups of students where to implement their own ideas, i.e. tinyML applications, which contribute to Smart Cities."
+            }
+        },
+        "repo": {
+            "title": "Repositories"
+        }
     }
 }
