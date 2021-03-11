@@ -97,7 +97,10 @@
             }
         },
         "repo": {
-            "title": "Repositories"
+            "title": "Repositories",
+            "info": "Interessiert am Code? Sieh Dir unsere Repositories auf GitHub an!",
+            "tinyMl": "TinyML-Sketch",
+            "application": "Angular-Anwendung"
         }
     }
 }
