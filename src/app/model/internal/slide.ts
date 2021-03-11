@@ -50,7 +50,7 @@ const slides: Slide[] = [
                 type: 'img',
                 src:
                     'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/HTW_Berlin_logo.svg/1024px-HTW_Berlin_logo.svg.png',
-                alt: '',
+                alt: 'infoSlide.scope.htwLogoAlt',
                 maxWidth: 400,
             },
             {
