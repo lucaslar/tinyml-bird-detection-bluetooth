@@ -375,6 +375,11 @@ class Text {
      * Text paragraphs (translation keys) to be displayed.
      */
     readonly text: string[];
+
+    /**
+     * True if no margin is to be shown below the text, false/undefined if not.
+     */
+    readonly noMb?: boolean;
 }
 
 /**

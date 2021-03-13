@@ -93,7 +93,7 @@
                 "header": {
                     "bluetooth": "Current connection state (see icons of the previous slide), can be clicked in order to connect/disconnect.",
                     "i18n": "Our application is available in two languages: English and German. On clicking the globe icon, a dialog for witching languages is opened.",
-                    "themes": "The application is available in a light (early bird) and a dark mode (nighthawk). Depending on the current selection either a moon or a sun icon is displayed which switches the theme on clicking it.",
+                    "themes": "The application is available in a light (early bird) and a dark mode (nighthawk). Depending on the current selection, either a moon or a sun icon is displayed which switches the theme on clicking it.",
                     "info": "If you want to open this info dialog again, click the header's info icon"
                 },
                 "mainIntro": "The main content component can have four states with the following centrally aligned content",

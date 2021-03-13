@@ -63,7 +63,10 @@
         class="col px-1 px-sm-2 d-flex flex-column my-auto mr-auto"
         [class.ml-auto]="!alignLeft"
     >
-        <p *ngFor="let key of text.text" class="mb-3">
+        <p
+            *ngFor="let key of text.text"
+            [ngClass]="text.noMb ? 'mb-0' : 'mb-3'"
+        >
             {{ key | translate }}
         </p>
     </div>
