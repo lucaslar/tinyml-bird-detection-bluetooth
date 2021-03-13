@@ -87,7 +87,14 @@
             "title": "User Interface"
         },
         "compatibility": {
-            "title": "Compatibility"
+            "title": "Compatibility",
+            "content": {
+                "intro": "We implemented the client of our project as a web application in order to avoid as many problems concerning compatibility as possible. However, due to the topicality of Web Bluetooth, not every device/browser can be used in order to run the application. Our tests, as of January 2021, lead to the following results:",
+                "webBluetooth": "Web Bluetooth is still experimental and not supported by any browser yet. While, in theory, more browsers than Google Chrome are supporting Web Bluetooth, we experienced it to be the only reliable browser.",
+                "chromeOnly": "Unfortunately, Chrome does only support Web Bluetooth in Chrome OS, Android 6.0, Mac (Chrome 56) and Windows 10 (Chrome 70), however, not in Apple’s iOS. Yet, the feature is popular, thus, it improved support is to be expected.",
+                "iosBleApps": "Nevertheless, there are iOS-Apps such as WebBLE promising to support Web Bluetooth. However, we were not able to test those applications.",
+                "testedOs": "We have tested the application using macOS Catalina 10.15, Android 10 and Windows 10 – all with good results"
+            }
         },
         "scope": {
             "title": "Project scope",

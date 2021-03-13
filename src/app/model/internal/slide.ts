@@ -1,5 +1,11 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import {
+    faAndroid,
+    faApple,
+    faChrome,
+    faGithub,
+    faWindows,
+} from '@fortawesome/free-brands-svg-icons';
 
 /**
  * List of all slides to be displayed.
@@ -41,7 +47,47 @@ const slides: Slide[] = [
     },
     {
         title: 'infoSlide.compatibility.title',
-        content: [{ type: 'text', text: ['Content will be added soon.'] }],
+        content: [
+            {
+                type: 'img',
+                src: './assets/images/two-devices-frontend.png',
+                alt: '',
+                maxWidth: 600,
+            },
+            {
+                type: 'text',
+                text: ['infoSlide.compatibility.content.intro'],
+            },
+            {
+                type: 'nested',
+                fullWidthRow: true,
+                nested: [
+                    { type: 'icon', icon: faChrome },
+                    {
+                        type: 'text',
+                        text: [
+                            'infoSlide.compatibility.content.webBluetooth',
+                            'infoSlide.compatibility.content.chromeOnly',
+                        ],
+                    },
+                ],
+            },
+            {
+                type: 'nested',
+                nested: [
+                    { type: 'icon', icon: faApple },
+                    { type: 'icon', icon: faWindows },
+                    { type: 'icon', icon: faAndroid },
+                ],
+            },
+            {
+                type: 'text',
+                text: [
+                    'infoSlide.compatibility.content.iosBleApps',
+                    'infoSlide.compatibility.content.testedOs',
+                ],
+            },
+        ],
     },
     {
         title: 'infoSlide.scope.title',
