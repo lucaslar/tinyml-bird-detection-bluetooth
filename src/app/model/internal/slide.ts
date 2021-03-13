@@ -83,12 +83,11 @@ const slides: Slide[] = [
             {
                 type: 'nested',
                 nested: [
-                    { type: 'mat-icon', icon: 'light_mode' },
+                    { type: 'mat-icon', icon: 'dark_mode' },
                     {
                         type: 'text',
                         text: ['infoSlide.ui.content.header.themes'],
                     },
-                    { type: 'mat-icon', icon: 'dark_mode' },
                 ],
             },
             {
