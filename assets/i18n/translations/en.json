@@ -84,13 +84,40 @@
             "title": "Connecting via Bluetooth"
         },
         "ui": {
-            "title": "User Interface"
+            "title": "User Interface",
+            "content": {
+                "simplicity": "Due to the technicality and potential intangibility of the information displayed in this application, we aimed for simplicity and user-friendliness when designing the user interface. This way, our goal is to access as many persons as possible and, thus, to make the topic as accessible as possible.",
+                "materialSpa": "The client is implemented as a single page web application that follows the Material Design Guidelines. Also, it is fully responsive and concentrating on mobile devices.",
+                "composedOf": "It is composed of a header and a content component both described in the following.",
+                "headerIntro": "The header contains the application’s icon, title and four icon buttons:",
+                "header": {
+                    "bluetooth": "Current connection state (see icons of the previous slide), can be clicked in order to connect/disconnect.",
+                    "i18n": "Our application is available in two languages: English and German. On clicking the globe-icon, a dialog for witching languages is opened.",
+                    "themes": "The application is available in a light (early bird) and a dark mode (nighthawk). Depending on the current selection either a moon or a sun icon is displayed which switches the theme on clicking it.",
+                    "info": "If you want to open this info dialog again, click the header's info icon"
+                },
+                "mainIntro": "The main content component can have four states with the following centrally aligned content",
+                "main": {
+                    "notSupported": "Bluetooth not supported: Visible if Bluetooth is not supported by the currently used browser. This view does also contain information about how to overcome not being able to connect.",
+                    "pressToConnect": "Press to connect: Visible if Bluetooth is supported by the currently used browser and no device is connected or currently being connected. This view contains a prominent button for connecting a Bluetooth device with a call to action below. Also, for users who do not have a running microcontroller yet, it contains a button for downloading the sketch as ZIP-file and a predefined command for cloning the sketch repository in a prominent box with a button for directly copying it to the clipboard.",
+                    "connecting": "Connecting: Visible if the application is currently establishing the connection to a device. This view is similar to the previous one except for the call to action being replaced by the current connection step and the button not being clickable and showing a different Bluetooth icon indicating the connection.",
+                    "emittedValues": "Emitted values: Visible if a device is connected. This view shows a pulsating microcontroller indicating values being emitted. Below, a bird icon next to a dynamically refreshing list of emitted values is shown. The latter contains the percentage and the translation of each characteristic, sorted by value in descending order. Values that do not stand for an actual bird, i.e. noise and unknown are displayed with reduced opacity."
+                }
+            }
         },
         "compatibility": {
-            "title": "Compatibility"
+            "title": "Compatibility",
+            "content": {
+                "intro": "We implemented the client of our project as a web application in order to avoid as many problems concerning compatibility as possible. However, due to the topicality of Web Bluetooth, not every device/browser can be used in order to run the application. Our tests, as of January 2021, lead to the following results:",
+                "webBluetooth": "Web Bluetooth is still experimental and not supported by any browser yet. While, in theory, more browsers than Google Chrome are supporting Web Bluetooth, we experienced it to be the only reliable browser.",
+                "chromeOnly": "Unfortunately, Chrome does only support Web Bluetooth in Chrome OS, Android 6.0, Mac (Chrome 56) and Windows 10 (Chrome 70), however, not in Apple’s iOS. Yet, the feature is popular, thus, it improved support is to be expected.",
+                "iosBleApps": "Nevertheless, there are iOS-Apps such as WebBLE promising to support Web Bluetooth. However, we were not able to test those applications.",
+                "testedOs": "We have tested the application using macOS Catalina 10.15, Android 10 and Windows 10 – all with good results"
+            }
         },
         "scope": {
             "title": "Project scope",
+            "htwLogoAlt": "HTW Berlin, University of Applied Sciences",
             "content": {
                 "p1": "This project has been realized within the scope of an university project as part of the course \"knowledge management\" (Wissensmanagement) during the 2020/2021 winter semester at HTW Berlin, University of Applied Sciences.",
                 "p2": "With the aim of getting in touch with tiny machine learning by working with it, small groups of students where to implement their own ideas, i.e. TinyML applications, which contribute to Smart Cities."
