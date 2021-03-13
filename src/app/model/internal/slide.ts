@@ -43,7 +43,78 @@ const slides: Slide[] = [
     },
     {
         title: 'infoSlide.ui.title',
-        content: [{ type: 'text', text: ['Content will be added soon.'] }],
+        alignLeft: true,
+        content: [
+            {
+                type: 'text',
+                text: [
+                    'infoSlide.ui.content.simplicity',
+                    'infoSlide.ui.content.materialSpa',
+                ],
+            },
+            {
+                type: 'text',
+                text: [
+                    'infoSlide.ui.content.composedOf',
+                    '',
+                    'infoSlide.ui.content.headerIntro',
+                ],
+            },
+            {
+                type: 'nested',
+                nested: [
+                    { type: 'mat-icon', icon: 'bluetooth' },
+                    {
+                        type: 'text',
+                        text: ['infoSlide.ui.content.header.bluetooth'],
+                    },
+                ],
+            },
+            {
+                type: 'nested',
+                nested: [
+                    { type: 'mat-icon', icon: 'language' },
+                    {
+                        type: 'text',
+                        text: ['infoSlide.ui.content.header.i18n'],
+                    },
+                ],
+            },
+            {
+                type: 'nested',
+                nested: [
+                    { type: 'mat-icon', icon: 'light_mode' },
+                    {
+                        type: 'text',
+                        text: ['infoSlide.ui.content.header.themes'],
+                    },
+                    { type: 'mat-icon', icon: 'dark_mode' },
+                ],
+            },
+            {
+                type: 'nested',
+                nested: [
+                    { type: 'mat-icon', icon: 'info_outline' },
+                    {
+                        type: 'text',
+                        text: ['infoSlide.ui.content.header.info'],
+                    },
+                ],
+            },
+            {
+                type: 'text',
+                text: ['', 'infoSlide.ui.content.mainIntro'],
+            },
+            {
+                type: 'listed',
+                listedElements: [
+                    'infoSlide.ui.content.main.notSupported',
+                    'infoSlide.ui.content.main.pressToConnect',
+                    'infoSlide.ui.content.main.connecting',
+                    'infoSlide.ui.content.main.emittedValues',
+                ],
+            },
+        ],
     },
     {
         title: 'infoSlide.compatibility.title',
