@@ -81,7 +81,22 @@
             "title": "About this project"
         },
         "bluetoothConnection": {
-            "title": "Connecting via Bluetooth"
+            "title": "Connecting via Bluetooth",
+            "content": {
+                "webBluetooth": "The application uses Web Bluetooth which is a relatively new browser feature allowing to connect IoT-devices such as microcontrollers. Without going into technical detail, the states can be described as follows:",
+                "state": {
+                    "disabled": "Bluetooth is not supported - Also, if a connection has been established successfully, this icon is used for disconnecting in this application.",
+                    "enabled": "Bluetooth is enabled and it should be possible to successfully a connection.",
+                    "connecting": "Web Bluetooth is currently searching for devices or connecting. This process can be described as follows:",
+                    "connectingTec": {
+                        "request": "Request devices",
+                        "select": "Select device to connect to(requires user interaction)",
+                        "connect": "Connect to the device, i.e. connect to GATT server, get the service (Bird detection), get the characteristics (birds)",
+                        "listen": "Subscribe to characteristics, i.e. listen to changes and show them"
+                    },
+                    "connected": "A device is connected via Bluetooth and sending data."
+                }
+            }
         },
         "ui": {
             "title": "User Interface",
@@ -92,8 +107,8 @@
                 "headerIntro": "The header contains the application’s icon, title and four icon buttons:",
                 "header": {
                     "bluetooth": "Current connection state (see icons of the previous slide), can be clicked in order to connect/disconnect.",
-                    "i18n": "Our application is available in two languages: English and German. On clicking the globe-icon, a dialog for witching languages is opened.",
-                    "themes": "The application is available in a light (early bird) and a dark mode (nighthawk). Depending on the current selection either a moon or a sun icon is displayed which switches the theme on clicking it.",
+                    "i18n": "Our application is available in two languages: English and German. On clicking the globe icon, a dialog for witching languages is opened.",
+                    "themes": "The application is available in a light (early bird) and a dark mode (nighthawk). Depending on the current selection, either a moon or a sun icon is displayed which switches the theme on clicking it.",
                     "info": "If you want to open this info dialog again, click the header's info icon"
                 },
                 "mainIntro": "The main content component can have four states with the following centrally aligned content",
@@ -107,6 +122,7 @@
         },
         "compatibility": {
             "title": "Compatibility",
+            "imgAlt": "Two devices using the application",
             "content": {
                 "intro": "We implemented the client of our project as a web application in order to avoid as many problems concerning compatibility as possible. However, due to the topicality of Web Bluetooth, not every device/browser can be used in order to run the application. Our tests, as of January 2021, lead to the following results:",
                 "webBluetooth": "Web Bluetooth is still experimental and not supported by any browser yet. While, in theory, more browsers than Google Chrome are supporting Web Bluetooth, we experienced it to be the only reliable browser.",
@@ -120,7 +136,7 @@
             "htwLogoAlt": "HTW Berlin, University of Applied Sciences",
             "content": {
                 "p1": "This project has been realized within the scope of an university project as part of the course \"knowledge management\" (Wissensmanagement) during the 2020/2021 winter semester at HTW Berlin, University of Applied Sciences.",
-                "p2": "With the aim of getting in touch with tiny machine learning by working with it, small groups of students where to implement their own ideas, i.e. TinyML applications, which contribute to Smart Cities."
+                "p2": "With the aim of getting in touch with tiny machine learning by working with it, small groups of students were to implement their own ideas, i.e. TinyML applications, which contribute to Smart Cities."
             }
         },
         "repo": {
