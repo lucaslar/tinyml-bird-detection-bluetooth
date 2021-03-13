@@ -1,8 +1,9 @@
 <div class="slide-content d-flex flex-column mx-auto">
     <div
         *ngFor="let content of slide.content"
-        class="row content-row mx-auto"
+        class="row content-row mr-auto"
         [class.w-100]="content.fullWidthRow"
+        [class.ml-auto]="!slide.alignLeft"
     >
         <ng-container
             [ngTemplateOutlet]="switchContainer"
@@ -89,7 +90,7 @@
         <div class="m-auto">
             <ul>
                 <li *ngFor="let li of listItem.listedElements">
-                  {{ li | translate }}
+                    {{ li | translate }}
                 </li>
             </ul>
         </div>

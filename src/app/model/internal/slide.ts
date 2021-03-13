@@ -269,6 +269,11 @@ export class Slide {
     readonly isOnboarding?: boolean;
 
     /**
+     * True if the content is to be left-aligned, false/undefined if not.
+     */
+    readonly alignLeft?: boolean;
+
+    /**
      * @param isOnboarding True if onboarding slides are to be included, false if not.
      * @returns All slides to be displayed based on the content, i.e. including/excluding onboarding slides.
      */
