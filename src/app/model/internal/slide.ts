@@ -261,7 +261,15 @@ export class Slide {
     /**
      * List of slide content.
      */
-    readonly content: (Text | Image | Icon | Link | Listed | Nested)[];
+    readonly content: (
+        | Text
+        | Image
+        | Icon
+        | Link
+        | Listed
+        | MatIcon
+        | Nested
+    )[];
 
     /**
      * True if the slide is only to be shown in onboarding context, false if not.
@@ -365,7 +373,19 @@ class Listed {
     /**
      * Translation keys of the elements to be displayed.
      */
-    listedElements: string[];
+    readonly listedElements: string[];
+}
+
+class MatIcon {
+    /**
+     * Content id
+     */
+    readonly type = 'mat-icon';
+
+    /**
+     * Translation keys of the elements to be displayed.
+     */
+    readonly icon: string;
 }
 
 /**
@@ -380,7 +400,7 @@ class Nested {
     /**
      * Array of content to be shown in one row.
      */
-    readonly nested: (Text | Image | Icon | Link | Listed)[];
+    readonly nested: (Text | Image | Icon | Link | MatIcon | Listed)[];
 
     /**
      * True if the content is to displayed in a full width row, false if the content is to be fitted in centered.

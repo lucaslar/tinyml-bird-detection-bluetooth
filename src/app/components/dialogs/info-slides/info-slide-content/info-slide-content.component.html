@@ -40,6 +40,11 @@
             [ngTemplateOutletContext]="{ list: content }"
         ></ng-container>
         <ng-container
+            *ngSwitchCase="'mat-icon'"
+            [ngTemplateOutlet]="matIconContainer"
+            [ngTemplateOutletContext]="{ icon: content }"
+        ></ng-container>
+        <ng-container
             *ngSwitchCase="'nested'"
             [ngTemplateOutlet]="nestedContainer"
             [ngTemplateOutletContext]="{ nested: content }"
@@ -93,6 +98,14 @@
                     {{ li | translate }}
                 </li>
             </ul>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #matIconContainer let-icon="icon">
+    <div class="col-auto px-1 px-sm-2 mb-3 mx-auto d-flex">
+        <div class="m-auto">
+            <mat-icon>{{ icon.icon }}</mat-icon>
         </div>
     </div>
 </ng-template>
