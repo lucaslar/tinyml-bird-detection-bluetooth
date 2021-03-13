@@ -12,17 +12,22 @@
     </div>
 </div>
 
-<ng-template #switchContainer let-content="content" let-isNested="isNested">
+<ng-template
+    #switchContainer
+    let-content="content"
+    let-isNested="isNested"
+    let-alignLeft="alignLeft"
+>
     <ng-container [ngSwitch]="content.type">
         <ng-container
             *ngSwitchCase="'text'"
             [ngTemplateOutlet]="textContainer"
-            [ngTemplateOutletContext]="{ text: content }"
+            [ngTemplateOutletContext]="{ text: content, alignLeft: alignLeft }"
         ></ng-container>
         <ng-container
             *ngSwitchCase="'icon'"
             [ngTemplateOutlet]="iconContainer"
-            [ngTemplateOutletContext]="{ icon: content }"
+            [ngTemplateOutletContext]="{ icon: content, alignLeft: alignLeft }"
         ></ng-container>
         <ng-container
             *ngSwitchCase="'img'"
@@ -32,17 +37,17 @@
         <ng-container
             *ngSwitchCase="'link'"
             [ngTemplateOutlet]="linkContainer"
-            [ngTemplateOutletContext]="{ link: content }"
+            [ngTemplateOutletContext]="{ link: content, alignLeft: alignLeft }"
         ></ng-container>
         <ng-container
             *ngSwitchCase="'listed'"
             [ngTemplateOutlet]="listContainer"
-            [ngTemplateOutletContext]="{ list: content }"
+            [ngTemplateOutletContext]="{ list: content, alignLeft: alignLeft }"
         ></ng-container>
         <ng-container
             *ngSwitchCase="'mat-icon'"
             [ngTemplateOutlet]="matIconContainer"
-            [ngTemplateOutletContext]="{ icon: content }"
+            [ngTemplateOutletContext]="{ icon: content, alignLeft: alignLeft }"
         ></ng-container>
         <ng-container
             *ngSwitchCase="'nested'"
@@ -53,16 +58,22 @@
     </ng-container>
 </ng-template>
 
-<ng-template #textContainer let-text="text">
-    <div class="col px-1 px-sm-2 d-flex flex-column m-auto">
+<ng-template #textContainer let-text="text" let-alignLeft="alignLeft">
+    <div
+        class="col px-1 px-sm-2 d-flex flex-column my-auto mr-auto"
+        [class.ml-auto]="!alignLeft"
+    >
         <p *ngFor="let key of text.text" class="mb-3">
             {{ key | translate }}
         </p>
     </div>
 </ng-template>
 
-<ng-template #iconContainer let-icon="icon">
-    <div class="col-auto px-1 px-sm-2 mb-3 mx-auto d-flex">
+<ng-template #iconContainer let-icon="icon" let-alignLeft="alignLeft">
+    <div
+        class="col-auto px-1 px-sm-2 mb-3 mr-auto d-flex"
+        [class.ml-auto]="!alignLeft"
+    >
         <div class="m-auto">
             <fa-icon [icon]="icon.icon"></fa-icon>
         </div>
@@ -80,8 +91,11 @@
     </div>
 </ng-template>
 
-<ng-template #linkContainer let-link="link">
-    <div class="col px-1 px-sm-2 mb-3 mx-auto d-flex">
+<ng-template #linkContainer let-link="link" let-alignLeft="alignLeft">
+    <div
+        class="col px-1 px-sm-2 mb-3 mr-auto d-flex"
+        [class.ml-auto]="!alignLeft"
+    >
         <div class="m-auto">
             <a [appNewPageLink]="link.linkRef">
                 {{ link.text | translate }}
@@ -90,9 +104,9 @@
     </div>
 </ng-template>
 
-<ng-template #listContainer let-listItem="list">
+<ng-template #listContainer let-listItem="list" let-alignLeft="alignLeft">
     <div class="col px-1 px-sm-2 mb-3 mx-auto d-flex">
-        <div class="m-auto">
+        <div class="my-auto mr-auto" [class.ml-auto]="!alignLeft">
             <ul>
                 <li *ngFor="let li of listItem.listedElements">
                     {{ li | translate }}
@@ -102,8 +116,11 @@
     </div>
 </ng-template>
 
-<ng-template #matIconContainer let-icon="icon">
-    <div class="col-auto px-1 px-sm-2 mb-3 mx-auto d-flex">
+<ng-template #matIconContainer let-icon="icon" let-alignLeft="alignLeft">
+    <div
+        class="col-auto px-1 px-sm-2 mb-3 mr-auto d-flex"
+        [class.ml-auto]="!alignLeft"
+    >
         <div class="m-auto">
             <mat-icon color="primary">{{ icon.icon }}</mat-icon>
         </div>
@@ -111,9 +128,19 @@
 </ng-template>
 
 <ng-template #nestedContainer let-nested="nested">
-    <ng-container
-        *ngFor="let content of nested.nested"
-        [ngTemplateOutlet]="switchContainer"
-        [ngTemplateOutletContext]="{ content: content, isNested: true }"
-    ></ng-container>
+    <div
+        class="d-flex my-auto mr-auto"
+        [class.flex-column]="nested.isColumn"
+        [class.ml-auto]="!nested.alignLeft"
+    >
+        <ng-container
+            *ngFor="let content of nested.nested"
+            [ngTemplateOutlet]="switchContainer"
+            [ngTemplateOutletContext]="{
+                content: content,
+                isNested: true,
+                alignLeft: nested.alignLeft
+            }"
+        ></ng-container>
+    </div>
 </ng-template>

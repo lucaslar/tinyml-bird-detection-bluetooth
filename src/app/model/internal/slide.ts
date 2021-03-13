@@ -470,7 +470,17 @@ class Nested {
     /**
      * Array of content to be shown in one row.
      */
-    readonly nested: (Text | Image | Icon | Link | MatIcon | Listed)[];
+    readonly nested: (Text | Image | Icon | Link | MatIcon | Listed | Nested)[];
+
+    /**
+     * True if the content is to be displayed as a column, false/undefined if not.
+     */
+    readonly isColumn?: boolean;
+
+    /**
+     * True if the content is to be aligned left, false/undefined if not.
+     */
+    readonly alignLeft?: boolean;
 
     /**
      * True if the content is to displayed in a full width row, false if the content is to be fitted in centered.
