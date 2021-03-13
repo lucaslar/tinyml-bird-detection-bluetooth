@@ -34,6 +34,11 @@
             [ngTemplateOutletContext]="{ link: content }"
         ></ng-container>
         <ng-container
+            *ngSwitchCase="'listed'"
+            [ngTemplateOutlet]="listContainer"
+            [ngTemplateOutletContext]="{ list: content }"
+        ></ng-container>
+        <ng-container
             *ngSwitchCase="'nested'"
             [ngTemplateOutlet]="nestedContainer"
             [ngTemplateOutletContext]="{ nested: content }"
@@ -75,6 +80,18 @@
             <a [appNewPageLink]="link.linkRef">
                 {{ link.text | translate }}
             </a>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #listContainer let-listItem="list">
+    <div class="col px-1 px-sm-2 mb-3 mx-auto d-flex">
+        <div class="m-auto">
+            <ul>
+                <li *ngFor="let li of listItem.listedElements">
+                  {{ li | translate }}
+                </li>
+            </ul>
         </div>
     </div>
 </ng-template>

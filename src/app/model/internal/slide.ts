@@ -215,7 +215,7 @@ export class Slide {
     /**
      * List of slide content.
      */
-    readonly content: (Text | Image | Icon | Link | Nested)[];
+    readonly content: (Text | Image | Icon | Link | Listed | Nested)[];
 
     /**
      * True if the slide is only to be shown in onboarding context, false if not.
@@ -305,6 +305,18 @@ class Link {
     readonly text: string;
 }
 
+class Listed {
+    /**
+     * Content id
+     */
+    readonly type = 'listed';
+
+    /**
+     * Translation keys of the elements to be displayed.
+     */
+    listedElements: string[];
+}
+
 /**
  * Nested content to be shown as one row.
  */
@@ -317,7 +329,7 @@ class Nested {
     /**
      * Array of content to be shown in one row.
      */
-    readonly nested: (Text | Image | Icon | Link)[];
+    readonly nested: (Text | Image | Icon | Link | Listed)[];
 
     /**
      * True if the content is to displayed in a full width row, false if the content is to be fitted in centered.
