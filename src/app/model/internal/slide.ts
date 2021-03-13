@@ -122,7 +122,7 @@ const slides: Slide[] = [
             {
                 type: 'img',
                 src: './assets/images/two-devices-frontend.png',
-                alt: '',
+                alt: 'infoSlide.compatibility.imgAlt',
                 maxWidth: 600,
             },
             {

@@ -107,6 +107,7 @@
         },
         "compatibility": {
             "title": "Compatibility",
+            "imgAlt": "Two devices using the application",
             "content": {
                 "intro": "We implemented the client of our project as a web application in order to avoid as many problems concerning compatibility as possible. However, due to the topicality of Web Bluetooth, not every device/browser can be used in order to run the application. Our tests, as of January 2021, lead to the following results:",
                 "webBluetooth": "Web Bluetooth is still experimental and not supported by any browser yet. While, in theory, more browsers than Google Chrome are supporting Web Bluetooth, we experienced it to be the only reliable browser.",
