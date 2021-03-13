@@ -2,10 +2,16 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import {
     faAndroid,
     faApple,
+    faBluetoothB,
     faChrome,
     faGithub,
     faWindows,
 } from '@fortawesome/free-brands-svg-icons';
+import {
+    faEllipsisH,
+    faMicrochip,
+    faMobileAlt,
+} from '@fortawesome/free-solid-svg-icons';
 
 /**
  * List of all slides to be displayed.
@@ -39,7 +45,95 @@ const slides: Slide[] = [
     },
     {
         title: 'infoSlide.bluetoothConnection.title',
-        content: [{ type: 'text', text: ['Content will be added soon.'] }],
+        content: [
+            {
+                type: 'nested',
+                nested: [
+                    { type: 'icon', icon: faMicrochip },
+                    { type: 'icon', icon: faEllipsisH },
+                    { type: 'icon', icon: faBluetoothB },
+                    { type: 'icon', icon: faEllipsisH },
+                    { type: 'icon', icon: faMobileAlt },
+                ],
+            },
+            {
+                type: 'text',
+                text: ['infoSlide.bluetoothConnection.content.webBluetooth'],
+            },
+            {
+                type: 'nested',
+                fullWidthRow: true,
+                alignLeft: true,
+                nested: [
+                    { type: 'mat-icon', icon: 'bluetooth_disabled' },
+                    {
+                        type: 'text',
+                        text: [
+                            'infoSlide.bluetoothConnection.content.state.disabled',
+                        ],
+                    },
+                ],
+            },
+            {
+                type: 'nested',
+                fullWidthRow: true,
+                alignLeft: true,
+                nested: [
+                    { type: 'mat-icon', icon: 'bluetooth' },
+                    {
+                        type: 'text',
+                        text: [
+                            'infoSlide.bluetoothConnection.content.state.enabled',
+                        ],
+                    },
+                ],
+            },
+            {
+                type: 'nested',
+                fullWidthRow: true,
+                alignLeft: true,
+                nested: [
+                    { type: 'mat-icon', icon: 'bluetooth_searching' },
+                    {
+                        type: 'nested',
+                        isColumn: true,
+                        alignLeft: true,
+                        nested: [
+                            {
+                                type: 'text',
+                                noMb: true,
+                                text: [
+                                    'infoSlide.bluetoothConnection.content.state.connecting',
+                                ],
+                            },
+                            {
+                                type: 'listed',
+                                listedElements: [
+                                    'infoSlide.bluetoothConnection.content.state.connectingTec.request',
+                                    'infoSlide.bluetoothConnection.content.state.connectingTec.select',
+                                    'infoSlide.bluetoothConnection.content.state.connectingTec.connect',
+                                    'infoSlide.bluetoothConnection.content.state.connectingTec.listen',
+                                ],
+                            },
+                        ],
+                    },
+                ],
+            },
+            {
+                type: 'nested',
+                fullWidthRow: true,
+                alignLeft: true,
+                nested: [
+                    { type: 'mat-icon', icon: 'bluetooth_connected' },
+                    {
+                        type: 'text',
+                        text: [
+                            'infoSlide.bluetoothConnection.content.state.connected',
+                        ],
+                    },
+                ],
+            },
+        ],
     },
     {
         title: 'infoSlide.ui.title',
