@@ -17,7 +17,6 @@ import {
  * List of all slides to be displayed.
  */
 const slides: Slide[] = [
-    // TODO: Add translations
     {
         title: 'infoSlide.hello.title',
         content: [

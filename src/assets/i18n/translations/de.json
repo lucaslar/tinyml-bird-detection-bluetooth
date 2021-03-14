@@ -54,7 +54,7 @@
         },
         "misc": {
             "getChrome": "Google Chrome herunterladen.",
-            "dontHaveSketchYet": "Du hast den TinyML-Sketch für Microcontroller noch nicht? Kein Problem:",
+            "dontHaveSketchYet": "Du hast den TinyML-Sketch für Mikrocontroller noch nicht? Kein Problem:",
             "getItHere": "Hier herunterladen",
             "orCloneDirectly": "Oder klone es direkt"
         }
@@ -78,23 +78,67 @@
             }
         },
         "aboutProject": {
-            "title": "Über dieses Projekt"
+            "title": "Über dieses Projekt",
+            "imgAlt": "Konzeptionelle Skizze dieser Anwendung",
+            "content": "Worum geht es in diesem Projekt? Wir haben einen Machine Learning-Algorithmus zur Klassifizierung von Vögeln anhand derer Gesänge implementiert, der auf Mikrocontrollern laufen kann. Mithilfe dieser Webanwendung kannst Du Dich auf einfache Art und Weise mit jeglichem Mikrocontroller verbinden, auf dem der Algorithmus zur Vogelklassifizierung läuft, und Dir die versandten Ergebnisse anzeigen lassen."
         },
         "bluetoothConnection": {
-            "title": "Verbindung via Bluetooth"
+            "title": "Verbindung via Bluetooth",
+            "content": {
+                "webBluetooth": "Diese Anwendung nutzt Web Bluetooth, ein relativ modernes Browserfeature, das die Verbindung mit IoT-Geräten wie beispielsweise Mikrocontrollern ermöglicht. Ohne zu sehr ins technische Detail zu gehen, können die Zustände wie folgt beschrieben werden:",
+                "state": {
+                    "disabled": "Bluetooth wird nicht unterstützt – Außerdem wird dieses Icon in unserer Applikation für das Trennen von Verbindungen genutzt, wenn zuvor erfolgreich eine Verbindung hergestellt wurde.",
+                    "enabled": "Bluetooth wird unterstützt und es sollte möglich sein, erfolgreich eine Verbindung herzustellen.",
+                    "connecting": "Web Bluetooth sucht derzeit nach Geräten oder verbindet sich. Dieser Prozess kann wie folgt beschrieben werden:",
+                    "connectingTec": {
+                        "request": "Anfragen von Geräten",
+                        "select": "Auswahl eines Geräts, zu dem eine Verbindung hergestellt warden soll (erfordert Nutzerinteraktion)",
+                        "connect": "Herstellen einer Verbindung zum Gerät, d.h. Herstellen einer Verbindung zum GATT-Server, Anfragen des Services (Vogelklassifizierung), Anfragen der Charakteristiken (Vögel)",
+                        "listen": "Abonnieren der Charakteristiken, d.h. auf Änderungen horchen und diese darstellen"
+                    },
+                    "connected": "Ein Gerät ist über Bluetooth verbunden und sendet Daten."
+                }
+            }
         },
         "ui": {
-            "title": "Nutzeroberfläche"
+            "title": "Nutzeroberfläche",
+            "content": {
+                "simplicity": "Aufgrund der technischen Tiefe und der potentiell mangelnden Greifbarkeit der in dieser Anwendung dargestellten Informationen, haben wir beim Designen der Nutzeroberfläche Simplizität und Nutzerfreundlichkeit angestrebt. Auf diesem Weg ist es unser Ziel, so viele Personen wie möglich zu erreichen und somit den Inhalt so zugänglich wie möglich zu machen.",
+                "materialSpa": "Der Client ist als Single Page Web Anwendung implementiert, die die Material-Design-Richtlinien verfolgt. Zudem ist sie vollständig responsive und konzentriert sich auf die Nutzung mit mobilen Endgeräten.",
+                "composedOf": "Sie besteht aus einem Header und einer Komponente mit dem Hauptcontent, die beide im Folgenden beschrieben werden.",
+                "headerIntro": "Der Header beinhaltet das Icon sowie den Titel der Anwendung und vier Icon-Buttons:",
+                "header": {
+                    "bluetooth": "Derzeitiger Verbindungsstatus (siehe Icons auf der vorherigen Folie), kann angeklickt werden, um sich zu verbinden/eine Verbindung zu trennen.",
+                    "i18n": "Unsere Anwendung ist in zwei Sprachen verfügbar: Englisch und Deutsch. Durch Klicken auf das Globus-Icon wird ein Dialog zum Wechseln der Sprache geöffnet.",
+                    "themes": "Die Applikation ist in hellem (Lerche) und dunklem Modus (Nachteule) verfügbar. Abhängig von der aktuellen Auswahl wird entweder ein Mond- oder ein Sonnen-Icon angezeigt, über das per Klick das Design gewechselt werden kann.",
+                    "info": "Wenn Du diesen Dialog erneut öffnen möchtest, klicke auf das Info-Icon im Header."
+                },
+                "mainIntro": "Die Komponente mit dem Hauptcontent kann vier Zustände mit dem folgenden zentral positionierten Inhalt haben:",
+                "main": {
+                    "notSupported": "Bluetooth nicht unterstützt: Sichtbar, falls Bluetooth nicht vom aktuell genutzten Browser unterstützt wird. Diese Ansicht beinhaltet außerdem Informationen darüber, wie man das Problem beheben kann, keine Verbindung herstellen zu können.",
+                    "pressToConnect": " Zum Verbinden drücken: Angezeigt, wenn Bluetooth vom derzeit genutzten Browser unterstützt wird und kein Gerät verbunden ist bzw. keine Verbindung aufgebaut wird. Diese Ansicht beinhaltet einen prominenten Button zum Verbinden eines Bluetoothgeräts mit einem Call To Action darunter. Darüber hinaus ist hier, für Nutzer, die noch keinen laufenden Mikrocontroller haben, ein Button zu finden, über den der Sketch als ZIP-Datei heruntergeladen werden kann – ebenso wie ein vordefinierter Befehl zum Klonen des Sketch-Respository in einer prominenten Box mit einem Button zu direkten Kopieren des Befehls.",
+                    "connecting": "Verbindung zu Bluetooth-Gerät wird hergestellt: Sichtbar, wenn die Anwendung im Moment eine Verbindung zu einem Gerät herstellt. Diese Ansicht ähnelt der vorherigen; einzig unterscheidet sie sich darin, dass der Call To Action durch die Anzeige des aktuellen Verbindungsschritts ersetzt wird sowie darin, dass der Button nicht klickbar ist und ein anderes Bluetooth-Icon anzeigt, das den Verbindungsaufbau signalisiert.",
+                    "emittedValues": "Empfangene Werte: Angezeigt, wenn ein Gerät verbunden ist. Diese Ansicht beinhaltet einen pulsierenden Mikrocontroller, der signalisiert, dass Werte versendet werden. Darunter befindet sich ein Icon eines Vogels neben der dynamisch aktualisierten Liste der empfangenen Werte. Letztere wiederum beinhaltet den Prozentsatz und die Übersetzung jeder Charakteristik, in absteigender Reihenfolge nach Wert sortiert. Werte, die nicht für einen tatsächlichen Vogel stehen, d.h. Lärm und Unbekannt, werden mit reduzierter Deckkraft dargestellt."
+                }
+            }
         },
         "compatibility": {
-            "title": "Kompatibilität"
+            "title": "Kompatibilität",
+            "imgAlt": "Zwei Geräte, die die Anwendung nutzen",
+            "content": {
+                "intro": "Wir haben den Client unseres Projekts als Webanwendung implementiert, um möglichst viele Kompatibilitätsprobleme zu vermeiden. Allerdings kann, bedingt durch die Aktualität von Web Bluetooth, nicht jedes Endgerät/Browser verwendet werden, um die Anwendung zu nutzen. Unsere Tests, Stand Januar 2021, ergaben folgendes:",
+                "webBluetooth": "Web Bluetooth ist derzeit ein experimentelles Feature und wird noch nicht von jedem Browser unterstützt. Während in der Theorie mehr Browser als Google Chrome Web Bluetooth unterstützen, stellten wir fest, dass dieser in der Praxis der einzige zuverlässige Browser ist.",
+                "chromeOnly": "Chrome unterstützt Web Bluetooth auf Chrome OS, Android 6.0, macOS (Chrome 56) und Windows 10 (Chrome 70), leider aber nicht für Apple iOS. Das Feature ist allerdings populär, weswegen erweiterte Unterstützung zu erwarten ist.",
+                "iosBleApps": "Nichtsdestotrotz gibt es iOS-Apps wie WebBLE, die die Unterstützung von Web Bluetooth versprechen. Wir konnten diese Anwendungen allerdings nicht testen.",
+                "testedOs": "Getestet haben wir die Anwendung mit macOS Catalina 10.15, Android 10 und Windows 10 – in jedem Fall mit guten Ergebnissen."
+            }
         },
         "scope": {
             "title": "Projektrahmen",
             "htwLogoAlt": "HTW Berlin, University of Applied Sciences",
             "content": {
-                "p1": "This project has been realized within the scope of an university project as part of the course \"knowledge management\" (Wissensmanagement) during the 2020/2021 winter semester at HTW Berlin, University of Applied Sciences.",
-                "p2": "With the aim of getting in touch with tiny machine learning by working with it, small groups of students where to implement their own ideas, i.e. tinyML applications, which contribute to Smart Cities."
+                "p1": "Dieses Projekt wurde im Rahmen der Lehrveranstaltung \"Wissensmanagement\" im Wintersemester 2020/2021 an der Hochschule für Wirtschaft und Technik Berlin durchgeführt.",
+                "p2": "Mit dem Ziel mehr über TinyML zu lernen, indem praktisch damit gearbeitet wird, sollten Studenten in kleinen Gruppen eigene TinyML-Anwendungen umsetzen, die sich im Kontext von Smart Cites bewegen."
             }
         },
         "repo": {
