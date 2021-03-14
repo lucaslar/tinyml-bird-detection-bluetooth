@@ -17,7 +17,6 @@ import {
  * List of all slides to be displayed.
  */
 const slides: Slide[] = [
-    // TODO: Add content
     // TODO: Add translations
     {
         title: 'infoSlide.hello.title',
@@ -41,7 +40,18 @@ const slides: Slide[] = [
     },
     {
         title: 'infoSlide.aboutProject.title',
-        content: [{ type: 'text', text: ['Content will be added soon.'] }],
+        content: [
+            {
+                type: 'img',
+                src: './assets/images/app-concept-sketch.png',
+                alt: 'infoSlide.aboutProject.imgAlt',
+                maxWidth: 600,
+            },
+            {
+                type: 'text',
+                text: ['infoSlide.aboutProject.content'],
+            },
+        ],
     },
     {
         title: 'infoSlide.bluetoothConnection.title',
@@ -300,117 +310,6 @@ const slides: Slide[] = [
             },
         ],
     },
-
-    // TODO remove:
-    // {
-    //     title: 'placeholder.a',
-    //     content: [
-    //         {
-    //             type: 'icon',
-    //             icon: faKiwiBird,
-    //         },
-    //         {
-    //             type: 'text',
-    //             text: ['placeholder.b'],
-    //         },
-    //     ],
-    //     isOnboarding: true,
-    // },
-    // {
-    //     title: 'placeholder.a',
-    //     content: [
-    //         {
-    //             type: 'icon',
-    //             icon: faGithub,
-    //         },
-    //         {
-    //             type: 'link',
-    //             text: 'placeholder.b',
-    //             linkRef:
-    //                 'https://github.com/lucaslar/tinyml-bird-detection-bluetooth',
-    //         },
-    //     ],
-    // },
-    // {
-    //     title: 'placeholder.b',
-    //     content: [
-    //         {
-    //             type: 'img',
-    //             src:
-    //                 'https://images.pexels.com/photos/3067503/pexels-photo-3067503.jpeg?cs=srgb&dl=pexels-felipe-cespedes-3067503.jpg&fm=jpg',
-    //             alt: 'placeholder.a',
-    //         },
-    //         {
-    //             type: 'nested',
-    //             nested: [
-    //                 { type: 'text', text: ['placeholder.d', 'placeholder.c'] },
-    //                 { type: 'text', text: ['placeholder.c', 'placeholder.c'] },
-    //             ],
-    //         },
-    //         {
-    //             type: 'nested',
-    //             nested: [
-    //                 {
-    //                     type: 'img',
-    //                     src:
-    //                         'https://images.pexels.com/photos/4588052/pexels-photo-4588052.jpeg?cs=srgb&dl=pexels-anna-shvets-4588052.jpg&fm=jpg',
-    //                     alt: 'placeholder.a',
-    //                 },
-    //                 {
-    //                     type: 'img',
-    //                     src:
-    //                         'https://images.pexels.com/photos/3726314/pexels-photo-3726314.jpeg?cs=srgb&dl=pexels-julissa-helmuth-3726314.jpg&fm=jpg',
-    //                     alt: 'placeholder.a',
-    //                 },
-    //             ],
-    //         },
-    //     ],
-    // },
-    // {
-    //     title: 'placeholder.a',
-    //     content: [
-    //         { type: 'text', text: ['placeholder.c', 'placeholder.d'] },
-    //         {
-    //             type: 'img',
-    //             src:
-    //                 'https://images.pexels.com/photos/4588047/pexels-photo-4588047.jpeg?cs=srgb&dl=pexels-anna-shvets-4588047.jpg&fm=jpg',
-    //             alt: 'placeholder.a',
-    //         },
-    //         {
-    //             type: 'nested',
-    //             nested: [
-    //                 {
-    //                     type: 'img',
-    //                     src:
-    //                         'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?cs=srgb&dl=pexels-chevanon-photography-1108099.jpg&fm=jpg',
-    //                     alt: 'placeholder.b',
-    //                 },
-    //                 {
-    //                     type: 'text',
-    //                     text: ['placeholder.a', 'placeholder.c'],
-    //                 },
-    //             ],
-    //         },
-    //         {
-    //             type: 'nested',
-    //             nested: [
-    //                 { type: 'icon', icon: faMicrochip },
-    //                 {
-    //                     type: 'text',
-    //                     text: ['placeholder.d'],
-    //                 },
-    //             ],
-    //         },
-    //         {
-    //             type: 'nested',
-    //             nested: [
-    //                 { type: 'icon', icon: faMicrochip },
-    //                 { type: 'icon', icon: faKiwiBird },
-    //                 { type: 'icon', icon: faBluetooth },
-    //             ],
-    //         },
-    //     ],
-    // },
 ];
 
 /**

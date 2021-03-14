@@ -78,7 +78,9 @@
             }
         },
         "aboutProject": {
-            "title": "About this project"
+            "title": "About this project",
+            "imgAlt": "Concept sketch of the application",
+            "content": "What is this project about? We implemented a Machine Learning algorithm for detecting birds by their sounds which can be run on microcontrollers. With this web application, you can easily connect to any microcontroller running the bird detection algorithm and will see the emitted results."
         },
         "bluetoothConnection": {
             "title": "Connecting via Bluetooth",
