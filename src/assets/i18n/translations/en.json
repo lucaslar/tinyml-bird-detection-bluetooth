@@ -88,11 +88,11 @@
                 "webBluetooth": "The application uses Web Bluetooth which is a relatively new browser feature allowing to connect IoT-devices such as microcontrollers. Without going into technical detail, the states can be described as follows:",
                 "state": {
                     "disabled": "Bluetooth is not supported - Also, if a connection has been established successfully, this icon is used for disconnecting in this application.",
-                    "enabled": "Bluetooth is supported and it should be possible to successfully a connection.",
+                    "enabled": "Bluetooth is supported and it should be possible to successfully establish a connection.",
                     "connecting": "Web Bluetooth is currently searching for devices or connecting. This process can be described as follows:",
                     "connectingTec": {
                         "request": "Request devices",
-                        "select": "Select device to connect to(requires user interaction)",
+                        "select": "Select device to connect to (requires user interaction)",
                         "connect": "Connect to the device, i.e. connect to GATT server, get the service (Bird detection), get the characteristics (birds)",
                         "listen": "Subscribe to characteristics, i.e. listen to changes and show them"
                     },
